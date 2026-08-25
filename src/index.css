@@ -1,0 +1,42 @@
+html {
+  background: #0d0d0d;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #0d0d0d;
+  color: white;
+}
+
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+span,
+button,
+a,
+input {
+  margin: 0;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+}

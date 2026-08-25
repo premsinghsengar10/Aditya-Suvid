@@ -1,0 +1,23 @@
+<svg width="1600" height="900" viewBox="0 0 1600 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1600" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#352B1E"/>
+      <stop offset="0.42" stop-color="#1B1A1B"/>
+      <stop offset="1" stop-color="#090909"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#g1)"/>
+  <rect y="530" width="1600" height="370" fill="#0D0D0D" fill-opacity="0.6"/>
+  <rect x="280" y="220" width="1040" height="420" fill="#3A3127" fill-opacity="0.52"/>
+  <path d="M420 610V290H1160V610H420Z" fill="#201B1A" fill-opacity="0.68"/>
+  <path d="M500 610V340H1080V610H500Z" fill="#2C221D" fill-opacity="0.7"/>
+  <path d="M620 610V260H980V610H620Z" fill="#43372D" fill-opacity="0.8"/>
+  <rect x="710" y="390" width="180" height="220" fill="#0C0C0C" fill-opacity="0.52"/>
+  <rect x="540" y="350" width="120" height="280" fill="#0B0B0B" fill-opacity="0.46"/>
+  <rect x="940" y="350" width="120" height="280" fill="#0B0B0B" fill-opacity="0.46"/>
+  <circle cx="1260" cy="190" r="140" fill="#D6A86C" fill-opacity="0.28"/>
+  <circle cx="1240" cy="210" r="80" fill="#F4D08E" fill-opacity="0.18"/>
+  <path d="M80 670C260 610 330 600 470 670C610 740 710 760 900 680C1080 604 1250 590 1520 680V900H80V670Z" fill="#1A1717" fill-opacity="0.66"/>
+  <path d="M0 740C210 700 350 700 520 760C690 820 810 840 1030 760C1245 680 1410 664 1600 720V900H0V740Z" fill="#050505" fill-opacity="0.75"/>
+  <text x="120" y="815" fill="#F0E6D5" font-family="Arial, Helvetica, sans-serif" font-size="72" letter-spacing="8">ADITYA SUVID RETAIL</text>
+</svg>

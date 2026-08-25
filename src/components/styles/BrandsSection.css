@@ -1,0 +1,28 @@
+/* BrandsSection styles (component-scoped) */
+
+/* Make brand description larger and more readable */
+.brand-description {
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem) !important;
+  line-height: 1.85 !important;
+  max-width: 780px !important;
+  color: rgba(255,255,255,0.86) !important;
+}
+
+/* Slightly increase the brand heading for balance */
+.brand-feature h3 {
+  font-size: clamp(2.3rem, 3.2vw, 4.4rem) !important;
+  line-height: 0.98 !important;
+}
+
+/* Ensure the text block has space when layout is narrow */
+.brand-text-block {
+  gap: 14px;
+}
+
+/* Responsive tweak: on small screens reduce max-width so layout fits */
+@media (max-width: 900px) {
+  .brand-description {
+    font-size: 1rem !important;
+    max-width: 100% !important;
+  }
+}
