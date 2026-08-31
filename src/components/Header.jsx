@@ -3,12 +3,14 @@ import { Globe, Mail, Search, SunMedium, MoonStar, Menu, X } from 'lucide-react'
 import { navItems } from '../data/content'
 import './styles/Header.css'
 
-const Header = ({ theme, onToggleTheme, navigate }) => {
+const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.pathname }) => {
   const [menuOpen, setMenuOpen] = useState(false)
+
+  const getItemPath = (item) => item.toLowerCase() === 'home' ? '/' : `/${item.toLowerCase()}`
 
   const onNavClick = (e, item) => {
     e.preventDefault()
-    const path = item.toLowerCase() === 'home' ? '/' : `/${item.toLowerCase()}`
+    const path = getItemPath(item)
     if (navigate) navigate(path)
     setMenuOpen(false)
   }
@@ -24,15 +26,15 @@ const Header = ({ theme, onToggleTheme, navigate }) => {
           {navItems.map((item) => (
             <div key={item} className={`nav-item-wrap`}>
               <a
-                href={item.toLowerCase() === 'home' ? '/' : `/${item.toLowerCase()}`}
-                className={`nav-item ${item === 'Home' ? 'active' : ''}`}
+                href={getItemPath(item)}
+                className={`nav-item ${getItemPath(item) === currentPath || (item === 'Home' && currentPath === '/home') ? 'active' : ''}`}
                 onClick={(e) => onNavClick(e, item)}
               >
                 {item}
               </a>
 
-              {/* simple mega menu shown on hover for Companies/Story/Careers */}
-              {(item === 'Companies' || item === 'Story' || item === 'About') && (
+              {/* Only Story and Companies expose the hover menu. */}
+              {(item === 'Companies' || item === 'Story') && (
                 <div className="nav-mega" aria-hidden="true">
                   <div className="nav-mega-inner">
                     <div className="nav-mega-header">
@@ -93,7 +95,12 @@ const Header = ({ theme, onToggleTheme, navigate }) => {
         <div className="mobile-menu panel-surface">
           <nav aria-label="Mobile menu">
             {navItems.map((item) => (
-              <button key={item} type="button" className={`mobile-nav-item ${item === 'Home' ? 'active' : ''}`}>
+              <button
+                key={item}
+                type="button"
+                className={`mobile-nav-item ${getItemPath(item) === currentPath || (item === 'Home' && currentPath === '/home') ? 'active' : ''}`}
+                onClick={(e) => onNavClick(e, item)}
+              >
                 {item}
               </button>
             ))}

@@ -4,10 +4,24 @@ import { siteAssets } from '../data/content'
 import './styles/TimelineSection.css'
 
 const TimelineSection = () => {
+  const scrollToBrands = () => {
+    const brandsSection = document.getElementById('brands')
+    if (brandsSection) brandsSection.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
-    <section className="timeline-section" id="timeline" data-section-key="timeline" data-section-label="Timeline">
+    <motion.section
+      className="timeline-section"
+      id="timeline"
+      data-section-key="timeline"
+      data-section-label="Timeline"
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.12 }}
+      transition={{ duration: 0.75, ease: 'easeOut' }}
+    >
       <div className="timeline-image-wrap">
-        <img src={siteAssets.timeline.image} alt="Heritage architecture" className="timeline-image" />
+        <img src={siteAssets.timeline.image} alt="Abstract composition representing the group" className="timeline-image" />
         <div className="timeline-overlay" aria-hidden="true" />
       </div>
 
@@ -18,16 +32,17 @@ const TimelineSection = () => {
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.9, ease: 'easeOut' }}
       >
-        <h2>Our Timelines</h2>
+        <h2>Built together</h2>
         <p>
-          Founded over 150 years ago, the history of the Tata group embodies, in many ways, the history of
-          entrepreneurship, philanthropy and compassionate capitalism in India, and increasingly, the world.
+          From Monkey Troopers&apos; playful utility to FO Dubai&apos;s considered scent,
+          our group brings distinct ideas together to create brands with a shared
+          appetite for what comes next.
         </p>
-        <button type="button" className="timeline-button" aria-label="Learn more about our timeline">
+        <button type="button" className="timeline-button" aria-label="Explore our journey" onClick={scrollToBrands}>
           <ArrowRight size={18} />
         </button>
       </motion.div>
-    </section>
+    </motion.section>
   )
 }
 

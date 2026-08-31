@@ -22,30 +22,105 @@
 }
 
 /* Hero copy adjustments (kept here for local debugging) */
-.hero-copy-block { margin-left: 60px; }
-.hero-title { font-weight: 900; }
+.hero-copy-block {
+  margin-left: 60px;
+  gap: 18px;
+}
+
+.hero-title {
+  font-weight: 900;
+  letter-spacing: -0.065em;
+}
+
+.hero-source {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(0.78rem, 1vw, 0.98rem);
+  font-style: italic;
+  letter-spacing: -0.02em;
+  font-weight: 500;
+  opacity: 0.94;
+}
+
+.hero-desc {
+  font-size: clamp(1.05rem, 1.4vw, 1.45rem);
+  line-height: 1.45;
+  max-width: 560px;
+  color: rgba(255,255,255,0.9);
+}
+
+.hero-description-row {
+  display: grid;
+  grid-template-columns: 2px minmax(0, 560px);
+  gap: 18px;
+  align-items: stretch;
+  margin-top: 2px;
+}
+
+.hero-description-rule {
+  width: 2px;
+  height: 42px;
+  min-height: 42px;
+  background: var(--gold);
+}
+
+.hero-description-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.story-button {
+  margin-top: 6px;
+  padding: 14px 20px 14px 18px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  font-weight: 800;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
 
 /* Progress rail / controls remain in App.css but keep pointer events */
-.hero-controls { pointer-events: none; }
+.hero-controls {
+  position: absolute;
+  inset: auto 0 0;
+  width: 100%;
+  height: 120px;
+  padding: 0;
+  pointer-events: none;
+}
+
+.hero-controls-inner {
+  position: relative;
+  height: 100%;
+}
+
 .hero-left-status, .hero-progress-rail, .story-button { pointer-events: auto; }
 
 /* Ensure responsiveness */
 @media (max-width: 900px) {
   .hero-image { transform: scale(1.02) !important; }
   .hero-copy-block { margin-left: 22px; }
+  .hero-title { letter-spacing: -0.045em; }
 }
 
 /* Progress and index placement adjustments */
-.hero-progress-rail {
+.hero-controls-inner .hero-progress-rail {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 58px; /* move bars slightly higher */
+  left: 60px;
+  bottom: 62px;
+  transform: none;
   display: flex;
   align-items: center;
-  width: 420px;
-  height: 6px;
-  gap: 18px;
+  width: min(580px, calc(100% - 120px));
+  height: 4px;
+  gap: 20px;
   pointer-events: auto;
   z-index: 6;
 }
@@ -53,17 +128,13 @@
 .progress-step {
   position: relative;
   flex: 1;
-  height: 6px;
-  background: rgba(255,255,255,0.18);
+  height: 4px;
+  background: rgba(255,255,255,0.9);
   border-radius: 3px;
   overflow: visible;
 }
 
 /* Progress fill: inactive bars are white baseline; active bar shows yellow flow left->right */
-.progress-step {
-  background: rgba(255,255,255,0.9);
-}
-
 .progress-step::after {
   content: '';
   position: absolute;
@@ -90,18 +161,34 @@
   to { width: 100%; }
 }
 
-.progress-step.done { background: rgba(255,255,255,0.9); }
+.progress-step.done { background: rgba(255, 255, 255, 0.9); }
 
 /* Move index lower (below bars) */
-.hero-left-status {
+.hero-controls-inner .hero-left-status {
   position: absolute;
-  left: 44px;
-  bottom: 18px; /* lower than before so it's under the bars */
+  left: 60px;
+  bottom: 24px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
   z-index: 6;
   pointer-events: auto;
+}
+
+.hero-left-status .hero-progress-status {
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.94);
+}
+
+.hero-left-status .hero-progress-status svg {
+  opacity: 0.95;
+}
+
+.hero-index {
+  color: rgba(255, 255, 255, 0.96);
+  font-weight: 700;
+  letter-spacing: 0.26em;
+  font-size: 0.82rem;
 }
 
 /* Down chevrons on right side */
@@ -134,3 +221,62 @@
 .hero-down .chev:nth-child(1) { transform: rotate(-45deg) translateY(-2px); opacity: 0.9; }
 .hero-down .chev:nth-child(2) { transform: rotate(-45deg); opacity: 0.95; }
 .hero-down .chev:nth-child(3) { transform: rotate(-45deg) translateY(2px); opacity: 1; }
+
+@media (max-width: 768px) {
+  .hero-copy-block {
+    gap: 18px;
+  }
+
+  .hero-copy-block .hero-description-content {
+    gap: 22px;
+  }
+
+  .hero-copy-block .hero-description-content .story-button {
+    margin-top: 0;
+  }
+
+  .hero-controls {
+    inset: auto 0 0;
+    width: 100%;
+    height: 108px;
+    padding: 0;
+  }
+
+  .hero-progress-rail {
+    bottom: 56px;
+    width: min(580px, calc(100% - 8vw - 44px));
+  }
+
+  .hero-left-status {
+    bottom: 16px;
+    transform: none;
+  }
+
+  .hero-down {
+    bottom: 14px;
+    right: 14px;
+  }
+
+  .hero-description-row {
+    grid-template-columns: 2px minmax(0, 1fr);
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-description-content {
+    gap: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 900px) {
+  .hero-controls-inner .hero-progress-rail,
+  .hero-controls-inner .hero-left-status {
+    left: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-controls {
+    display: none;
+  }
+}

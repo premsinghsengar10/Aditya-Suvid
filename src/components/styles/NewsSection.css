@@ -1,1 +1,14 @@
 /* NewsSection styles (component-scoped) */
+
+.news-stack {
+  grid-template-rows: repeat(3, minmax(0, 1fr));
+}
+
+.news-stack > div {
+  min-height: 0;
+}
+
+.news-stack .image-card {
+  height: 100%;
+  min-height: 0;
+}

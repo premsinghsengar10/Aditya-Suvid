@@ -6,25 +6,31 @@ import './styles/HeroSection.css'
 
 const heroSlides = [
   {
-    id: 'architecture',
+    id: 'the-group',
     image: siteAssets.hero.image,
-    kicker: 'Jaguar TCS Racing',
-    title: 'Built for the Record Books',
-    description: 'Jaguar TCS Racing are the 2026 ABB FIA Formula E Teams’ World Champions.',
+    kicker: 'The group',
+    title: 'Two brands.<br />One bold<br />direction.',
+    description: 'A shared point of view across movement, expression, atmosphere, and everyday ritual.',
+    href: '#brands',
+    cta: 'Play video',
   },
   {
-    id: 'heritage',
-    image: siteAssets.timeline.image,
-    kicker: 'Our Story',
-    title: 'Shaping Tomorrow with Trust',
-    description: 'A legacy of enterprise, values, and long-term impact that spans generations.',
+    id: 'monkey-troopers',
+    image: siteAssets.brands.monkeyTroopers,
+    kicker: 'Monkey Troopers',
+    title: 'Built to<br />move.',
+    description: 'Playful urban utility for people who carry their world with a little more character.',
+    href: 'https://monkeytroopers.com/',
+    cta: 'Play video',
   },
   {
-    id: 'main',
-    image: siteAssets.news.main,
-    kicker: 'In Focus',
-    title: 'Designing the next chapter',
-    description: 'Bold ideas, thoughtful growth, and meaningful experiences for communities worldwide.',
+    id: 'fo-dubai',
+    image: siteAssets.brands.foDubai,
+    kicker: 'FO Dubai',
+    title: 'Leave<br />a trace.',
+    description: 'Luxury fragrance storytelling shaped around atmosphere, identity, and everyday ritual.',
+    href: 'https://fodubai.in/',
+    cta: 'Play video',
   },
 ]
 
@@ -71,42 +77,59 @@ const HeroSection = () => {
       >
         <div className="hero-copy-rail">
           <div className="hero-copy-block">
-            <small className="eyebrow">{currentSlide.kicker}</small>
-            <h1 className="hero-title">{currentSlide.title}</h1>
-            <p className="hero-desc">{currentSlide.description}</p>
-            <a href="#" className="story-button">Photo feature →</a>
+            <small className="hero-source">{currentSlide.kicker}</small>
+            <h1 className="hero-title">{currentSlide.title.split('<br />').map((line, index) => (
+              <span key={line}>
+                {index > 0 && <br />}
+                {line}
+              </span>
+            ))}</h1>
+            <div className="hero-description-row">
+              <span className="hero-description-rule" aria-hidden="true" />
+              <div className="hero-description-content">
+                <p className="hero-desc">{currentSlide.description}</p>
+                <a
+                  href={currentSlide.href}
+                  className="story-button"
+                  target={currentSlide.href.startsWith('http') ? '_blank' : undefined}
+                  rel={currentSlide.href.startsWith('http') ? 'noreferrer' : undefined}
+                >
+                  {currentSlide.cta} <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
           </div>
-
         </div>
       </motion.div>
 
       <div className="hero-controls" aria-label="Hero controls">
-        <div className="hero-progress-rail" aria-hidden="true">
-          {heroSlides.map((slide, index) => (
-            <span
-              key={slide.id}
-              className={`progress-step ${index === activeSlide ? 'active' : ''} ${index < activeSlide ? 'done' : ''}`}
-            />
-          ))}
-        </div>
+        <div className="hero-controls-inner container">
+          <div className="hero-progress-rail" aria-hidden="true">
+            {heroSlides.map((slide, index) => (
+              <span
+                key={slide.id}
+                className={`progress-step ${index === activeSlide ? 'active' : ''} ${index < activeSlide ? 'done' : ''}`}
+              />
+            ))}
+          </div>
 
-        <div className="hero-left-status">
-          <button
-            type="button"
-            className="hero-progress-status"
-            onClick={() => setIsPaused((paused) => !paused)}
-            aria-label={isPaused ? 'Play hero slideshow' : 'Pause hero slideshow'}
-            data-tooltip={isPaused ? 'Play slideshow' : 'Pause slideshow'}
-          >
-            {isPaused ? (
-              <Play size={10} fill="currentColor" strokeWidth={2} aria-hidden="true" />
-            ) : (
-              <Pause size={10} fill="currentColor" strokeWidth={2} aria-hidden="true" />
-            )}
-            <span className="hero-index">{String(activeSlide + 1).padStart(2, '0')} / {heroSlides.length}</span>
-          </button>
+          <div className="hero-left-status">
+            <button
+              type="button"
+              className="hero-progress-status"
+              onClick={() => setIsPaused((paused) => !paused)}
+              aria-label={isPaused ? 'Play hero slideshow' : 'Pause hero slideshow'}
+              data-tooltip={isPaused ? 'Play slideshow' : 'Pause slideshow'}
+            >
+              {isPaused ? (
+                <Play size={10} fill="currentColor" strokeWidth={2} aria-hidden="true" />
+              ) : (
+                <Pause size={10} fill="currentColor" strokeWidth={2} aria-hidden="true" />
+              )}
+              <span className="hero-index">{String(activeSlide + 1).padStart(2, '0')} / {heroSlides.length}</span>
+            </button>
+          </div>
         </div>
-
       </div>
 
       <button

@@ -5,7 +5,16 @@ import './styles/CareersSection.css'
 
 const CareersSection = () => {
   return (
-    <section className="careers-section panel-section" id="careers" data-section-key="careers" data-section-label="Careers">
+    <motion.section
+      className="careers-section panel-section"
+      id="careers"
+      data-section-key="careers"
+      data-section-label="Careers"
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.08 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
       <div className="container careers-header">
         <div className="careers-heading-wrap">
           <h2>Shape the Future<br />With Us</h2>
@@ -37,7 +46,7 @@ const CareersSection = () => {
           </motion.article>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }
 

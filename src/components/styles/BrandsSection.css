@@ -6,6 +6,13 @@
   line-height: 1.85 !important;
   max-width: 780px !important;
   color: rgba(255,255,255,0.86) !important;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-description-line {
+  display: block;
 }
 
 /* Slightly increase the brand heading for balance */
@@ -24,5 +31,20 @@
   .brand-description {
     font-size: 1rem !important;
     max-width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .brands-section .brands-content {
+    justify-content: flex-start;
+    gap: 30px;
+  }
+
+  .brands-section .brand-feature {
+    gap: 24px;
+  }
+
+  .brands-section .brand-text-block {
+    gap: 22px;
   }
 }

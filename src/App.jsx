@@ -6,11 +6,13 @@ import TimelineSection from './components/TimelineSection'
 import CareersSection from './components/CareersSection'
 import BrandsSection from './components/BrandsSection'
 import Footer from './components/Footer'
+import Preloader from './components/Preloader'
 import './App.css'
 
 import CareersPage from './pages/CareersPage'
 import StoryPage from './pages/StoryPage'
 import AboutPage from './pages/AboutPage'
+import CompaniesPage from './pages/CompaniesPage'
 
 const sectionNames = {
   hero: 'Home',
@@ -21,12 +23,27 @@ const sectionNames = {
   footer: 'Footer',
 }
 
+const sectionList = Object.entries(sectionNames).map(([key, label]) => ({ key, label }))
+
 const App = () => {
-  const [theme, setTheme] = useState('dark')
-  const [showCookieBanner, setShowCookieBanner] = useState(false)
+  const [theme, setTheme] = useState(() => localStorage.getItem('aditya-suvid-theme') || 'dark')
+  const [isPreloading, setIsPreloading] = useState(true)
+  const [showCookieBanner, setShowCookieBanner] = useState(() => (
+    !localStorage.getItem('aditya-suvid-cookie-consent')
+  ))
   const [activeSection, setActiveSection] = useState('Home')
+  const [hoveredSection, setHoveredSection] = useState(null)
   const [showSectionMarker, setShowSectionMarker] = useState(false)
   const [route, setRoute] = useState(window.location.pathname || '/')
+
+  useEffect(() => {
+    localStorage.setItem('aditya-suvid-theme', theme)
+  }, [theme])
+
+  useEffect(() => {
+    const timerId = window.setTimeout(() => setIsPreloading(false), 1600)
+    return () => window.clearTimeout(timerId)
+  }, [])
 
   useEffect(() => {
     const onPop = () => setRoute(window.location.pathname || '/')
@@ -42,14 +59,7 @@ const App = () => {
   }
 
   useEffect(() => {
-    const consent = localStorage.getItem('aditya-suvid-cookie-consent')
-    if (!consent) {
-      setShowCookieBanner(true)
-    }
-  }, [])
-
-  useEffect(() => {
-    let hideTimer
+    let timerId
 
     const updateSection = () => {
       const sections = [...document.querySelectorAll('[data-section-key]')]
@@ -70,8 +80,8 @@ const App = () => {
       setActiveSection(current)
       setShowSectionMarker(true)
 
-      window.clearTimeout(hideTimer)
-      hideTimer = window.setTimeout(() => setShowSectionMarker(false), 2000)
+      window.clearTimeout(timerId)
+      timerId = window.setTimeout(() => setShowSectionMarker(false), 3000)
     }
 
     updateSection()
@@ -79,7 +89,7 @@ const App = () => {
     window.addEventListener('resize', updateSection)
 
     return () => {
-      window.clearTimeout(hideTimer)
+      window.clearTimeout(timerId)
       window.removeEventListener('scroll', updateSection)
       window.removeEventListener('resize', updateSection)
     }
@@ -96,13 +106,44 @@ const App = () => {
   }
 
   return (
-    <div className="app-shell" data-theme={theme}>
-      <Header theme={theme} onToggleTheme={() => setTheme((value) => (value === 'dark' ? 'light' : 'dark'))} navigate={navigate} />
+    <div className={`app-shell ${route === '/' || route === '/home' ? 'home-route' : ''}`} data-theme={theme}>
+      {isPreloading && <Preloader />}
 
-      <div className={`section-marker ${showSectionMarker ? 'visible' : ''}`} aria-live="polite">
-        <span className="section-marker-dot" aria-hidden="true" />
-        <span>{activeSection}</span>
-      </div>
+      <Header
+        theme={theme}
+        onToggleTheme={() => setTheme((value) => (value === 'dark' ? 'light' : 'dark'))}
+        navigate={navigate}
+        currentPath={route}
+      />
+
+      {(route === '/' || route === '/home') && (
+        <div className={`section-marker ${showSectionMarker || hoveredSection ? 'visible' : ''}`} aria-live="polite">
+          {sectionList.map(({ key, label }) => {
+            const isActive = activeSection === label
+            const isHovered = hoveredSection === label
+
+            return (
+              <button
+                key={key}
+                type="button"
+                className={`section-marker-item ${isActive ? 'active' : ''} ${isHovered ? 'hovered' : ''}`}
+                onMouseEnter={() => setHoveredSection(label)}
+                onMouseLeave={() => setHoveredSection(null)}
+                onClick={() => {
+                  const target = document.getElementById(key === 'hero' ? 'hero' : key)
+                  if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                  }
+                }}
+                aria-label={`Jump to ${label}`}
+              >
+                <span className="section-marker-rail" aria-hidden="true" />
+                <span className="section-marker-label">{label}</span>
+              </button>
+            )
+          })}
+        </div>
+      )}
 
       {/* Simple routing: root (/) shows home sections, other paths render pages */}
       {route === '/' || route === '/home' ? (
@@ -117,6 +158,8 @@ const App = () => {
         <CareersPage />
       ) : route === '/story' ? (
         <StoryPage />
+      ) : route === '/companies' ? (
+        <CompaniesPage />
       ) : route === '/about' ? (
         <AboutPage />
       ) : (

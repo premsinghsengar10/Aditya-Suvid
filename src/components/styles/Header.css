@@ -24,18 +24,17 @@
   backdrop-filter: blur(4px);
 }
 
-/* show the overlay when hovering the main nav area or any nav item */
-.main-nav:hover .nav-mega,
+/* Show a menu only while its own Story or Companies item is hovered. */
 .nav-item-wrap:hover .nav-mega,
 .nav-item-wrap:focus-within .nav-mega { display: block; }
 
 .nav-mega-inner { max-width: 1280px; margin: 0 auto; color: var(--text); padding: 0 24px; }
 
 /* Header area inside mega menu */
-.nav-mega-header { text-align: center; color: #fff; padding-bottom: 8px; }
+.nav-mega-header { text-align: center; color: var(--text); padding-bottom: 8px; }
 .nav-mega-header h3 { margin: 0; font-size: 26px; font-weight: 600; letter-spacing: -0.4px; }
-.nav-mega-hr { height: 1px; background: rgba(255,255,255,0.12); margin: 18px auto 0; width: 58%; }
-.nav-mega-sub { margin: 12px 0 0; color: rgba(255,255,255,0.8); font-size: 14px; }
+.nav-mega-hr { height: 1px; background: var(--line); margin: 18px auto 0; width: 58%; }
+.nav-mega-sub { margin: 12px 0 0; color: var(--text-soft); font-size: 14px; }
 
 /* Grid of link columns */
 .nav-mega-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; padding-top: 22px; }

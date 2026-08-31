@@ -18,7 +18,16 @@ const BrandsSection = () => {
   const activeBrand = brands[activeIndex]
 
   return (
-    <section className="brands-section" id="brands" data-section-key="brands" data-section-label="Brands">
+    <motion.section
+      className="brands-section"
+      id="brands"
+      data-section-key="brands"
+      data-section-label="Brands"
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.08 }}
+      transition={{ duration: 0.75, ease: 'easeOut' }}
+    >
       <div className="brands-image-wrap">
         <AnimatePresence mode="wait">
           <motion.div
@@ -52,12 +61,21 @@ const BrandsSection = () => {
           >
             <div className="brand-text-block">
               <h3>{activeBrand.name}</h3>
-              <p className="brand-description">{activeBrand.description}</p>
+              <p className="brand-description">
+                {activeBrand.descriptionLines.map((line) => (
+                  <span className="brand-description-line" key={line}>{line}</span>
+                ))}
+              </p>
             </div>
-            <button type="button" className="brand-link">
+            <a
+              className="brand-link"
+              href={activeBrand.url}
+              target="_blank"
+              rel="noreferrer"
+            >
               <span>VIEW BRAND</span>
               <ArrowUpRight size={16} />
-            </button>
+            </a>
           </motion.div>
         </AnimatePresence>
 
@@ -78,7 +96,7 @@ const BrandsSection = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

@@ -1,58 +1,60 @@
+import homeHeroImage from '../assets/generated/home-hero.png'
+import monkeyTroopersImage from '../assets/generated/monkey-troopers.png'
+import foDubaiImage from '../assets/generated/fo-dubai.png'
+import groupJourneyImage from '../assets/generated/group-journey.png'
+
 export const navItems = ['Home', 'Story', 'Companies', 'Careers', 'About']
 
 export const siteAssets = {
   hero: {
-    image: 'https://fodubai.in/cdn/shop/files/FO_India_Combo_Banner_6341x2380_cd5f10a0-7846-4d50-b1c8-6024fcd61998.webp?v=1787038106&width=1500',
+    image: homeHeroImage,
   },
   timeline: {
-    image: 'https://cdn.shopify.com/s/files/1/0760/3571/9386/files/Hydra_banner.webp?v=1785832766',
+    image: groupJourneyImage,
   },
   news: {
-    main: 'https://fodubai.in/cdn/shop/files/Banner_of_FO.png?v=1787037198&width=1500',
-    monkeyTroopers: 'https://cdn.shopify.com/s/files/1/0760/3571/9386/files/slay-01.webp?v=1784197646',
-    harmonicCreatives: 'https://fodubai.in/cdn/shop/files/LITTORAL_LUMEN_50_1.webp?v=1785852598&width=1200',
-    pressRelease: 'https://cdn.shopify.com/s/files/1/0760/3571/9386/files/COZE_BANNER_1-03.webp?v=1786430257',
+    monkeyTroopers: monkeyTroopersImage,
+    foDubai: foDubaiImage,
   },
   brands: {
-    monkeyTroopers: 'https://cdn.shopify.com/s/files/1/0760/3571/9386/files/slay-01.webp?v=1784197646',
-    harmonicCreatives: 'https://fodubai.in/cdn/shop/files/CRIMSON_ALIBI_30_1.webp?v=1785853567&width=1200',
-    harmonicTrading: 'https://fodubai.in/cdn/shop/files/FO_India_Combo_Banner_6341x2380_cd5f10a0-7846-4d50-b1c8-6024fcd61998.webp?v=1787038106&width=1500',
+    monkeyTroopers: monkeyTroopersImage,
+    foDubai: foDubaiImage,
   },
 }
 
 export const newsItems = [
   {
-    id: 'main',
-    category: 'Corporate Story',
-    title: 'Building the next chapter of Aditya Suvid Retail',
-    description: 'A fresh vision shaped around caring communities, design-led experiences, and long-term value.',
-    image: siteAssets.news.main,
-    link: '#',
+    id: 'group-overview',
+    category: 'From the group',
+    title: 'A sharper point of view',
+    description: 'One group bringing movement, expression, atmosphere, and everyday ritual into focus.',
+    image: siteAssets.timeline.image,
+    link: '#brands',
     featured: true,
   },
   {
     id: 'monkey-troopers',
     category: 'Monkey Troopers',
-    title: 'Monkey Troopers New Collection',
-    description: 'A bold new expression of street culture, craft, and play.',
+    title: 'Utility with a point of view',
+    description: 'Playful bags and everyday carry built for movement, expression, and the city ahead.',
     image: siteAssets.news.monkeyTroopers,
-    link: '#',
+    link: 'https://monkeytroopers.com/',
   },
   {
-    id: 'harmonic-creatives',
-    category: 'Harmonic Creatives',
-    title: 'Harmonic Creatives Awarded',
-    description: 'Recognised for design thinking that brings brand stories to life.',
-    image: siteAssets.news.harmonicCreatives,
-    link: '#',
+    id: 'fo-dubai',
+    category: 'FO Dubai',
+    title: 'Scent made personal',
+    description: 'A fragrance house exploring memory, mood, and the quiet power of leaving a trace.',
+    image: siteAssets.news.foDubai,
+    link: 'https://fodubai.in/',
   },
   {
-    id: 'press',
-    category: 'Press Release',
-    title: 'Air India appoints Twaddle...',
-    description: 'Thoughtful retail collaborations that move culture forward.',
-    image: siteAssets.news.pressRelease,
-    link: '#',
+    id: 'group-direction',
+    category: 'The group',
+    title: 'Two worlds, one direction',
+    description: 'Distinct brands connected by a shared appetite for what comes next.',
+    image: siteAssets.hero.image,
+    link: '#brands',
   },
 ]
 
@@ -81,26 +83,30 @@ export const brands = [
   {
     id: 'monkey-troopers',
     name: 'Monkey Troopers',
-    shortName: 'MT. MONKEY TROOPERS',
-    description: 'A design-led apparel and lifestyle brand shaped by motion, craft, and street culture.',
+    shortName: 'MONKEY TROOPERS',
+    descriptionLines: [
+      'Playful urban utility.',
+      'Built for movement.',
+      'Designed for everyday carry.',
+      'Made with more character.',
+    ],
     image: siteAssets.brands.monkeyTroopers,
-    thumb: 'https://cdn.shopify.com/s/files/1/0760/3571/9386/files/slay-01.webp?v=1784197646',
+    thumb: siteAssets.brands.monkeyTroopers,
+    url: 'https://monkeytroopers.com/',
   },
   {
-    id: 'harmonic-creatives',
-    name: 'Fo by Harmoniq Trading',
-    shortName: 'FO / HARMONIQ TRADING',
-    description: 'Luxury fragrance storytelling and premium scent experiences created for everyday identity and gifting culture.',
-    image: siteAssets.brands.harmonicCreatives,
-    thumb: 'https://fodubai.in/cdn/shop/files/CRIMSON_ALIBI_30_1.webp?v=1785853567&width=1200',
-  },
-  {
-    id: 'harmonic-trading',
-    name: 'Harmoniq Trading',
-    shortName: 'FO / HARMONIQ TRADING',
-    description: 'A long-term brand commerce platform connecting premium labels, gifting, and modern lifestyle experiences.',
-    image: siteAssets.brands.harmonicTrading,
-    thumb: 'https://fodubai.in/cdn/shop/files/FO_India_Combo_Banner_6341x2380_cd5f10a0-7846-4d50-b1c8-6024fcd61998.webp?v=1787038106&width=1500',
+    id: 'fo-dubai',
+    name: 'FO Dubai',
+    shortName: 'FO DUBAI',
+    descriptionLines: [
+      'Luxury fragrance, made personal.',
+      'Sculpted for mood.',
+      'Rooted in ritual.',
+      'Designed to leave a trace.',
+    ],
+    image: siteAssets.brands.foDubai,
+    thumb: siteAssets.brands.foDubai,
+    url: 'https://fodubai.in/',
   },
 ]
 
@@ -111,7 +117,7 @@ export const footerColumns = [
   },
   {
     title: 'Portfolio',
-    links: ['Monkey Troopers', 'Harmonic Creatives', 'Harmonic Trading'],
+    links: ['Monkey Troopers', 'FO Dubai'],
   },
   {
     title: 'Legal',

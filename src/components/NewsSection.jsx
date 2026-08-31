@@ -9,7 +9,16 @@ const NewsSection = () => {
   const [mainStory, ...sideStories] = newsItems
 
   return (
-    <section className="news-section panel-section" id="news" data-section-key="news" data-section-label="News">
+    <motion.section
+      className="news-section panel-section"
+      id="news"
+      data-section-key="news"
+      data-section-label="News"
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.08 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+    >
       <div className="container news-header">
         <SectionLabel>FROM THE GROUP</SectionLabel>
         <a href="#" className="view-all">VIEW ALL NEWS</a>
@@ -51,7 +60,7 @@ const NewsSection = () => {
           ))}
         </div>
       </div>
-    </section>
+    </motion.section>
   )
 }
 

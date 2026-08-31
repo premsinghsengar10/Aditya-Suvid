@@ -1,0 +1,401 @@
+.page-shell > section {
+  animation: pageSectionReveal 0.75s ease both;
+}
+
+.page-shell > section:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+@keyframes pageSectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-shell {
+  min-height: calc(100vh - 100px);
+  background: var(--bg-base);
+  color: var(--text);
+}
+
+.page-intro {
+  padding: 150px 0 96px;
+  border-bottom: 1px solid var(--line);
+}
+
+.page-intro h1 {
+  max-width: 900px;
+  margin: 24px 0 0;
+  color: var(--text);
+  font-size: clamp(3.8rem, 8vw, 8.5rem);
+  line-height: 0.88;
+  letter-spacing: -0.08em;
+  font-weight: 600;
+}
+
+.page-intro p {
+  max-width: 560px;
+  margin: 28px 0 0;
+  color: var(--text-soft);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.7;
+}
+
+.career-application-section {
+  padding: 96px 0 120px;
+}
+
+.career-application-layout {
+  display: grid;
+  grid-template-columns: minmax(240px, 0.8fr) minmax(0, 1.4fr);
+  gap: clamp(48px, 9vw, 150px);
+  align-items: start;
+}
+
+.career-application-copy h2,
+.journey-heading h2 {
+  margin: 20px 0 0;
+  color: var(--text);
+  font-size: clamp(2.6rem, 5vw, 5.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.075em;
+  font-weight: 600;
+}
+
+.career-application-copy p {
+  max-width: 360px;
+  margin: 26px 0 0;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.career-application-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px 20px;
+  padding: 30px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.form-field-wide {
+  grid-column: 1 / -1;
+}
+
+.form-field label {
+  color: var(--text-soft);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  outline: none;
+  background: rgba(255, 255, 255, 0.025);
+  color: var(--text);
+  padding: 14px 15px;
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.form-field textarea {
+  min-height: 130px;
+  resize: vertical;
+}
+
+.form-field select {
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--gold) 50%), linear-gradient(135deg, var(--gold) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 19px, calc(100% - 13px) 19px;
+  background-repeat: no-repeat;
+  background-size: 5px 5px, 5px 5px;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+  color: var(--muted);
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+  border-color: var(--gold);
+  background: var(--surface-strong);
+}
+
+.career-form-footer {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding-top: 8px;
+}
+
+.form-note {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
+.page-submit-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  border: none;
+  background: var(--gold);
+  color: #17120c;
+  padding: 14px 18px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.page-submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
+}
+
+.journey-section {
+  padding: 104px 0 130px;
+}
+
+.story-content-section {
+  padding: 104px 0 130px;
+}
+
+.story-content-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.4fr);
+  gap: clamp(48px, 9vw, 150px);
+  align-items: start;
+}
+
+.story-content-grid p {
+  max-width: 640px;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: clamp(1.2rem, 2vw, 1.7rem);
+  line-height: 1.55;
+  letter-spacing: -0.03em;
+}
+
+.companies-list-section {
+  padding: 104px 0 130px;
+}
+
+.companies-list-heading {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.4fr);
+  gap: clamp(48px, 9vw, 150px);
+  align-items: end;
+  padding-bottom: 62px;
+  border-bottom: 1px solid var(--line);
+}
+
+.companies-list-heading h2 {
+  margin: 20px 0 0;
+  color: var(--text);
+  font-size: clamp(2.6rem, 5vw, 5.5rem);
+  line-height: 0.94;
+  letter-spacing: -0.075em;
+  font-weight: 600;
+}
+
+.companies-list {
+  display: grid;
+  gap: 20px;
+}
+
+.company-card {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(28px, 6vw, 96px);
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.company-card-image {
+  min-height: 330px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.company-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.company-card:hover .company-card-image img {
+  transform: scale(1.03);
+}
+
+.company-card-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 0;
+}
+
+.company-card-number {
+  color: var(--gold-strong);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.company-card h3 {
+  margin: 20px 0 0;
+  color: var(--text);
+  font-size: clamp(2.4rem, 5vw, 5.8rem);
+  line-height: 0.92;
+  letter-spacing: -0.08em;
+  font-weight: 600;
+}
+
+.company-description {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin: 24px 0 0;
+  color: var(--text-soft);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  line-height: 1.5;
+}
+
+.company-description span {
+  display: block;
+}
+
+.journey-heading {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.8fr) minmax(0, 1.4fr);
+  gap: clamp(48px, 9vw, 150px);
+  align-items: end;
+  padding-bottom: 62px;
+  border-bottom: 1px solid var(--line);
+}
+
+.journey-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 20px;
+}
+
+.journey-item {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 24px;
+  min-height: 230px;
+  padding: 32px 24px 30px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.journey-number {
+  color: var(--gold-strong);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.journey-item h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.5rem, 2.3vw, 2.4rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+  font-weight: 500;
+}
+
+.journey-item p {
+  max-width: 430px;
+  margin: 18px 0 0;
+  color: var(--text-soft);
+  line-height: 1.7;
+}
+
+.app-shell[data-theme='light'] .form-field input,
+.app-shell[data-theme='light'] .form-field select,
+.app-shell[data-theme='light'] .form-field textarea {
+  background: rgba(255, 255, 255, 0.42);
+}
+
+@media (max-width: 900px) {
+  .page-intro {
+    padding: 126px 0 76px;
+  }
+
+  .career-application-layout,
+  .journey-heading,
+  .story-content-grid,
+  .companies-list-heading {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .career-application-form {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page-intro h1 {
+    font-size: clamp(3.2rem, 16vw, 5.5rem);
+  }
+
+  .career-application-section,
+  .journey-section {
+    padding: 72px 0 88px;
+  }
+
+  .career-application-form,
+  .journey-list {
+    grid-template-columns: 1fr;
+  }
+
+  .company-card {
+    grid-template-columns: 1fr;
+  }
+
+  .company-card-image {
+    min-height: 260px;
+  }
+
+  .career-application-form {
+    padding: 18px;
+  }
+
+  .career-form-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .page-submit-button {
+    width: 100%;
+    justify-content: center;
+  }
+}

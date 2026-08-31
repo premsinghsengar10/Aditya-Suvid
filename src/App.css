@@ -43,6 +43,7 @@ body {
   background: var(--bg-base);
   color: var(--text);
   font-family: Inter, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
 }
 
 button,
@@ -88,37 +89,94 @@ img {
 
 .section-marker {
   position: fixed;
-  right: 22px;
+  right: 18px;
   top: 50%;
-  transform: translateY(-50%) translateX(18px);
-  display: inline-flex;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 12px;
-  padding: 10px 14px 10px 10px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(12, 12, 12, 0.7);
-  color: #f9f3ea;
-  border-radius: 999px;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-size: 0.62rem;
-  backdrop-filter: blur(10px);
-  opacity: 0;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transform: translateY(-50%);
+  opacity: 1;
   z-index: 60;
 }
 
-.section-marker.visible {
-  opacity: 1;
-  transform: translateY(-50%) translateX(0);
+.section-marker-item {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  width: 80px;
+  min-height: 22px;
+  cursor: pointer;
+  color: var(--text-soft);
+  transition: color 0.2s ease;
 }
 
-.section-marker-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+.section-marker-item:hover,
+.section-marker-item.active,
+.section-marker-item.hovered {
+  color: var(--text);
+}
+
+.section-marker-rail {
+  width: 2px;
+  height: 22px;
+  min-height: 22px;
+  background: var(--line);
+  display: block;
+  border-radius: 999px;
+  flex-shrink: 0;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.section-marker-item.active .section-marker-rail,
+.section-marker-item:hover .section-marker-rail,
+.section-marker-item.hovered .section-marker-rail {
   background: var(--gold);
-  box-shadow: 0 0 14px rgba(212, 179, 109, 0.9);
+  box-shadow: 0 0 12px rgba(212, 179, 109, 0.9);
+  transform: scaleY(1.05);
+}
+
+.section-marker-label {
+  display: inline-block;
+  min-width: 74px;
+  text-align: left;
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  opacity: 0;
+  transform: translateX(12px);
+  line-height: 1;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.section-marker.visible .section-marker-item.active .section-marker-label,
+.section-marker-item.hovered .section-marker-label {
+  opacity: 1;
+  transform: translateX(0);
+  color: var(--text);
+}
+
+.section-marker-item:not(.active):not(.hovered) .section-marker-label {
+  opacity: 0;
+}
+
+.app-shell[data-theme='light'] .section-marker-item,
+.app-shell[data-theme='light'] .section-marker-label,
+.app-shell[data-theme='light'] .section-marker-item.active,
+.app-shell[data-theme='light'] .section-marker-item.hovered {
+  color: var(--text);
+}
+
+.app-shell[data-theme='light'] .section-marker-rail {
+  background: var(--line-strong);
 }
 
 .site-header {
@@ -280,8 +338,9 @@ img {
 
 .hero-section {
   position: relative;
-  min-height: 90vh;
-  height: 85vh;
+  min-height: 640px;
+  height: 100svh;
+  max-height: 960px;
   overflow: hidden;
   background: #0b0b0b;
 }
@@ -347,16 +406,16 @@ img {
   z-index: 2;
   display: flex;
   align-items: flex-start;
-  min-height: 100vh;
+  min-height: 100%;
   height: 100%;
-  /* move copy down a bit to match screenshot */
-  padding-top: 20vh;
-  padding-bottom: 120px;
+  padding-top: clamp(150px, 28vh, 260px);
+  padding-bottom: 170px;
 }
 
 .hero-title {
   font-weight: 900;
-  line-height: 0.98;
+  line-height: 0.93;
+  letter-spacing: -0.065em;
 }
 
 .hero-copy-rail {
@@ -369,7 +428,7 @@ img {
 }
 
 .hero-copy-block {
-  max-width: 720px;
+  max-width: 760px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -377,6 +436,11 @@ img {
   margin-left: 60px;
   padding-left: 0;
   transition: transform 0.25s ease, filter 0.25s ease;
+}
+
+.hero-copy-block .story-button {
+  align-self: flex-start;
+  margin-left: 0;
 }
 
 .hero-copy-block:hover {
@@ -400,18 +464,19 @@ img {
   margin: 0;
   max-width: 760px;
   color: #ffffff;
-  font-size: clamp(2.4rem, 6vw, 4.8rem);
-  line-height: 1.02;
-  letter-spacing: -0.02em;
+  font-size: clamp(3.1rem, 5.8vw, 6.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
   text-transform: none;
   font-weight: 700;
 }
 
 .hero-desc {
   color: rgba(255,255,255,0.9);
-  font-size: 1.05rem;
-  max-width: 520px;
-  margin-top: 8px;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  max-width: 560px;
+  margin-top: 0;
+  line-height: 1.55;
 }
 
 .hero-slide-preview {
@@ -433,8 +498,7 @@ img {
   color: rgba(255, 255, 255, 0.8);
   font-size: 1rem;
   line-height: 1.6;
-  max-width: 360px;
-  display: none;
+  max-width: 560px;
 }
 
 .hero-slide-arrows { display: none !important; }
@@ -455,8 +519,9 @@ img {
 .hero-copy-block p {
   margin: 0;
   color: rgba(255, 255, 255, 0.8);
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
-  line-height: 1.6;
+  font-size: clamp(1rem, 1.2vw, 1.2rem);
+  line-height: 1.55;
+  max-width: 560px;
 }
 
 .story-button,
@@ -469,19 +534,20 @@ img {
 }
 
 .story-button {
-  margin-top: 24px;
+  margin-top: 6px;
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  padding: 12px 22px;
+  padding: 14px 20px 14px 18px;
   background: #d4b36d;
   color: #0c0c0c;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   font-weight: 800;
-  border-radius: 3px;
+  border-radius: 4px;
   border: 0;
+  line-height: 1;
 }
 
 .story-button:hover {
@@ -504,7 +570,8 @@ img {
   bottom: 0;
   z-index: 3;
   width: 100%;
-  padding: 20px; /* Adds breathing room around the edges */
+  height: 120px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   gap: 15px; /* Adds space between the bar and the text */
@@ -522,8 +589,8 @@ img {
 /* left bottom index and pause styling */
 .hero-left-status {
   position: absolute;
-  left: 44px;
-  bottom: 26px;
+  left: max(36px, calc((100% - 1280px) / 2 + 60px));
+  bottom: 24px;
   display: flex;
   align-items: center;
   gap: 12px;
@@ -1040,7 +1107,7 @@ img {
 
 .brand-selector {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
@@ -1303,19 +1370,11 @@ img {
 .app-shell[data-theme='light'] .brand-mark,
 .app-shell[data-theme='light'] .nav-item,
 .app-shell[data-theme='light'] .mobile-nav-item,
-.app-shell[data-theme='light'] .hero-content h1,
-.app-shell[data-theme='light'] .hero-copy-block p,
 .app-shell[data-theme='light'] .section-label,
-.app-shell[data-theme='light'] .brand-label-wrap h2,
-.app-shell[data-theme='light'] .brand-feature h3,
-.app-shell[data-theme='light'] .brand-description,
 .app-shell[data-theme='light'] .career-card h3,
 .app-shell[data-theme='light'] .career-card p,
-.app-shell[data-theme='light'] .news-feature h3,
-.app-shell[data-theme='light'] .image-card h3,
-.app-shell[data-theme='light'] .timeline-content h2,
-.app-shell[data-theme='light'] .timeline-content p,
-.app-shell[data-theme='light'] .brands-content .section-label,
+.app-shell[data-theme='light'] .careers-heading-wrap h2,
+.app-shell[data-theme='light'] .careers-header p,
 .app-shell[data-theme='light'] .footer-brand,
 .app-shell[data-theme='light'] .footer-brand-block p,
 .app-shell[data-theme='light'] .footer-column a,
@@ -1352,6 +1411,55 @@ img {
 
 .app-shell[data-theme='light'] .subscribe-form input::placeholder {
   color: var(--muted);
+}
+
+/* Keep text over image-backed sections bright in light mode. */
+.app-shell[data-theme='light'] .hero-content h1,
+.app-shell[data-theme='light'] .hero-copy-block p,
+.app-shell[data-theme='light'] .hero-source,
+.app-shell[data-theme='light'] .news-feature h3,
+.app-shell[data-theme='light'] .image-card h3,
+.app-shell[data-theme='light'] .image-card p,
+.app-shell[data-theme='light'] .card-meta,
+.app-shell[data-theme='light'] .timeline-content h2,
+.app-shell[data-theme='light'] .timeline-content p,
+.app-shell[data-theme='light'] .brand-label-wrap h2,
+.app-shell[data-theme='light'] .brand-feature h3,
+.app-shell[data-theme='light'] .brand-description,
+.app-shell[data-theme='light'] .brands-content .section-label,
+.app-shell[data-theme='light'] .brand-link,
+.app-shell[data-theme='light'] .brand-option {
+  color: #ffffff;
+}
+
+.app-shell[data-theme='light'] .brand-description {
+  color: rgba(255, 255, 255, 0.86) !important;
+}
+
+.app-shell[data-theme='light'] .career-link {
+  color: var(--text);
+  border-color: var(--line);
+}
+
+.app-shell[data-theme='light'] .career-icon,
+.app-shell[data-theme='light'] .timeline-button {
+  color: var(--gold-strong);
+}
+
+.app-shell[data-theme='light'] .brand-option {
+  background: rgba(15, 15, 15, 0.5);
+}
+
+.app-shell[data-theme='light'] .career-card,
+.app-shell[data-theme='light'] .careers-divider {
+  border-color: var(--line);
+}
+
+.app-shell.home-route[data-theme='light'] .brand-mark,
+.app-shell.home-route[data-theme='light'] .nav-item,
+.app-shell.home-route[data-theme='light'] .icon-button,
+.app-shell.home-route[data-theme='light'] .mobile-menu-toggle {
+  color: #ffffff;
 }
 
 .app-shell[data-theme='light'] .subscribe-form,
@@ -1417,8 +1525,25 @@ img {
   }
 }
 
+@media (max-width: 900px) {
+  .hero-copy-block {
+    margin-left: 22px;
+  }
+
+  .hero-left-status {
+    left: calc((100% - min(1280px, calc(100% - 72px))) / 2 + 22px);
+  }
+}
+
 @media (max-width: 768px) {
+  .hero-section {
+    min-height: 520px;
+    height: min(78svh, 600px);
+    max-height: 600px;
+  }
+
   .section-marker {
+    display: none;
     right: 12px;
     padding: 8px 12px 8px 8px;
     font-size: 0.56rem;
@@ -1442,9 +1567,17 @@ img {
   }
 
   .hero-controls {
-    left: 8%;
-    right: 8%;
-    width: auto;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 108px;
+    padding: 0;
+    display: none;
+  }
+
+  .hero-left-status {
+    left: calc(4vw + 22px);
+    bottom: 16px;
   }
 
   .topbar {
@@ -1453,8 +1586,9 @@ img {
   }
 
   .hero-content {
-    padding-top: 120px;
-    padding-bottom: 120px;
+    min-height: 100%;
+    padding-top: clamp(108px, 16vh, 150px);
+    padding-bottom: 48px;
   }
 
   .hero-banner-card {
@@ -1462,11 +1596,84 @@ img {
   }
 
   .hero-content h1 {
-    max-width: 180px;
+    max-width: 100%;
   }
 
   .hero-copy-block {
-    max-width: 180px;
+    max-width: 100%;
+    margin-left: 0;
+  }
+
+  .hero-copy-block {
+    gap: 18px;
+  }
+
+  .hero-description-content {
+    gap: 22px;
+  }
+
+  .hero-description-content .story-button {
+    margin-top: 0;
+  }
+
+  .news-section {
+    padding: 64px 0 68px;
+  }
+
+  .news-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .news-feature {
+    min-height: 440px;
+  }
+
+  .news-stack {
+    grid-template-rows: repeat(3, minmax(180px, 1fr));
+    gap: 14px;
+  }
+
+  .timeline-section,
+  .timeline-content {
+    min-height: 480px;
+  }
+
+  .timeline-content {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  .careers-section {
+    padding: 64px 0 68px;
+  }
+
+  .careers-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .careers-heading-wrap {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .careers-header p {
+    justify-self: center;
+    text-align: center;
+  }
+
+  .brands-section,
+  .brands-content {
+    min-height: 620px;
+  }
+
+  .brands-content {
+    padding-top: 42px;
+    padding-bottom: 24px;
   }
 
   .news-grid {
@@ -1484,10 +1691,21 @@ img {
   .brand-feature {
     flex-direction: column;
     align-items: flex-start;
+    gap: 24px;
+  }
+
+  .brands-content {
+    justify-content: flex-start;
+    gap: 30px;
+  }
+
+  .brand-text-block {
+    gap: 22px;
   }
 
   .footer-columns {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px 18px;
   }
 
   .footer-bottom {
@@ -1502,13 +1720,13 @@ img {
   }
 
   .hero-content h1 {
-    font-size: clamp(2.4rem, 14vw, 4rem);
+    font-size: clamp(2.25rem, 9.2vw, 3.3rem);
   }
 
   .hero-copy-block {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 18px;
   }
 
   .copy-accent {
