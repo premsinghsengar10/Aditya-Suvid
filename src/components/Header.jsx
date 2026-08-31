@@ -24,39 +24,14 @@ const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.
 
         <nav className="main-nav" aria-label="Main navigation">
           {navItems.map((item) => (
-            <div key={item} className={`nav-item-wrap`}>
-              <a
-                href={getItemPath(item)}
-                className={`nav-item ${getItemPath(item) === currentPath || (item === 'Home' && currentPath === '/home') ? 'active' : ''}`}
-                onClick={(e) => onNavClick(e, item)}
-              >
-                {item}
-              </a>
-
-              {/* Only Story and Companies expose the hover menu. */}
-              {(item === 'Companies' || item === 'Story') && (
-                <div className="nav-mega" aria-hidden="true">
-                  <div className="nav-mega-inner">
-                    <div className="nav-mega-header">
-                      <h3>Overview</h3>
-                      <div className="nav-mega-hr" />
-                      <p className="nav-mega-sub">Areas of Work</p>
-                    </div>
-
-                    <div className="nav-mega-grid">
-                      <ul>
-                        <li><a href="#">Health</a></li>
-                        <li><a href="#">Education</a></li>
-                      </ul>
-                      <ul>
-                        <li><a href="#">Empowerment</a></li>
-                        <li><a href="#">Environment</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              )}
-            </div>
+            <a
+              key={item}
+              href={getItemPath(item)}
+              className={`nav-item ${getItemPath(item) === currentPath || (item === 'Home' && currentPath === '/home') ? 'active' : ''}`}
+              onClick={(e) => onNavClick(e, item)}
+            >
+              {item}
+            </a>
           ))}
         </nav>
 

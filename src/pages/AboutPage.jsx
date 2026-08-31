@@ -1,25 +1,26 @@
+import { motion } from 'framer-motion'
 import './styles/PageStyles.css'
 
 const journeyItems = [
   {
     number: '01',
-    title: 'A shared idea',
-    text: 'Aditya Suvid Retail began with a simple belief: a group of companies can grow with purpose, imagination, and care at its centre.',
+    title: 'A 2012 beginning',
+    text: 'Hemlata Pushkar started Suvid Sales Corporation in Ahmedabad after a career in hospital management, taking a first step into retail with a clear ambition to build something of her own.',
   },
   {
     number: '02',
-    title: 'First expressions',
-    text: 'Monkey Troopers and FO Dubai brought that belief to life through distinctive products, memorable experiences, and a close connection to people.',
+    title: 'Retail became a system',
+    text: 'The journey grew from a Baggit exclusive franchise into Titan stores, Tommy Hilfiger luggage, Bagline, Cocoberry, and Travel Vogue locations across Gujarat.',
   },
   {
     number: '03',
-    title: 'Growing the group',
-    text: 'As new capabilities and partnerships joined the group, our portfolio expanded across lifestyle, retail, creative, and brand commerce.',
+    title: 'A group takes shape',
+    text: 'Piyush Pushkar joined with more than 30 years of international brand management experience, helping turn the retail operation into Aditya Suvid Retail Private Limited.',
   },
   {
     number: '04',
-    title: 'The next chapter',
-    text: 'Today, our companies work together as one evolving ecosystem, building enduring brands and meaningful experiences for what comes next.',
+    title: 'New expressions',
+    text: 'Monkey Troopers took the group into streetwear, while Harmoniq Creative and Harmoniq Trading added digital growth and fragrance capabilities across India and the Middle East.',
   },
 ]
 
@@ -45,14 +46,21 @@ const AboutPage = () => {
           </div>
 
           <div className="journey-list">
-            {journeyItems.map((item) => (
-              <article className="journey-item" key={item.number}>
+            {journeyItems.map((item, index) => (
+              <motion.article
+                className="journey-item"
+                key={item.number}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.25 }}
+                transition={{ duration: 0.55, delay: index * 0.07, ease: 'easeOut' }}
+              >
                 <span className="journey-number">{item.number}</span>
                 <div>
                   <h3>{item.title}</h3>
                   <p>{item.text}</p>
                 </div>
-              </article>
+              </motion.article>
             ))}
           </div>
         </div>

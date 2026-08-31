@@ -19,7 +19,7 @@ const sectionNames = {
   news: 'News',
   timeline: 'Timeline',
   careers: 'Careers',
-  brands: 'Brands',
+  brands: 'Entities',
   footer: 'Footer',
 }
 
