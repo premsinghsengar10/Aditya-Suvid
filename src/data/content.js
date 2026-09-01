@@ -2,10 +2,14 @@ import homeHeroImage from '../assets/generated/home-hero.png'
 import monkeyTroopersImage from '../assets/generated/monkey-troopers.png'
 import foDubaiImage from '../assets/generated/fo-dubai.png'
 import groupJourneyImage from '../assets/generated/group-journey.png'
+import companyLogo from '../assets/suvid-retail.jpeg'
 
 export const navItems = ['Home', 'Story', 'Companies', 'Careers', 'About']
 
 export const siteAssets = {
+  logo: {
+    image: companyLogo,
+  },
   hero: {
     image: homeHeroImage,
   },

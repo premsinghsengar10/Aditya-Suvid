@@ -19,7 +19,7 @@ const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.
     <header className="site-header">
       <div className="topbar container">
         <div className="brand-block">
-          <a href="/" className="brand-mark" onClick={(e)=>{e.preventDefault(); navigate && navigate('/')}}>Aditya Suvid Retail</a>
+          <a href="/" className="brand-mark" onClick={(e)=>{e.preventDefault(); navigate && navigate('/')}}> Suvid Retail</a>
         </div>
 
         <nav className="main-nav" aria-label="Main navigation">

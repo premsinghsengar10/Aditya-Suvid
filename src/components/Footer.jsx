@@ -29,7 +29,7 @@ const Footer = () => {
       <div className="container footer-top">
         <div className="footer-left-stack">
           <div className="footer-brand-block">
-            <div className="footer-brand">Aditya Suvid Retail</div>
+            <div className="footer-brand"> Suvid Retail</div>
             <p>
               Subscribe to receive corporate updates, brand news, and
               material content directly to your inbox.
