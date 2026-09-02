@@ -344,3 +344,7 @@ The app uses a custom client-side routing implementation:
 - **Timeline Intro Visibility**: Timeline header spacing uses a stronger scoped rule, enlarged responsive description text, and member overlays stay hidden until hover or focus
 - **Built Together Copy**: The Timeline introduction uses the approved team-focused description supplied by the web team
 - **Built Together Width**: The centered Timeline introduction uses a wider desktop text rail so the approved description does not wrap into five lines
+- **Browser Favicon**: The Suvid Retail logo is copied to `public/assets/suvid-retail.jpeg` and referenced from `index.html` for reliable tab icon loading
+- **Navbar Styling**: Removed underline indicators from desktop and mobile navigation hover and active states
+- **Anchor Styling**: Explicitly disables browser-default underlines on navbar and brand links
+- **Hero Banner CTA**: Hero slides now use `Visit website`; the lead slide promotes Harmoniq Creatives and links to its website

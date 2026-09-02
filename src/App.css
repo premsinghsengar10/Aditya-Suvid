@@ -203,6 +203,7 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
   color: #fff;
   font-size: 0.8rem;
   letter-spacing: 0.02em;
@@ -233,22 +234,14 @@ img {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   position: relative;
+  text-decoration: none;
   padding: 0 0 14px;
   transition: color 0.25s ease;
 }
 
 .nav-item::after,
 .mobile-nav-item::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: var(--gold);
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform 0.25s ease;
+  display: none;
 }
 
 .nav-item:hover,
@@ -262,7 +255,7 @@ img {
 .mobile-nav-item.active::after,
 .nav-item:hover::after,
 .mobile-nav-item:hover::after {
-  transform: scaleX(1);
+  display: none;
 }
 
 .utility-actions {

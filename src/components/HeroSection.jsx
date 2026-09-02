@@ -8,11 +8,11 @@ const heroSlides = [
   {
     id: 'the-group',
     image: siteAssets.hero.image,
-    kicker: 'The group',
-    title: 'Two brands.<br />One bold<br />direction.',
-    description: 'A shared point of view across movement, expression, atmosphere, and everyday ritual.',
-    href: '#brands',
-    cta: 'Play video',
+    kicker: 'Harmoniq Creatives',
+    title: 'Ideas that<br />move brands<br />forward.',
+    description: 'Digital strategy, design, and growth for brands with something meaningful to say.',
+    href: 'https://www.harmoniqcreatives.com/',
+    cta: 'Visit website',
   },
   {
     id: 'monkey-troopers',
@@ -21,7 +21,7 @@ const heroSlides = [
     title: 'Built to<br />move.',
     description: 'Playful urban utility for people who carry their world with a little more character.',
     href: 'https://monkeytroopers.com/',
-    cta: 'Play video',
+    cta: 'Visit website',
   },
   {
     id: 'fo-dubai',
@@ -30,7 +30,7 @@ const heroSlides = [
     title: 'Leave<br />a trace.',
     description: 'Luxury fragrance storytelling shaped around atmosphere, identity, and everyday ritual.',
     href: 'https://fodubai.in/',
-    cta: 'Play video',
+    cta: 'Visit website',
   },
 ]
 
