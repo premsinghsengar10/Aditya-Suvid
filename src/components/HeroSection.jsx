@@ -26,7 +26,7 @@ const heroSlides = [
   {
     id: 'fo-dubai',
     image: siteAssets.brands.foDubai,
-    kicker: 'FO Dubai',
+    kicker: 'Fragrance d’Oasis',
     title: 'Leave<br />a trace.',
     description: 'Luxury fragrance storytelling shaped around atmosphere, identity, and everyday ritual.',
     href: 'https://fodubai.in/',

@@ -1,6 +1,6 @@
 import homeHeroImage from '../assets/generated/home-hero.png'
-import monkeyTroopersImage from '../assets/generated/monkey-troopers.png'
-import foDubaiImage from '../assets/generated/fo-dubai.png'
+import monkeyTroopersBrandImage from '../assets/brands/monkey-troopers.webp'
+import foDubaiBrandImage from '../assets/brands/harmoniq-trading.webp'
 import groupJourneyImage from '../assets/generated/group-journey.png'
 import companyLogo from '../assets/suvid-retail-logo.jpeg'
 import bhupiiiImage from '../assets/teammembers/Bhuppi_Image.png'
@@ -31,12 +31,12 @@ export const siteAssets = {
     image: groupJourneyImage,
   },
   news: {
-    monkeyTroopers: monkeyTroopersImage,
-    foDubai: foDubaiImage,
+    monkeyTroopers: monkeyTroopersBrandImage,
+    foDubai: foDubaiBrandImage,
   },
   brands: {
-    monkeyTroopers: monkeyTroopersImage,
-    foDubai: foDubaiImage,
+    monkeyTroopers: monkeyTroopersBrandImage,
+    foDubai: foDubaiBrandImage,
   },
 }
 
@@ -46,15 +46,15 @@ export const teamMembers = [
   { id: 'henisha-kansara', name: 'Henisha Kansara', designation: 'Head of Design, Development & Digital Growth', description: 'Leads design, development, and digital growth across the group.', image: henishaImage, videoUrl: '' },
   { id: 'jash-solanki', name: 'Jash Solanki', designation: 'Head of Marketing', description: 'Shapes brand marketing initiatives and helps ideas reach their audiences.', image: jashImage, videoUrl: '' },
   { id: 'piyush-pushkar', name: 'Piyush Pushkar', designation: 'Mentor / Director', description: 'Brings long-term retail and international brand experience to the group.', image: piyushImage, videoUrl: '' },
-  { id: 'kinjal-patel', name: 'Kinjal Patel', designation: 'Frontend Accountant', description: 'Supports Harmoniq Creative with dependable accounts operations across the Monkey Troopers and FO Dubai businesses.', image: kinjalImage, videoUrl: '' },
-  { id: 'dharav-shah', name: 'Dharav Shah', designation: 'Finance Head', description: 'Leads finance support at Harmoniq Creative for the group and its Monkey Troopers and FO Dubai operations.', image: dharavImage, videoUrl: '' },
+  { id: 'kinjal-patel', name: 'Kinjal Patel', designation: 'Frontend Accountant', description: 'Supports Harmoniq Creative with dependable accounts operations across the Monkey Troopers and Fragrance d’Oasis businesses.', image: kinjalImage, videoUrl: '' },
+  { id: 'dharav-shah', name: 'Dharav Shah', designation: 'Finance Head', description: 'Leads finance support at Harmoniq Creative for the group and its Monkey Troopers and Fragrance d’Oasis operations.', image: dharavImage, videoUrl: '' },
   { id: 'hemlata-pushkar', name: 'Hemlata Pushkar', designation: 'Founder', description: 'Builds the people-first culture that connects every company in the group.', image: hemlataImage, videoUrl: '' },
-  { id: 'nagesh-prajapati', name: 'Nagesh Prajapati', designation: 'Senior Graphic Designer', description: 'Creates visual work for Harmoniq Creative and the Monkey Troopers and FO Dubai brand worlds.', image: nageshImage, videoUrl: '' },
-  { id: 'yash-prajapati', name: 'Yash Prajapati', designation: 'Senior Web Developer', description: 'Builds and supports the digital and ecommerce experiences for Monkey Troopers and FO Dubai through Harmoniq Creative.', image: yashImage, videoUrl: '' },
-  { id: 'prem-singh-sengar', name: 'Prem Singh Sengar', designation: 'Frontend Developer', description: 'Builds responsive interfaces for Harmoniq Creative and the digital platforms behind Monkey Troopers and FO Dubai.', image: premImage, videoUrl: '' },
-  { id: 'shriya-jain', name: 'Shriya Jain', designation: 'Web Developer', description: 'Develops and maintains web experiences for the Monkey Troopers and FO Dubai brands at Harmoniq Creative.', image: shriyaImage, videoUrl: '' },
-  { id: 'hardeep-virk', name: 'Hardeep Virk', designation: 'Visual Editor and Content Creator', description: 'Creates and edits visual content for Harmoniq Creative, supporting the storytelling of Monkey Troopers and FO Dubai.', image: urviImage, videoUrl: '' },
-  { id: 'rishabh-moyal', name: 'Rishabh Moyal', designation: 'Visual Editor', description: 'Shapes visual content for Harmoniq Creative and helps bring Monkey Troopers and FO Dubai campaigns to life.', image: rishiImage, videoUrl: '' },
+  { id: 'nagesh-prajapati', name: 'Nagesh Prajapati', designation: 'Senior Graphic Designer', description: 'Creates visual work for Harmoniq Creative and the Monkey Troopers and Fragrance d’Oasis brand worlds.', image: nageshImage, videoUrl: '' },
+  { id: 'yash-prajapati', name: 'Yash Prajapati', designation: 'Senior Web Developer', description: 'Builds and supports the digital and ecommerce experiences for Monkey Troopers and Fragrance d’Oasis through Harmoniq Creative.', image: yashImage, videoUrl: '' },
+  { id: 'prem-singh-sengar', name: 'Prem Singh Sengar', designation: 'Frontend Developer', description: 'Builds responsive interfaces for Harmoniq Creative and the digital platforms behind Monkey Troopers and Fragrance d’Oasis.', image: premImage, videoUrl: '' },
+  { id: 'shriya-jain', name: 'Shriya Jain', designation: 'Web Developer', description: 'Develops and maintains web experiences for the Monkey Troopers and Fragrance d’Oasis brands at Harmoniq Creative.', image: shriyaImage, videoUrl: '' },
+  { id: 'hardeep-virk', name: 'Hardeep Virk', designation: 'Visual Editor and Content Creator', description: 'Creates and edits visual content for Harmoniq Creative, supporting the storytelling of Monkey Troopers and Fragrance d’Oasis.', image: urviImage, videoUrl: '' },
+  { id: 'rishabh-moyal', name: 'Rishabh Moyal', designation: 'Visual Editor', description: 'Shapes visual content for Harmoniq Creative and helps bring Monkey Troopers and Fragrance d’Oasis campaigns to life.', image: rishiImage, videoUrl: '' },
 ]
 
 export const newsItems = [
@@ -77,7 +77,7 @@ export const newsItems = [
   },
   {
     id: 'fo-dubai',
-    category: 'FO Dubai',
+    category: 'Fragrance d’Oasis',
     title: 'Scent made personal',
     description: 'A fragrance house exploring memory, mood, and the quiet power of leaving a trace.',
     image: siteAssets.news.foDubai,
@@ -101,8 +101,8 @@ export const articleItems = [
   { slug: 'from-india-to-the-middle-east', category: 'Monkey Troopers', title: 'From India to the Middle East', description: 'What it takes to carry an Indian brand story into a new market without losing its voice.', image: siteAssets.brands.monkeyTroopers },
   { slug: 'the-digital-engine-behind-growth', category: 'Harmoniq Creative', title: 'The digital engine behind growth', description: 'How strategy, design, development, and performance work together under Harmoniq Creative.', image: siteAssets.hero.image },
   { slug: 'making-brands-discoverable', category: 'Harmoniq Creative', title: 'Making ambitious brands discoverable', description: 'A practical view of the systems that help good brand work find the right audience.', image: siteAssets.hero.image },
-  { slug: 'fragrance-from-dubai-to-india', category: 'Harmoniq Trading', title: 'Fragrance from Dubai to India', description: 'The relationship-led story behind a fragrance business rooted in Dubai and growing across markets.', image: siteAssets.brands.foDubai },
-  { slug: 'the-ritual-of-leaving-a-trace', category: 'FO Dubai', title: 'The ritual of leaving a trace', description: 'Why fragrance is more than a product: it is memory, mood, and identity in motion.', image: siteAssets.brands.foDubai },
+  { slug: 'fragrance-from-dubai-to-india', category: 'Fragrance d’Oasis', title: 'Fragrance from Dubai to India', description: 'The relationship-led story behind a fragrance business rooted in Dubai and growing across markets.', image: siteAssets.brands.foDubai },
+  { slug: 'the-ritual-of-leaving-a-trace', category: 'Fragrance d’Oasis', title: 'The ritual of leaving a trace', description: 'Why fragrance is more than a product: it is memory, mood, and identity in motion.', image: siteAssets.brands.foDubai },
   { slug: 'one-group-many-next-chapters', category: 'Suvid Retail', title: 'One group, many next chapters', description: 'The shared ambition connecting retail, streetwear, digital growth, and fragrance.', image: siteAssets.timeline.image },
 ]
 
@@ -147,8 +147,8 @@ export const brands = [
   },
   {
     id: 'fo-dubai',
-    name: 'FO Dubai',
-    shortName: 'FO DUBAI',
+    name: 'Fragrance d’Oasis',
+    shortName: 'Fragrance d’Oasis',
     descriptionLines: [
       'Luxury fragrance, made personal.',
       'Sculpted for mood.',
@@ -168,7 +168,7 @@ export const footerColumns = [
   },
   {
     title: 'Portfolio',
-    links: ['Monkey Troopers', 'FO Dubai'],
+    links: ['Monkey Troopers', 'Fragrance d’Oasis'],
   },
   {
     title: 'Legal',
@@ -306,7 +306,7 @@ export const groupCompanies = [
   {
     id: 'monkey-troopers-company',
     number: '02',
-    name: 'Monkey Troopers',
+    name: 'Monkey Troopers Private Limited',
     category: 'Streetwear brand',
     strapline: 'Born from the streets. Built for a generation.',
     description: 'A streetwear brand shaped by authentic street culture, expressive design, and a belief that Gen Z deserves brands built with them, not simply marketed at them.',

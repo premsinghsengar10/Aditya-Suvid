@@ -7,7 +7,7 @@ const footerLinkTargets = {
   'About Us': '/about',
   Careers: '/careers',
   'Monkey Troopers': 'https://monkeytroopers.com/',
-  'FO Dubai': 'https://fodubai.in/',
+  'Fragrance d’Oasis': 'https://fodubai.in/',
 }
 
 const Footer = () => {
