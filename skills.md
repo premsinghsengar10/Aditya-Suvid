@@ -367,3 +367,5 @@ The app uses a custom client-side routing implementation:
 - **Fragrance Brand Naming**: Updated all visible `FO Dubai` UI copy to `Fragrance d’Oasis` across hero slides, article/entity data, team descriptions, and footer navigation while preserving internal IDs and the existing `fodubai.in` URL.
 - **Sticky Header States**: The navbar is transparent at the top of the page and becomes fixed with a translucent blurred background and border after scrolling.
 - **Navbar Alignment**: Removed leftover desktop nav bottom padding from the retired underline treatment so navigation text and utility icons share the same vertical center line.
+- **Aditya Retail Photography**: Added `src/assets/brands/suvid retail image.webp` to the Aditya Suvid Retail entity and Companies page image mappings.
+- **Aditya Article Photography**: Updated the Suvid Retail and Aditya Suvid Retail article cards, including the homepage From the Group card, to use the supplied Aditya brand image.

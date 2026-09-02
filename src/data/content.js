@@ -1,6 +1,7 @@
 import homeHeroImage from '../assets/generated/home-hero.png'
 import monkeyTroopersBrandImage from '../assets/brands/monkey-troopers.webp'
 import foDubaiBrandImage from '../assets/brands/harmoniq-trading.webp'
+import adityaSuvidRetailImage from '../assets/brands/suvid retail image.webp'
 import groupJourneyImage from '../assets/generated/group-journey.png'
 import companyLogo from '../assets/suvid-retail-logo.jpeg'
 import bhupiiiImage from '../assets/teammembers/Bhuppi_Image.png'
@@ -35,6 +36,7 @@ export const siteAssets = {
     foDubai: foDubaiBrandImage,
   },
   brands: {
+    adityaSuvidRetail: adityaSuvidRetailImage,
     monkeyTroopers: monkeyTroopersBrandImage,
     foDubai: foDubaiBrandImage,
   },
@@ -63,7 +65,7 @@ export const newsItems = [
     category: 'From the group',
     title: 'A sharper point of view',
     description: 'One group bringing movement, expression, atmosphere, and everyday ritual into focus.',
-    image: siteAssets.timeline.image,
+    image: siteAssets.brands.adityaSuvidRetail,
     link: '#brands',
     featured: true,
   },
@@ -94,8 +96,8 @@ export const newsItems = [
 ]
 
 export const articleItems = [
-  { slug: 'building-brands-with-a-point-of-view', category: 'Suvid Retail', title: 'Building brands with a point of view', description: 'How a shared culture helps four businesses move with clarity while keeping their own identity.', image: siteAssets.timeline.image },
-  { slug: 'retail-that-starts-with-people', category: 'Aditya Suvid Retail', title: 'Retail that starts with people', description: 'The everyday choices that turn a store visit into a relationship worth returning to.', image: siteAssets.hero.image },
+  { slug: 'building-brands-with-a-point-of-view', category: 'Suvid Retail', title: 'Building brands with a point of view', description: 'How a shared culture helps four businesses move with clarity while keeping their own identity.', image: siteAssets.brands.adityaSuvidRetail },
+  { slug: 'retail-that-starts-with-people', category: 'Aditya Suvid Retail', title: 'Retail that starts with people', description: 'The everyday choices that turn a store visit into a relationship worth returning to.', image: siteAssets.brands.adityaSuvidRetail },
   { slug: 'monkey-troopers-street-culture', category: 'Monkey Troopers', title: 'Street culture, carried forward', description: 'Why utility, expression, and community sit at the heart of Monkey Troopers.', image: siteAssets.brands.monkeyTroopers },
   { slug: 'designing-for-everyday-movement', category: 'Monkey Troopers', title: 'Designing for everyday movement', description: 'A closer look at the details that make everyday carry feel more personal.', image: siteAssets.brands.monkeyTroopers },
   { slug: 'from-india-to-the-middle-east', category: 'Monkey Troopers', title: 'From India to the Middle East', description: 'What it takes to carry an Indian brand story into a new market without losing its voice.', image: siteAssets.brands.monkeyTroopers },
@@ -103,7 +105,7 @@ export const articleItems = [
   { slug: 'making-brands-discoverable', category: 'Harmoniq Creative', title: 'Making ambitious brands discoverable', description: 'A practical view of the systems that help good brand work find the right audience.', image: siteAssets.hero.image },
   { slug: 'fragrance-from-dubai-to-india', category: 'Fragrance d’Oasis', title: 'Fragrance from Dubai to India', description: 'The relationship-led story behind a fragrance business rooted in Dubai and growing across markets.', image: siteAssets.brands.foDubai },
   { slug: 'the-ritual-of-leaving-a-trace', category: 'Fragrance d’Oasis', title: 'The ritual of leaving a trace', description: 'Why fragrance is more than a product: it is memory, mood, and identity in motion.', image: siteAssets.brands.foDubai },
-  { slug: 'one-group-many-next-chapters', category: 'Suvid Retail', title: 'One group, many next chapters', description: 'The shared ambition connecting retail, streetwear, digital growth, and fragrance.', image: siteAssets.timeline.image },
+  { slug: 'one-group-many-next-chapters', category: 'Suvid Retail', title: 'One group, many next chapters', description: 'The shared ambition connecting retail, streetwear, digital growth, and fragrance.', image: siteAssets.brands.adityaSuvidRetail },
 ]
 
 export const careerCards = [

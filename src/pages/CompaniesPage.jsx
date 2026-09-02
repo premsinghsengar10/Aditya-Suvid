@@ -4,7 +4,7 @@ import { groupCompanies, groupOperatingModel, siteAssets } from '../data/content
 import './styles/PageStyles.css'
 
 const companyImages = {
-  'aditya-suvid-retail': siteAssets.timeline.image,
+  'aditya-suvid-retail': siteAssets.brands.adityaSuvidRetail,
   'monkey-troopers-company': siteAssets.brands.monkeyTroopers,
   'harmoniq-creative': siteAssets.hero.image,
   'harmoniq-trading': siteAssets.brands.foDubai,
