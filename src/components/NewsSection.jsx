@@ -7,10 +7,10 @@ import './styles/NewsSection.css'
 
 const NewsSection = () => {
   const homepageArticleSlugs = [
-    'the-digital-engine-behind-growth',
+    'retail-that-starts-with-people',
     'monkey-troopers-street-culture',
     'fragrance-from-dubai-to-india',
-    'retail-that-starts-with-people',
+    'the-digital-engine-behind-growth',
   ]
   const [mainStory, ...sideStories] = homepageArticleSlugs.map((slug) => (
     articleItems.find((item) => item.slug === slug)

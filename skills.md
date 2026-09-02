@@ -369,3 +369,6 @@ The app uses a custom client-side routing implementation:
 - **Navbar Alignment**: Removed leftover desktop nav bottom padding from the retired underline treatment so navigation text and utility icons share the same vertical center line.
 - **Aditya Retail Photography**: Added `src/assets/brands/suvid retail image.webp` to the Aditya Suvid Retail entity and Companies page image mappings.
 - **Aditya Article Photography**: Updated the Suvid Retail and Aditya Suvid Retail article cards, including the homepage From the Group card, to use the supplied Aditya brand image.
+- **Harmoniq Hero Spacing**: Added a desktop-only slide class with tighter headline sizing and higher content placement so the three-line Harmoniq Creatives headline and CTA stay clear of the fixed playback controls.
+- **Homepage Group Order**: The From the Group layout now features Aditya Suvid Retail on the left, followed by Monkey Troopers, Fragrance d’Oasis, and Harmoniq Creative in the three right-side cards.
+- **Feature Card Links**: Removed browser-default underlines from the clickable From the Group feature card while preserving its inherited text color and hover behavior.

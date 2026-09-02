@@ -69,7 +69,7 @@ const HeroSection = () => {
       </div>
 
       <motion.div
-        className="hero-content container"
+        className={`hero-content hero-slide-${currentSlide.id} container`}
         key={currentSlide.id}
         initial={{ opacity: 0, y: 28 }}
         animate={{ opacity: 1, y: 0 }}

@@ -86,6 +86,16 @@
   gap: 10px;
 }
 
+@media (min-width: 901px) {
+  .hero-slide-the-group {
+    padding-top: clamp(96px, 14vh, 142px);
+  }
+
+  .hero-slide-the-group .hero-title {
+    font-size: clamp(2.8rem, 5.1vw, 5.8rem);
+  }
+}
+
 /* Progress rail / controls remain in App.css but keep pointer events */
 .hero-controls {
   position: absolute;
