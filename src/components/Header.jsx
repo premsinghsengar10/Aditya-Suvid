@@ -1,10 +1,18 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Mail, SunMedium, MoonStar, Menu, X } from 'lucide-react'
 import { navItems, siteAssets } from '../data/content'
 import './styles/Header.css'
 
 const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.pathname }) => {
   const [menuOpen, setMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const updateHeader = () => setIsScrolled(window.scrollY > 24)
+    updateHeader()
+    window.addEventListener('scroll', updateHeader, { passive: true })
+    return () => window.removeEventListener('scroll', updateHeader)
+  }, [])
 
   const getItemPath = (item) => item.toLowerCase() === 'home' ? '/' : `/${item.toLowerCase()}`
 
@@ -16,7 +24,7 @@ const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.
   }
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${isScrolled ? 'is-scrolled' : ''}`}>
       <div className="topbar container">
         <div className="brand-block">
           <a href="/" className="brand-mark" onClick={(e)=>{e.preventDefault(); navigate && navigate('/')}}>

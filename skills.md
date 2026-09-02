@@ -365,3 +365,5 @@ The app uses a custom client-side routing implementation:
 - **Brand Photography Mapping**: Added the supplied `src/assets/brands/monkey-troopers.webp` and `src/assets/brands/harmoniq-trading.webp` to the shared Monkey Troopers and FO Dubai asset mappings used by Entities, homepage articles, full articles, Companies, and hero slides.
 - **FO Display Name**: The visible Harmoniq Trading entity and fragrance article category now render as `FO Dubai`; Harmoniq Trading remains in the underlying company/story context where the legal company name is needed.
 - **Fragrance Brand Naming**: Updated all visible `FO Dubai` UI copy to `Fragrance d’Oasis` across hero slides, article/entity data, team descriptions, and footer navigation while preserving internal IDs and the existing `fodubai.in` URL.
+- **Sticky Header States**: The navbar is transparent at the top of the page and becomes fixed with a translucent blurred background and border after scrolling.
+- **Navbar Alignment**: Removed leftover desktop nav bottom padding from the retired underline treatment so navigation text and utility icons share the same vertical center line.
