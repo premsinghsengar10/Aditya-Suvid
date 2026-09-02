@@ -12,7 +12,10 @@ const entityImages = {
 }
 
 const entityLinks = {
+  'aditya-suvid-retail': '/companies',
   'monkey-troopers-company': 'https://monkeytroopers.com/',
+  'harmoniq-creative': 'https://www.harmoniqcreatives.com/',
+  'harmoniq-trading': 'https://fodubai.in/',
 }
 
 const entities = groupCompanies.map((company) => ({
@@ -87,36 +90,40 @@ const BrandsSection = () => {
                 ))}
               </div>
             </div>
-            {activeEntity.url ? (
+            <div className="brand-actions">
               <a
                 className="brand-link"
                 href={activeEntity.url}
-                target="_blank"
-                rel="noreferrer"
+                target={activeEntity.url.startsWith('http') ? '_blank' : undefined}
+                rel={activeEntity.url.startsWith('http') ? 'noreferrer' : undefined}
               >
                 <span>VIEW BRAND</span>
                 <ArrowUpRight size={16} />
               </a>
-            ) : (
-              <span className="entity-status">Group company</span>
-            )}
+              <a className="brand-link brand-link-secondary" href="/careers">
+                <span>JOIN US</span>
+                <ArrowUpRight size={16} />
+              </a>
+            </div>
           </motion.div>
         </AnimatePresence>
 
         <div className="brand-selector" aria-label="Brand selector">
           {entities.map((entity, index) => (
-            <button
-              key={entity.id}
-              type="button"
-              className={`brand-option ${index === activeIndex ? 'active' : ''}`}
-              onClick={() => setActiveIndex(index)}
-            >
+              <a
+                key={entity.id}
+                href={entity.url}
+                className={`brand-option ${index === activeIndex ? 'active' : ''}`}
+                target={entity.url.startsWith('http') ? '_blank' : undefined}
+                rel={entity.url.startsWith('http') ? 'noreferrer' : undefined}
+                onClick={() => setActiveIndex(index)}
+              >
               <span className="brand-option-line" aria-hidden="true" />
               <span className="brand-thumb-wrap">
                 <img src={entity.thumb} alt={entity.name} loading="lazy" />
               </span>
               <span className="brand-name">{entity.name}</span>
-            </button>
+              </a>
           ))}
         </div>
       </div>

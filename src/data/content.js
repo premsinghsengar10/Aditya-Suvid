@@ -3,6 +3,21 @@ import monkeyTroopersImage from '../assets/generated/monkey-troopers.png'
 import foDubaiImage from '../assets/generated/fo-dubai.png'
 import groupJourneyImage from '../assets/generated/group-journey.png'
 import companyLogo from '../assets/suvid-retail.jpeg'
+import akshayImage from '../assets/teammembers/Akshay_Image.jpg'
+import bhupiiiImage from '../assets/teammembers/Bhuppi_Image.png'
+import dharavImage from '../assets/teammembers/Dharavsir_Image.png'
+import hemlataImage from '../assets/teammembers/Hemlatamam_Image.png'
+import henishaImage from '../assets/teammembers/Henisha_Image.png'
+import jashImage from '../assets/teammembers/Jash_Image.png'
+import kinjalImage from '../assets/teammembers/Kinjal.webp'
+import nageshImage from '../assets/teammembers/Nagesh_Image.jpg'
+import piyushImage from '../assets/teammembers/Piyushsir_Image.png'
+import premImage from '../assets/teammembers/Prem.jpeg'
+import rishiImage from '../assets/teammembers/Rishi.jpeg'
+import shriyaImage from '../assets/teammembers/shriya.jpg.jpeg'
+import suvidImage from '../assets/teammembers/Suvidsir_Image.png'
+import urviImage from '../assets/teammembers/hardeep.jpg.jpeg'
+import yashImage from '../assets/teammembers/Yash_Image.jpg'
 
 export const navItems = ['Home', 'Story', 'Companies', 'Careers', 'About']
 
@@ -25,6 +40,24 @@ export const siteAssets = {
     foDubai: foDubaiImage,
   },
 }
+
+export const teamMembers = [
+  { id: 'suvid-sinha', name: 'Suvid Sinha', designation: 'Founder', description: 'Guides the group vision and the brands built for the next generation.', image: suvidImage, videoUrl: '' },
+  { id: 'bhupiii', name: 'Bhupiii', designation: 'Manager - Product & D2C Website', description: 'Manages product thinking and the direct-to-consumer website experience.', image: bhupiiiImage, videoUrl: '' },
+  { id: 'henisha-kansara', name: 'Henisha Kansara', designation: 'Head of Design, Development & Digital Growth', description: 'Leads design, development, and digital growth across the group.', image: henishaImage, videoUrl: '' },
+  { id: 'jash-solanki', name: 'Jash Solanki', designation: 'Manager - Brand Marketing Specialist', description: 'Shapes brand marketing initiatives and helps ideas reach their audiences.', image: jashImage, videoUrl: '' },
+  { id: 'piyush-pushkar', name: 'Piyush Pushkar', designation: 'Mentor / Director', description: 'Brings long-term retail and international brand experience to the group.', image: piyushImage, videoUrl: '' },
+  { id: 'kinjal-patel', name: 'Kinjal Patel', designation: 'Accounts', description: 'Supports the group through accurate and dependable accounts operations.', image: kinjalImage, videoUrl: '' },
+  { id: 'dharav-shah', name: 'Dharav Shah', designation: 'Finance', description: 'Supports financial planning and day-to-day finance operations.', image: dharavImage, videoUrl: '' },
+  { id: 'hemlata-pushkar', name: 'Hemlata Pushkar', designation: 'Director of People and Culture', description: 'Builds the people-first culture that connects every company in the group.', image: hemlataImage, videoUrl: '' },
+  { id: 'akshay-kansara', name: 'Akshay Kansara', designation: 'Social Media Executive', description: 'Creates and manages social media communication for the group and its brands.', image: akshayImage, videoUrl: '' },
+  { id: 'nagesh-prajapati', name: 'Nagesh Prajapati', designation: 'Executive Creative & Visual Designer', description: 'Turns brand ideas into clear, expressive, and useful visual work.', image: nageshImage, videoUrl: '' },
+  { id: 'yash-prajapati', name: 'Yash Prajapati', designation: 'Ecommerce Executive', description: 'Supports the ecommerce experience and the systems behind online growth.', image: yashImage, videoUrl: '' },
+  { id: 'prem-singh-sengar', name: 'Prem Singh Sengar', designation: 'Frontend Developer', description: 'Builds responsive interfaces and frontend experiences for the group.', image: premImage, videoUrl: '' },
+  { id: 'shriya-jain', name: 'Shriya Jain', designation: 'Web Developer', description: 'Supports web development and the digital platforms used by the brands.', image: shriyaImage, videoUrl: '' },
+  { id: 'urvi', name: 'Urvi', designation: 'Web Developer', description: 'Helps maintain and improve the group\'s web experiences.', image: urviImage, videoUrl: '' },
+  { id: 'aarti', name: 'Aarti', designation: 'Meta Executive', description: 'Supports paid social campaigns and performance activity across Meta.', image: rishiImage, videoUrl: '' },
+]
 
 export const newsItems = [
   {
@@ -65,14 +98,14 @@ export const newsItems = [
 export const careerCards = [
   {
     id: 'life',
-    title: 'Life at Aditya Suvid',
+    title: 'Life at Suvid Retail',
     description: 'A culture built on transparency, creative freedom, and continuous evolution.',
     icon: '✦',
   },
   {
-    id: 'people',
-    title: 'Our People',
-    description: 'Meet the diverse minds behind our brands—designers, strategists, and innovators.',
+    id: 'articles',
+    title: 'Articles',
+    description: 'Ideas, perspectives, and stories from the brands we are building.',
     icon: '◎',
   },
   {

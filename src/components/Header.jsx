@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { Globe, Mail, Search, SunMedium, MoonStar, Menu, X } from 'lucide-react'
-import { navItems } from '../data/content'
+import { Globe, Mail, SunMedium, MoonStar, Menu, X } from 'lucide-react'
+import { navItems, siteAssets } from '../data/content'
 import './styles/Header.css'
 
 const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.pathname }) => {
@@ -19,7 +19,10 @@ const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.
     <header className="site-header">
       <div className="topbar container">
         <div className="brand-block">
-          <a href="/" className="brand-mark" onClick={(e)=>{e.preventDefault(); navigate && navigate('/')}}> Suvid Retail</a>
+          <a href="/" className="brand-mark" onClick={(e)=>{e.preventDefault(); navigate && navigate('/')}}>
+            <img src={siteAssets.logo.image} alt="Aditya Suvid Retail logo" />
+            <span>Suvid Retail</span>
+          </a>
         </div>
 
         <nav className="main-nav" aria-label="Main navigation">
@@ -41,9 +44,6 @@ const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.
           </button>
           <button type="button" className="icon-button" aria-label="Email">
             <Mail size={15} />
-          </button>
-          <button type="button" className="icon-button" aria-label="Search">
-            <Search size={15} />
           </button>
           <button
             type="button"

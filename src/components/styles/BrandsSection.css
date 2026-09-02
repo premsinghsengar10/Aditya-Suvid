@@ -1,5 +1,10 @@
 /* BrandsSection styles (component-scoped) */
 
+.brand-option {
+  text-decoration: none;
+  cursor: pointer;
+}
+
 /* Make brand description larger and more readable */
 .brand-description {
   font-size: clamp(1.05rem, 1.5vw, 1.25rem) !important;
@@ -27,25 +32,40 @@
 .entity-highlights {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px 16px;
-  margin-top: 4px;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .entity-highlights span {
-  color: rgba(255, 255, 255, 0.72);
-  font-size: 0.76rem;
+  padding: 7px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.06);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
   line-height: 1.45;
 }
 
-.entity-status {
-  align-self: flex-end;
-  color: rgba(255, 255, 255, 0.72);
+.brand-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 18px;
+  flex-shrink: 0;
 }
 
 /* Slightly increase the brand heading for balance */
 .brand-feature h3 {
-  font-size: clamp(2.3rem, 3.2vw, 4.4rem) !important;
-  line-height: 0.98 !important;
+  max-width: min(720px, 52vw);
+  font-size: clamp(2rem, 2.8vw, 3.6rem) !important;
+  line-height: 0.94 !important;
+  overflow-wrap: anywhere;
+}
+
+.brand-link-secondary {
+  color: var(--gold-strong);
 }
 
 /* Ensure the text block has space when layout is narrow */
@@ -60,8 +80,8 @@
     max-width: 100% !important;
   }
 
-  .entity-status {
-    align-self: flex-start;
+  .brand-feature h3 {
+    max-width: 100%;
   }
 }
 
@@ -77,5 +97,9 @@
 
   .brands-section .brand-text-block {
     gap: 22px;
+  }
+
+  .brand-actions {
+    justify-content: flex-start;
   }
 }

@@ -31,12 +31,21 @@
 }
 
 .footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
   font-size: clamp(1.6rem, 2.6vw, 3.1rem);
   color: var(--text);
   font-weight: 700;
   line-height: 1.08;
   letter-spacing: -0.04em;
   text-align: left;
+}
+
+.footer-brand img {
+  width: 62px;
+  height: 62px;
+  object-fit: contain;
 }
 
 .footer-brand-block p {

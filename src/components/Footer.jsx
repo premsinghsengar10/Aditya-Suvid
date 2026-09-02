@@ -1,6 +1,6 @@
 import { ArrowUp } from 'lucide-react'
 import { motion } from 'framer-motion'
-import { footerColumns } from '../data/content'
+import { footerColumns, siteAssets } from '../data/content'
 import './styles/Footer.css'
 
 const footerLinkTargets = {
@@ -29,7 +29,10 @@ const Footer = () => {
       <div className="container footer-top">
         <div className="footer-left-stack">
           <div className="footer-brand-block">
-            <div className="footer-brand"> Suvid Retail</div>
+            <div className="footer-brand">
+              <img src={siteAssets.logo.image} alt="Suvid Retail logo" />
+              <span>Suvid Retail</span>
+            </div>
             <p>
               Subscribe to receive corporate updates, brand news, and
               material content directly to your inbox.
@@ -74,7 +77,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom container">
-        <span>© 2024 Aditya Suvid Retail. All Rights Reserved.</span>
+        <span>© 2024 Suvid Retail. All Rights Reserved.</span>
         <button type="button" className="back-to-top" onClick={scrollToTop}>
           <span>BACK TO TOP</span>
           <ArrowUp size={14} />

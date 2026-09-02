@@ -327,10 +327,20 @@ The app uses a custom client-side routing implementation:
 7. **Navigation Updates**: Removed separate Team section from navigation, now part of Timeline section
 
 ### Technical Implementation Details
-- **Infinite Scroll**: Uses Framer Motion's `animate` with `x` property and infinite loop
-- **Opposite Direction Scrolling**: Top row animates `x: [0, -2000]`, bottom row animates `x: [-2000, 0]`
+- **Infinite Team Scroll**: `TimelineSection.jsx` duplicates each nine-card row and uses Framer Motion's `animate` with a linear infinite `x` loop
+- **Opposite Direction Scrolling**: Top row travels left and bottom row travels right inside full-width clipped viewports
+- **Team Spacing**: Team rows use a 30px vertical gap and 24px desktop card gap, with smaller touch-friendly gaps on narrow screens
 - **Team Popup**: Modal with YouTube embed, backdrop blur, and smooth animations
-- **Logo Assets**: Temporarily using hero.png as placeholder logo (to be replaced with actual swan logo)
-- **Responsive Timeline**: Adapts from 9 columns on desktop to 3 columns on mobile
+- **Logo Integration**: Navbar and footer use the shared `siteAssets.logo` asset and display `Suvid Retail`
+- **Entities UI**: Entity titles use bounded responsive sizing, highlights render as pill chips, and every entity exposes `VIEW BRAND` and `JOIN US` actions
+- **Responsive Timeline**: Keeps two nine-card tracks on desktop and allows the tracks to remain clipped and animated on mobile
 - **Team Grid**: Full-width layout using `width: 100vw` with negative margin for edge-to-edge display
-- **Centered Header**: Timeline intro section uses `text-align: center` and `margin: 0 auto`
+- **Timeline Header**: The "Built together" heading and description render before the integrated team tracks
+- **Team Content**: Team profiles are centralized in `src/data/content.js`; supplied profile images are imported from `src/assets/teammembers/`
+- **Careers Copy**: The Shape the Future section uses `Life at Suvid Retail` and `Articles` cards
+- **Team Portraits**: Additional portraits from `src/assets/teammembers/` are mapped to the supplied team profiles; the extensionless Kinjal WebP asset is stored as `Kinjal.webp` for Vite compatibility
+- **Team Presentation**: The integrated Timeline keeps a centered introduction and uses a reference-inspired editorial card treatment while retaining opposite-direction infinite rows
+- **Timeline Intro Spacing**: The centered Timeline description is constrained for a three-line editorial rhythm, with increased space before the team rows
+- **Timeline Intro Visibility**: Timeline header spacing uses a stronger scoped rule, enlarged responsive description text, and member overlays stay hidden until hover or focus
+- **Built Together Copy**: The Timeline introduction uses the approved team-focused description supplied by the web team
+- **Built Together Width**: The centered Timeline introduction uses a wider desktop text rail so the approved description does not wrap into five lines
