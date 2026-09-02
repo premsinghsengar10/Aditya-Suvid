@@ -29,9 +29,10 @@ const CareersSection = () => {
 
       <div className="container careers-grid">
         {careerCards.map((card, index) => (
-          <motion.article
+          <motion.a
             key={card.id}
             className="career-card"
+            href={card.link}
             initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -43,7 +44,7 @@ const CareersSection = () => {
             <div className="career-link">
               <ArrowUpRight size={16} />
             </div>
-          </motion.article>
+          </motion.a>
         ))}
       </div>
     </motion.section>

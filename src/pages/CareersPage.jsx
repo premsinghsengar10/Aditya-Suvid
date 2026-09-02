@@ -7,6 +7,17 @@ const CareersPage = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    const formData = new FormData(event.currentTarget)
+    const details = [
+      `Full name: ${formData.get('name')}`,
+      `Email: ${formData.get('email')}`,
+      `Phone: ${formData.get('phone') || 'Not provided'}`,
+      `Area of interest: ${formData.get('interest')}`,
+      `Message: ${formData.get('message')}`,
+      `Resume or portfolio: ${formData.get('resume') || 'Not provided'}`,
+    ].join('\n')
+
+    window.location.href = `mailto:hr@suvidretail.in?subject=${encodeURIComponent('Career enquiry from Suvid Retail website')}&body=${encodeURIComponent(details)}`
     setSubmitted(true)
   }
 
@@ -73,7 +84,7 @@ const CareersPage = () => {
 
             <div className="career-form-footer">
               <p className="form-note" aria-live="polite">
-                {submitted ? 'Thank you. Your application has been received.' : 'We review every application with care.'}
+                {submitted ? 'Your email draft is ready to send to HR.' : 'We review every application with care.'}
               </p>
               <button type="submit" className="page-submit-button">
                 Submit application

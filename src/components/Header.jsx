@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Globe, Mail, SunMedium, MoonStar, Menu, X } from 'lucide-react'
+import { Mail, SunMedium, MoonStar, Menu, X } from 'lucide-react'
 import { navItems, siteAssets } from '../data/content'
 import './styles/Header.css'
 
@@ -39,12 +39,9 @@ const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.
         </nav>
 
         <div className="utility-actions" aria-label="Utilities">
-          <button type="button" className="icon-button" aria-label="Global">
-            <Globe size={15} />
-          </button>
-          <button type="button" className="icon-button" aria-label="Email">
+          <a href="mailto:hr@suvidretail.in" className="icon-button" aria-label="Email human resources">
             <Mail size={15} />
-          </button>
+          </a>
           <button
             type="button"
             className="icon-button"

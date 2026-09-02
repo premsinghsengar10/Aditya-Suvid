@@ -1,1 +1,11 @@
 /* CareersSection styles (component-scoped) */
+
+.career-card {
+  color: inherit;
+  text-decoration: none;
+}
+
+.career-card:hover .career-link,
+.career-card:focus-visible .career-link {
+  transform: translate(3px, -3px);
+}

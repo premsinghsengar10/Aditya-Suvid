@@ -1,8 +1,8 @@
 import './styles/ImageCard.css'
 
 const ImageCard = ({ item, featured = false, onClick }) => {
-  return (
-    <article className={`image-card ${featured ? 'featured' : ''}`} onClick={onClick}>
+  const content = (
+    <>
       <div className="image-wrap">
         <img src={item.image} alt={item.title} loading="lazy" />
         <div className="image-overlay" aria-hidden="true" />
@@ -16,8 +16,14 @@ const ImageCard = ({ item, featured = false, onClick }) => {
           <span aria-hidden="true">→</span>
         </div>
       </div>
-    </article>
+    </>
   )
+
+  if (item.link) {
+    return <a className={`image-card ${featured ? 'featured' : ''}`} href={item.link}>{content}</a>
+  }
+
+  return <article className={`image-card ${featured ? 'featured' : ''}`} onClick={onClick}>{content}</article>
 }
 
 export default ImageCard

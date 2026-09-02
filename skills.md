@@ -342,9 +342,23 @@ The app uses a custom client-side routing implementation:
 - **Team Presentation**: The integrated Timeline keeps a centered introduction and uses a reference-inspired editorial card treatment while retaining opposite-direction infinite rows
 - **Timeline Intro Spacing**: The centered Timeline description is constrained for a three-line editorial rhythm, with increased space before the team rows
 - **Timeline Intro Visibility**: Timeline header spacing uses a stronger scoped rule, enlarged responsive description text, and member overlays stay hidden until hover or focus
+- **Timeline Typography**: Timeline heading and description explicitly inherit the shared site font and use the same heading weight as the other homepage sections
 - **Built Together Copy**: The Timeline introduction uses the approved team-focused description supplied by the web team
 - **Built Together Width**: The centered Timeline introduction uses a wider desktop text rail so the approved description does not wrap into five lines
+- **Team Role Descriptions**: Harmoniq Creative team profiles describe their support for Monkey Troopers and FO Dubai while preserving the supplied designations
 - **Browser Favicon**: The Suvid Retail logo is copied to `public/assets/suvid-retail.jpeg` and referenced from `index.html` for reliable tab icon loading
 - **Navbar Styling**: Removed underline indicators from desktop and mobile navigation hover and active states
 - **Anchor Styling**: Explicitly disables browser-default underlines on navbar and brand links
 - **Hero Banner CTA**: Hero slides now use `Visit website`; the lead slide promotes Harmoniq Creatives and links to its website
+- **Articles Architecture**: Ten sample articles are centralized in `src/data/content.js` as `articleItems` for the Suvid Retail group and its retail, streetwear, digital, and fragrance brands.
+- **Article Navigation**: `From the group` homepage cards link to `/articles` and `/articles/:slug`; `src/pages/ArticlesPage.jsx` renders the article index and individual article detail views.
+- **Shape the Future Links**: `Life at Suvid Retail` routes to `/about`, while `Articles` routes to `/articles` from the Shape the Future section.
+- **Entity Actions**: `VIEW BRAND` and `JOIN US` are styled as accessible pill buttons, with brand links opening the relevant external sites and join actions routing to `/careers`.
+- **Homepage Article Curation**: The homepage `From the group` section shows exactly four articles: Harmoniq Creative as the large feature on the left, followed by Monkey Troopers, FO Dubai, and Aditya Suvid Retail cards on the right. The complete ten-article collection remains available through `VIEW ALL ARTICLES`.
+- **HR Contact Flow**: The navbar globe control was removed; the mail icon now opens `hr@suvidretail.in`, and the careers form creates an email draft containing all submitted fields for the same HR address.
+- **Seamless Team Marquee**: Timeline rows now animate two complete, identically sized row groups so the loop restarts without a trailing gap in either direction.
+- **Measured Team Marquee**: Timeline team rows measure the width of one complete card group with `ResizeObserver` and animate by that exact pixel distance, preventing blank space at the loop boundary across responsive widths.
+- **Team Marquee Spacing**: Added a real gap between the two duplicated timeline row groups and included that boundary spacing in the measured animation distance, keeping both rows visually separated without breaking the seamless loop.
+- **Continuous Team Scroll**: Replaced the finite repeat cycle with a `requestAnimationFrame` modulo loop that continuously translates each duplicated timeline row, preventing the marquee from appearing to finish or exposing an end gap.
+- **Balanced Team Rows**: The timeline display list now pads the 14 supplied profiles to exactly 18 cards, ensuring both infinite-scroll rows contain 9 cards and the bottom row cannot expose a viewport gap.
+- **SRPL Branding**: The favicon now uses `public/assets/suvid-retail-logo.jpeg`, and the preloader identifies the company as `Suvid Retail Private Limited` with the `SRPL` mark.

@@ -2,8 +2,7 @@ import homeHeroImage from '../assets/generated/home-hero.png'
 import monkeyTroopersImage from '../assets/generated/monkey-troopers.png'
 import foDubaiImage from '../assets/generated/fo-dubai.png'
 import groupJourneyImage from '../assets/generated/group-journey.png'
-import companyLogo from '../assets/suvid-retail.jpeg'
-import akshayImage from '../assets/teammembers/Akshay_Image.jpg'
+import companyLogo from '../assets/suvid-retail-logo.jpeg'
 import bhupiiiImage from '../assets/teammembers/Bhuppi_Image.png'
 import dharavImage from '../assets/teammembers/Dharavsir_Image.png'
 import hemlataImage from '../assets/teammembers/Hemlatamam_Image.png'
@@ -43,20 +42,19 @@ export const siteAssets = {
 
 export const teamMembers = [
   { id: 'suvid-sinha', name: 'Suvid Sinha', designation: 'Founder', description: 'Guides the group vision and the brands built for the next generation.', image: suvidImage, videoUrl: '' },
-  { id: 'bhupiii', name: 'Bhupiii', designation: 'Manager - Product & D2C Website', description: 'Manages product thinking and the direct-to-consumer website experience.', image: bhupiiiImage, videoUrl: '' },
+  { id: 'bhupiii', name: 'Bhupendra B', designation: 'Head of Product', description: 'Manages product thinking and the direct-to-consumer website experience.', image: bhupiiiImage, videoUrl: '' },
   { id: 'henisha-kansara', name: 'Henisha Kansara', designation: 'Head of Design, Development & Digital Growth', description: 'Leads design, development, and digital growth across the group.', image: henishaImage, videoUrl: '' },
-  { id: 'jash-solanki', name: 'Jash Solanki', designation: 'Manager - Brand Marketing Specialist', description: 'Shapes brand marketing initiatives and helps ideas reach their audiences.', image: jashImage, videoUrl: '' },
+  { id: 'jash-solanki', name: 'Jash Solanki', designation: 'Head of Marketing', description: 'Shapes brand marketing initiatives and helps ideas reach their audiences.', image: jashImage, videoUrl: '' },
   { id: 'piyush-pushkar', name: 'Piyush Pushkar', designation: 'Mentor / Director', description: 'Brings long-term retail and international brand experience to the group.', image: piyushImage, videoUrl: '' },
-  { id: 'kinjal-patel', name: 'Kinjal Patel', designation: 'Accounts', description: 'Supports the group through accurate and dependable accounts operations.', image: kinjalImage, videoUrl: '' },
-  { id: 'dharav-shah', name: 'Dharav Shah', designation: 'Finance', description: 'Supports financial planning and day-to-day finance operations.', image: dharavImage, videoUrl: '' },
-  { id: 'hemlata-pushkar', name: 'Hemlata Pushkar', designation: 'Director of People and Culture', description: 'Builds the people-first culture that connects every company in the group.', image: hemlataImage, videoUrl: '' },
-  { id: 'akshay-kansara', name: 'Akshay Kansara', designation: 'Social Media Executive', description: 'Creates and manages social media communication for the group and its brands.', image: akshayImage, videoUrl: '' },
-  { id: 'nagesh-prajapati', name: 'Nagesh Prajapati', designation: 'Executive Creative & Visual Designer', description: 'Turns brand ideas into clear, expressive, and useful visual work.', image: nageshImage, videoUrl: '' },
-  { id: 'yash-prajapati', name: 'Yash Prajapati', designation: 'Ecommerce Executive', description: 'Supports the ecommerce experience and the systems behind online growth.', image: yashImage, videoUrl: '' },
-  { id: 'prem-singh-sengar', name: 'Prem Singh Sengar', designation: 'Frontend Developer', description: 'Builds responsive interfaces and frontend experiences for the group.', image: premImage, videoUrl: '' },
-  { id: 'shriya-jain', name: 'Shriya Jain', designation: 'Web Developer', description: 'Supports web development and the digital platforms used by the brands.', image: shriyaImage, videoUrl: '' },
-  { id: 'urvi', name: 'Urvi', designation: 'Web Developer', description: 'Helps maintain and improve the group\'s web experiences.', image: urviImage, videoUrl: '' },
-  { id: 'aarti', name: 'Aarti', designation: 'Meta Executive', description: 'Supports paid social campaigns and performance activity across Meta.', image: rishiImage, videoUrl: '' },
+  { id: 'kinjal-patel', name: 'Kinjal Patel', designation: 'Frontend Accountant', description: 'Supports Harmoniq Creative with dependable accounts operations across the Monkey Troopers and FO Dubai businesses.', image: kinjalImage, videoUrl: '' },
+  { id: 'dharav-shah', name: 'Dharav Shah', designation: 'Finance Head', description: 'Leads finance support at Harmoniq Creative for the group and its Monkey Troopers and FO Dubai operations.', image: dharavImage, videoUrl: '' },
+  { id: 'hemlata-pushkar', name: 'Hemlata Pushkar', designation: 'Founder', description: 'Builds the people-first culture that connects every company in the group.', image: hemlataImage, videoUrl: '' },
+  { id: 'nagesh-prajapati', name: 'Nagesh Prajapati', designation: 'Senior Graphic Designer', description: 'Creates visual work for Harmoniq Creative and the Monkey Troopers and FO Dubai brand worlds.', image: nageshImage, videoUrl: '' },
+  { id: 'yash-prajapati', name: 'Yash Prajapati', designation: 'Senior Web Developer', description: 'Builds and supports the digital and ecommerce experiences for Monkey Troopers and FO Dubai through Harmoniq Creative.', image: yashImage, videoUrl: '' },
+  { id: 'prem-singh-sengar', name: 'Prem Singh Sengar', designation: 'Frontend Developer', description: 'Builds responsive interfaces for Harmoniq Creative and the digital platforms behind Monkey Troopers and FO Dubai.', image: premImage, videoUrl: '' },
+  { id: 'shriya-jain', name: 'Shriya Jain', designation: 'Web Developer', description: 'Develops and maintains web experiences for the Monkey Troopers and FO Dubai brands at Harmoniq Creative.', image: shriyaImage, videoUrl: '' },
+  { id: 'hardeep-virk', name: 'Hardeep Virk', designation: 'Visual Editor and Content Creator', description: 'Creates and edits visual content for Harmoniq Creative, supporting the storytelling of Monkey Troopers and FO Dubai.', image: urviImage, videoUrl: '' },
+  { id: 'rishabh-moyal', name: 'Rishabh Moyal', designation: 'Visual Editor', description: 'Shapes visual content for Harmoniq Creative and helps bring Monkey Troopers and FO Dubai campaigns to life.', image: rishiImage, videoUrl: '' },
 ]
 
 export const newsItems = [
@@ -95,24 +93,40 @@ export const newsItems = [
   },
 ]
 
+export const articleItems = [
+  { slug: 'building-brands-with-a-point-of-view', category: 'Suvid Retail', title: 'Building brands with a point of view', description: 'How a shared culture helps four businesses move with clarity while keeping their own identity.', image: siteAssets.timeline.image },
+  { slug: 'retail-that-starts-with-people', category: 'Aditya Suvid Retail', title: 'Retail that starts with people', description: 'The everyday choices that turn a store visit into a relationship worth returning to.', image: siteAssets.hero.image },
+  { slug: 'monkey-troopers-street-culture', category: 'Monkey Troopers', title: 'Street culture, carried forward', description: 'Why utility, expression, and community sit at the heart of Monkey Troopers.', image: siteAssets.brands.monkeyTroopers },
+  { slug: 'designing-for-everyday-movement', category: 'Monkey Troopers', title: 'Designing for everyday movement', description: 'A closer look at the details that make everyday carry feel more personal.', image: siteAssets.brands.monkeyTroopers },
+  { slug: 'from-india-to-the-middle-east', category: 'Monkey Troopers', title: 'From India to the Middle East', description: 'What it takes to carry an Indian brand story into a new market without losing its voice.', image: siteAssets.brands.monkeyTroopers },
+  { slug: 'the-digital-engine-behind-growth', category: 'Harmoniq Creative', title: 'The digital engine behind growth', description: 'How strategy, design, development, and performance work together under Harmoniq Creative.', image: siteAssets.hero.image },
+  { slug: 'making-brands-discoverable', category: 'Harmoniq Creative', title: 'Making ambitious brands discoverable', description: 'A practical view of the systems that help good brand work find the right audience.', image: siteAssets.hero.image },
+  { slug: 'fragrance-from-dubai-to-india', category: 'Harmoniq Trading', title: 'Fragrance from Dubai to India', description: 'The relationship-led story behind a fragrance business rooted in Dubai and growing across markets.', image: siteAssets.brands.foDubai },
+  { slug: 'the-ritual-of-leaving-a-trace', category: 'FO Dubai', title: 'The ritual of leaving a trace', description: 'Why fragrance is more than a product: it is memory, mood, and identity in motion.', image: siteAssets.brands.foDubai },
+  { slug: 'one-group-many-next-chapters', category: 'Suvid Retail', title: 'One group, many next chapters', description: 'The shared ambition connecting retail, streetwear, digital growth, and fragrance.', image: siteAssets.timeline.image },
+]
+
 export const careerCards = [
   {
     id: 'life',
     title: 'Life at Suvid Retail',
     description: 'A culture built on transparency, creative freedom, and continuous evolution.',
     icon: '✦',
+    link: '/about',
   },
   {
     id: 'articles',
     title: 'Articles',
     description: 'Ideas, perspectives, and stories from the brands we are building.',
     icon: '◎',
+    link: '/articles',
   },
   {
     id: 'opportunities',
     title: 'Opportunities',
     description: 'View current openings across our corporate headquarters and brand portfolios.',
     icon: '↗',
+    link: '/careers',
   },
 ]
 

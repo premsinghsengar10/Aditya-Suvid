@@ -68,6 +68,35 @@
   color: var(--gold-strong);
 }
 
+.brand-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 44px;
+  padding: 11px 17px;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  border-radius: 999px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  transition: background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.brand-link:hover,
+.brand-link:focus-visible {
+  border-color: var(--gold-strong);
+  background: var(--gold-strong);
+  color: #17130d;
+  transform: translateY(-2px);
+}
+
+.brand-link-secondary {
+  border-color: rgba(226, 188, 103, 0.65);
+  color: var(--gold-strong);
+}
+
 /* Ensure the text block has space when layout is narrow */
 .brand-text-block {
   gap: 14px;

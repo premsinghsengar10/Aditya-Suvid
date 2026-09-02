@@ -13,6 +13,7 @@ import CareersPage from './pages/CareersPage'
 import StoryPage from './pages/StoryPage'
 import AboutPage from './pages/AboutPage'
 import CompaniesPage from './pages/CompaniesPage'
+import ArticlesPage from './pages/ArticlesPage'
 
 const sectionNames = {
   hero: 'Home',
@@ -162,6 +163,10 @@ const App = () => {
         <CompaniesPage />
       ) : route === '/about' ? (
         <AboutPage />
+      ) : route === '/articles' ? (
+        <ArticlesPage navigate={navigate} />
+      ) : route.startsWith('/articles/') ? (
+        <ArticlesPage slug={route.replace('/articles/', '')} navigate={navigate} />
       ) : (
         // fallback to home
         <>
