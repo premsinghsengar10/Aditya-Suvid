@@ -63,7 +63,7 @@ const TimelineSection = () => {
     <motion.section className="timeline-section" id="timeline" data-section-key="timeline" data-section-label="Timeline" initial={{ opacity: 0, y: 22 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.12 }} transition={{ duration: 0.75, ease: 'easeOut' }}>
       <div className="timeline-header container">
         <div className="timeline-intro">
-          <h2>Built Together</h2>
+          <h2>Built With Purpose</h2>
           <p>Meet the people who bring our brands, culture, and vision to life. Together, they shape our identity through creativity, collaboration, and a shared passion for what we do. With their energy and expertise, we continue to grow, evolve, and build our next chapter.</p>
         </div>
       </div>
