@@ -372,3 +372,37 @@ The app uses a custom client-side routing implementation:
 - **Harmoniq Hero Spacing**: Added a desktop-only slide class with tighter headline sizing and higher content placement so the three-line Harmoniq Creatives headline and CTA stay clear of the fixed playback controls.
 - **Homepage Group Order**: The From the Group layout now features Aditya Suvid Retail on the left, followed by Monkey Troopers, Fragrance d’Oasis, and Harmoniq Creative in the three right-side cards.
 - **Feature Card Links**: Removed browser-default underlines from the clickable From the Group feature card while preserving its inherited text color and hover behavior.
+- **Inner-Page Light Header**: Light-mode non-home pages now use a dark readable navbar surface with white brand, navigation, and utility controls instead of dark text on black.
+- **Footer Harmoniq Link**: Added the Harmoniq Creative footer mapping to `https://www.harmoniqcreatives.com/`.
+- **Company Image Framing**: Companies page image containers now use a square aspect ratio to match the supplied square Aditya brand image and prevent the bag/product composition from being cropped.
+- **Company Artwork Visibility**: Companies page brand artwork now uses `object-fit: contain` inside the square frame so wide Monkey Troopers and other compositions are not cropped while the Aditya square image remains fully visible.
+- **Company Asset Folder**: Companies page now imports the square-specific images from `src/assets/companies/` for Aditya Suvid Retail, Monkey Troopers, Harmoniq Creative, and Harmoniq Trading/FO Dubai.
+- **Navbar Centering**: Desktop navbar layout now uses equal outer grid columns so the navigation remains horizontally centered across the full header, with branding and utility actions aligned to opposite sides.
+- **Navbar Vertical Centering**: Replaced the top-only navbar padding with a balanced fixed header height so the logo, navigation, and utility controls are vertically centered together.
+- **Story Chapter Routing**: Story page now follows Journey, Prologue, Chapter journey, and Closing structure; each chapter card links to `/story/01` through `/story/04`, where its full chapter content renders.
+- **Complete Story Copy**: Added the full supplied prologue, chapter text, closing copy, and web-team confirmation notes to `storyFullCopy`; Story overview and chapter detail routes now render the complete source content.
+- **Story Copy Presentation**: Story chapter headings, subtitles, full paragraphs, vision/mission/passion content, and closing copy now render from the complete supplied source text rather than the shortened summaries.
+- **Story Responsive Spacing**: Reduced oversized Story page column gaps and top-aligned Journey content so Prologue, Journey, Closing, and chapter detail layouts read clearly on laptop, tablet, and mobile screens.
+- **Journey Chapter Layout**: Reworked the Story journey cards into a compact alternating left/right timeline with a central guide and responsive single-column mobile fallback, replacing the loose conventional grid.
+- **Story Editorial Rail**: Tightened the Story page desktop grid to reduce empty left-to-content space, while retaining a clear hierarchy and stacking cleanly below the tablet breakpoint.
+- **Story Content Rail**: Rebalanced the Story page columns so chapter and closing text uses the open middle area instead of being pushed too far right, while retaining responsive stacking.
+- **Closing Section Flow**: Story Closing now renders as one vertical block with the Closing label, heading, and description in sequence instead of separate left and right columns.
+- **Chapter Timeline Presentation**: Refined the Story journey to follow a focused timeline pattern inspired by the supplied Tata reference: centered introduction, four clearly separated clickable chapter entries, and responsive rhythm across screen sizes.
+- **Story Intro/Closing Presentation**: Prologue and Closing now use the centered Journey-style composition with large headings and readable text rails; Web Team confirmation notes were removed from the rendered Story page.
+- **Closing Alignment Fix**: Removed the later offset override so the Story Closing section remains centered consistently with the Prologue and Journey presentations.
+- **Story Reading Width**: Widened Prologue and Closing content rails on laptop screens to reduce excessive side margins while keeping paragraph line lengths readable.
+- **Story Paragraph Rail**: Removed the remaining `760px` paragraph cap from Prologue and Closing so body copy fills the widened content rail and does not leave an excessive right-side gap.
+- **Prologue-Journey Divider**: Added a responsive horizontal divider between the Prologue and Journey sections to give the large transition space a clear visual boundary.
+- **Full-Width Story Divider**: Extended the Prologue-to-Journey divider across the full viewport instead of limiting it to the content rail.
+- **Chapter Strip Layout**: Redesigned the four Journey chapters as stacked horizontal strips with colored chapter accents, staggered widths, retained imagery, and a compact mobile layout inspired by the supplied reference.
+- **Notebook Chapter Track**: Aligned all chapter strips to one straight desktop column with a left-side vertical guide, connector ticks, and chapter markers; mobile removes the guide for a clean single-column stack.
+- **Interactive Chapter Cards**: Converted Journey strips into non-overlapping expandable cards with keyboard support, three-line chapter previews, notebook-style hooks, and a `Read more` button linking to each full chapter page.
+- **Chapter Card Spacing Fix**: Removed inherited alternating offsets and forced natural card heights so all four chapter cards remain fully separated with one consistent gap.
+- **Chapter Grid Gap**: Set the Journey card gap to `45px` on desktop and `20px` on mobile for balanced separation across viewports.
+- **DOCX Story Hierarchy**: Applied the supplied DOCX emphasis hierarchy to Story content: distinct internal headings, italic subtitle treatment, list formatting for lessons and services, and bold people/vision/mission/passion labels.
+- **Story Heading Scale**: Reduced Story page, section, chapter-card, feature, and detail headings with responsive clamps so the hierarchy remains strong without overwhelming the reading experience.
+- **Site-Wide Heading Scale**: Reduced heading sizes across Home, Story, Companies, Careers, Timeline, Brands, and Articles, including mobile breakpoints, to improve visual balance across every page.
+- **Story Quote Highlights**: Styled the opening passion quote as a bordered editorial callout and the final story line as a distinct gold signature pill for stronger visual emphasis.
+- **Closing/Footer Theme Match**: Unified the Story Closing and Footer backgrounds through the shared footer theme token so both sections match in dark and light modes.
+- **Prologue Spacing**: Set the Story Prologue section padding to `90px 0 50px` for a tighter transition into the Journey section.
+- **Closing Composition**: Centered the Closing descriptions under the centered heading with a wider controlled reading rail, removing the left-aligned paragraph mismatch.

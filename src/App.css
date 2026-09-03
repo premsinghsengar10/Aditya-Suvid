@@ -11,7 +11,7 @@
   --gold-strong: #f0d38c;
   --line: rgba(255, 255, 255, 0.12);
   --line-strong: rgba(255, 255, 255, 0.22);
-  --footer-bg: #191919;
+  --footer-bg: #121212;
 }
 
 .app-shell[data-theme='light'] {
@@ -201,7 +201,27 @@ img {
   gap: 12px;
   width: min(1320px, calc(100% - 40px));
   margin: 0 auto;
-  padding-top: 30px;
+  min-height: 84px;
+  padding: 0;
+}
+
+@media (min-width: 901px) {
+  .topbar {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  .brand-block {
+    justify-self: start;
+  }
+
+  .main-nav {
+    justify-self: center;
+  }
+
+  .utility-actions {
+    justify-self: end;
+  }
 }
 
 .brand-block {
@@ -481,7 +501,7 @@ img {
   margin: 0;
   max-width: 760px;
   color: #ffffff;
-  font-size: clamp(3.1rem, 5.8vw, 6.6rem);
+  font-size: clamp(2.8rem, 5.2vw, 6rem);
   line-height: 0.94;
   letter-spacing: -0.065em;
   text-transform: none;
@@ -850,7 +870,7 @@ img {
 
 .news-feature h3 {
   max-width: 540px;
-  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-size: clamp(1.8rem, 2.2vw, 2.6rem);
   line-height: 1.06;
 }
 
@@ -925,7 +945,7 @@ img {
 
 .timeline-content h2 {
   margin: 0;
-  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-size: clamp(2rem, 3.2vw, 3.5rem);
   letter-spacing: -0.065em;
   line-height: 1;
   font-weight: 600;
@@ -967,7 +987,7 @@ img {
 .careers-heading-wrap h2 {
   margin: 0;
   color: #f9f4ed;
-  font-size: clamp(2.5rem, 3.8vw, 5rem);
+  font-size: clamp(2.2rem, 3.2vw, 4.2rem);
   line-height: 0.97;
   letter-spacing: -0.07em;
   font-weight: 600;
@@ -1087,7 +1107,7 @@ img {
 
 .brand-label-wrap h2 {
   margin: 20px 0 0;
-  font-size: clamp(2.8rem, 4vw, 5.4rem);
+  font-size: clamp(2.4rem, 3.4vw, 4.6rem);
   letter-spacing: -0.08em;
   line-height: 0.9;
   color: #f7f4ee;
@@ -1109,7 +1129,7 @@ img {
 }
 
 .brand-feature h3 {
-  font-size: clamp(2.1rem, 3vw, 4rem);
+  font-size: clamp(1.9rem, 2.5vw, 3.5rem);
   line-height: 0.98;
   letter-spacing: -0.06em;
 }
@@ -1476,6 +1496,18 @@ img {
 
 .app-shell[data-theme='light'] .brand-option {
   background: rgba(15, 15, 15, 0.5);
+}
+
+/* Keep the shared header readable on light-mode inner pages. */
+.app-shell:not(.home-route)[data-theme='light'] .site-header {
+  background: rgba(10, 10, 10, 0.96);
+}
+
+.app-shell:not(.home-route)[data-theme='light'] .site-header .brand-mark,
+.app-shell:not(.home-route)[data-theme='light'] .site-header .nav-item,
+.app-shell:not(.home-route)[data-theme='light'] .site-header .icon-button,
+.app-shell:not(.home-route)[data-theme='light'] .site-header .mobile-menu-toggle {
+  color: #fff;
 }
 
 .app-shell[data-theme='light'] .career-card,

@@ -8,6 +8,7 @@ const footerLinkTargets = {
   Careers: '/careers',
   'Monkey Troopers': 'https://monkeytroopers.com/',
   'Fragrance d’Oasis': 'https://fodubai.in/',
+  'Harmoniq Creative': 'https://www.harmoniqcreatives.com/',
 }
 
 const Footer = () => {
@@ -77,7 +78,7 @@ const Footer = () => {
       </div>
 
       <div className="footer-bottom container">
-        <span>© 2024 Suvid Retail. All Rights Reserved.</span>
+        <span>© 2026 Suvid Retail. All Rights Reserved.</span>
         <button type="button" className="back-to-top" onClick={scrollToTop}>
           <span>BACK TO TOP</span>
           <ArrowUp size={14} />

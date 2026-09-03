@@ -158,7 +158,9 @@ const App = () => {
       ) : route === '/careers' ? (
         <CareersPage />
       ) : route === '/story' ? (
-        <StoryPage />
+        <StoryPage navigate={navigate} />
+      ) : route.startsWith('/story/') ? (
+        <StoryPage chapterSlug={route.replace('/story/', '')} navigate={navigate} />
       ) : route === '/companies' ? (
         <CompaniesPage />
       ) : route === '/about' ? (

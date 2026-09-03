@@ -1,13 +1,17 @@
 import { motion } from 'framer-motion'
 import { ArrowUpRight } from 'lucide-react'
-import { groupCompanies, groupOperatingModel, siteAssets } from '../data/content'
+import { groupCompanies, groupOperatingModel } from '../data/content'
+import adityaSuvidRetailCompanyImage from '../assets/companies/suvid retail image.webp'
+import monkeyTroopersCompanyImage from '../assets/companies/monkey-troopers.jpg'
+import harmoniqCreativeCompanyImage from '../assets/companies/harmoniq-creative.jpg'
+import harmoniqTradingCompanyImage from '../assets/companies/harmoniq-trading.jpg'
 import './styles/PageStyles.css'
 
 const companyImages = {
-  'aditya-suvid-retail': siteAssets.brands.adityaSuvidRetail,
-  'monkey-troopers-company': siteAssets.brands.monkeyTroopers,
-  'harmoniq-creative': siteAssets.hero.image,
-  'harmoniq-trading': siteAssets.brands.foDubai,
+  'aditya-suvid-retail': adityaSuvidRetailCompanyImage,
+  'monkey-troopers-company': monkeyTroopersCompanyImage,
+  'harmoniq-creative': harmoniqCreativeCompanyImage,
+  'harmoniq-trading': harmoniqTradingCompanyImage,
 }
 
 const companyLinks = {

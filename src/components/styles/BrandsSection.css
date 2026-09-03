@@ -59,7 +59,7 @@
 /* Slightly increase the brand heading for balance */
 .brand-feature h3 {
   max-width: min(720px, 52vw);
-  font-size: clamp(2rem, 2.8vw, 3.6rem) !important;
+  font-size: clamp(1.8rem, 2.4vw, 3.2rem) !important;
   line-height: 0.94 !important;
   overflow-wrap: anywhere;
 }
