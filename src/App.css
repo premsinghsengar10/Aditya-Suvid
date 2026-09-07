@@ -172,11 +172,30 @@ img {
 .app-shell[data-theme='light'] .section-marker-label,
 .app-shell[data-theme='light'] .section-marker-item.active,
 .app-shell[data-theme='light'] .section-marker-item.hovered {
-  color: var(--text);
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9);
+}
+
+.app-shell[data-theme='light'] .section-marker {
+  right: 18px;
+  padding: 0;
+}
+
+.app-shell[data-theme='light'] .section-marker-label {
+  color: #fff;
+  font-weight: 700;
 }
 
 .app-shell[data-theme='light'] .section-marker-rail {
-  background: var(--line-strong);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.85);
+}
+
+.app-shell[data-theme='light'] .section-marker-item.active .section-marker-rail,
+.app-shell[data-theme='light'] .section-marker-item:hover .section-marker-rail,
+.app-shell[data-theme='light'] .section-marker-item.hovered .section-marker-rail {
+  background: var(--gold-strong);
+  box-shadow: 0 0 12px rgba(134, 95, 37, 0.55);
 }
 
 .site-header {
@@ -375,9 +394,11 @@ img {
 
 .hero-section {
   position: relative;
-  min-height: 560px;
-  height: 86svh;
-  max-height: 820px;
+  width: 100%;
+  min-height: 0;
+  height: auto;
+  max-height: none;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #0b0b0b;
 }
@@ -1596,10 +1617,18 @@ img {
 }
 
 @media (max-width: 768px) {
+  .site-header {
+    position: relative;
+    background: #0d0d0d;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
   .hero-section {
-    min-height: 520px;
-    height: min(78svh, 600px);
-    max-height: 600px;
+    width: 100%;
+    min-height: 0;
+    height: auto;
+    max-height: none;
+    aspect-ratio: 16 / 9;
   }
 
   .section-marker {
@@ -1642,7 +1671,8 @@ img {
 
   .topbar {
     width: min(92vw, 1280px);
-    padding-top: 24px;
+    min-height: 72px;
+    padding: 12px 0;
   }
 
   .hero-content {

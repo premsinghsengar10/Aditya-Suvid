@@ -95,7 +95,7 @@ const BrandsSection = () => {
                 className="brand-link"
                 href={activeEntity.url}
                 target={activeEntity.url.startsWith('http') ? '_blank' : undefined}
-                rel={activeEntity.url.startsWith('http') ? 'noreferrer' : undefined}
+                rel={activeEntity.url.startsWith('http') ? 'noopener noreferrer' : undefined}
               >
                 <span>VIEW BRAND</span>
                 <ArrowUpRight size={16} />
@@ -115,7 +115,7 @@ const BrandsSection = () => {
                 href={entity.url}
                 className={`brand-option ${index === activeIndex ? 'active' : ''}`}
                 target={entity.url.startsWith('http') ? '_blank' : undefined}
-                rel={entity.url.startsWith('http') ? 'noreferrer' : undefined}
+                rel={entity.url.startsWith('http') ? 'noopener noreferrer' : undefined}
                 onClick={() => setActiveIndex(index)}
               >
               <span className="brand-option-line" aria-hidden="true" />

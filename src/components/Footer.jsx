@@ -65,7 +65,7 @@ const Footer = () => {
                     <a
                       href={footerLinkTargets[link] || '#footer'}
                       target={footerLinkTargets[link]?.startsWith('http') ? '_blank' : undefined}
-                      rel={footerLinkTargets[link]?.startsWith('http') ? 'noreferrer' : undefined}
+                      rel={footerLinkTargets[link]?.startsWith('http') ? 'noopener noreferrer' : undefined}
                     >
                       {link}
                     </a>

@@ -403,6 +403,10 @@ The app uses a custom client-side routing implementation:
 - **Story Heading Scale**: Reduced Story page, section, chapter-card, feature, and detail headings with responsive clamps so the hierarchy remains strong without overwhelming the reading experience.
 - **Site-Wide Heading Scale**: Reduced heading sizes across Home, Story, Companies, Careers, Timeline, Brands, and Articles, including mobile breakpoints, to improve visual balance across every page.
 - **Story Quote Highlights**: Styled the opening passion quote as a bordered editorial callout and the final story line as a distinct gold signature pill for stronger visual emphasis.
+- **Back Link Separation**: Made article and chapter back links block-level rows with consistent bottom spacing so they no longer run into the category or chapter label.
+- **Shape the Future Arrows**: Standardized the icon at the top of every Shape the Future card to the same arrow used by each card’s action control.
+- **Shape the Future Icon Roles**: Restored distinct card-specific top symbols while retaining the consistent bottom arrow as the shared navigation action.
+- **Security Hardening**: Added explicit `noopener noreferrer` to new-tab external links and sandboxed the team video iframe with a strict cross-origin referrer policy.
 - **Closing/Footer Theme Match**: Unified the Story Closing and Footer backgrounds through the shared footer theme token so both sections match in dark and light modes.
 - **Prologue Spacing**: Set the Story Prologue section padding to `90px 0 50px` for a tighter transition into the Journey section.
 - **Closing Composition**: Centered the Closing descriptions under the centered heading with a wider controlled reading rail, removing the left-aligned paragraph mismatch.

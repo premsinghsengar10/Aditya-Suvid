@@ -1,150 +1,79 @@
-import { useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Pause, Play } from 'lucide-react'
-import { siteAssets } from '../data/content'
+import { useEffect, useRef, useState } from 'react'
+import { Pause, Play, Volume2, VolumeX } from 'lucide-react'
+import bannerVideo from '../assets/video/Banner-Video.mp4'
 import './styles/HeroSection.css'
 
-const heroSlides = [
-  {
-    id: 'the-group',
-    image: siteAssets.hero.image,
-    kicker: 'Harmoniq Creatives',
-    title: 'Ideas that<br />move brands<br />forward.',
-    description: 'Digital strategy, design, and growth for brands with something meaningful to say.',
-    href: 'https://www.harmoniqcreatives.com/',
-    cta: 'Visit website',
-  },
-  {
-    id: 'monkey-troopers',
-    image: siteAssets.brands.monkeyTroopers,
-    kicker: 'Monkey Troopers',
-    title: 'Built to<br />move.',
-    description: 'Playful urban utility for people who carry their world with a little more character.',
-    href: 'https://monkeytroopers.com/',
-    cta: 'Visit website',
-  },
-  {
-    id: 'fo-dubai',
-    image: siteAssets.brands.foDubai,
-    kicker: 'Fragrance d’Oasis',
-    title: 'Leave<br />a trace.',
-    description: 'Luxury fragrance storytelling shaped around atmosphere, identity, and everyday ritual.',
-    href: 'https://fodubai.in/',
-    cta: 'Visit website',
-  },
-]
-
 const HeroSection = () => {
-  const [activeSlide, setActiveSlide] = useState(0)
+  const heroRef = useRef(null)
+  const videoRef = useRef(null)
+  const wasPausedByViewport = useRef(false)
+  const isPausedByUser = useRef(false)
   const [isPaused, setIsPaused] = useState(false)
+  const [isMuted, setIsMuted] = useState(false)
 
   useEffect(() => {
-    if (isPaused) return undefined
+    const hero = heroRef.current
+    const video = videoRef.current
+    if (!hero || !video) return undefined
 
-    const interval = setInterval(() => {
-      setActiveSlide((current) => (current + 1) % heroSlides.length)
-    }, 5000)
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        if (wasPausedByViewport.current && !isPausedByUser.current) {
+          video.play().catch(() => {})
+          setIsPaused(false)
+          wasPausedByViewport.current = false
+        }
+        return
+      }
 
-    return () => clearInterval(interval)
-  }, [isPaused, activeSlide])
+      if (!video.paused) {
+        video.pause()
+        setIsPaused(true)
+        wasPausedByViewport.current = true
+      }
+    }, { threshold: 0.1 })
 
-  const currentSlide = heroSlides[activeSlide]
+    observer.observe(hero)
+    return () => observer.disconnect()
+  }, [])
+
+  const togglePlayback = () => {
+    if (!videoRef.current) return
+
+    if (videoRef.current.paused) {
+      videoRef.current.play().catch(() => {})
+      isPausedByUser.current = false
+      wasPausedByViewport.current = false
+      setIsPaused(false)
+    } else {
+      videoRef.current.pause()
+      isPausedByUser.current = true
+      setIsPaused(true)
+    }
+  }
+
+  const toggleMute = () => {
+    if (!videoRef.current) return
+
+    videoRef.current.muted = !isMuted
+    setIsMuted((muted) => !muted)
+  }
 
   return (
-    <section className="hero-section" id="hero" data-section-key="hero" data-section-label="Home">
+    <section ref={heroRef} className="hero-section" id="hero" data-section-key="hero" data-section-label="Home">
       <div className="hero-image-wrap">
-        <AnimatePresence mode="wait">
-          <motion.img
-            key={currentSlide.id}
-            src={currentSlide.image}
-            alt={currentSlide.title || currentSlide.kicker || ''}
-            className="hero-image"
-            initial={{ opacity: 0, scale: 1.08 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.06 }}
-            transition={{ duration: 0.8, ease: 'easeInOut' }}
-          />
-        </AnimatePresence>
-        <div className="hero-overlay" aria-hidden="true" />
-      </div>
-
-      <motion.div
-        className={`hero-content hero-slide-${currentSlide.id} container`}
-        key={currentSlide.id}
-        initial={{ opacity: 0, y: 28 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.75, ease: 'easeOut' }}
-      >
-        <div className="hero-copy-rail">
-          <div className="hero-copy-block">
-            <small className="hero-source">{currentSlide.kicker}</small>
-            <h1 className="hero-title">{currentSlide.title.split('<br />').map((line, index) => (
-              <span key={line}>
-                {index > 0 && <br />}
-                {line}
-              </span>
-            ))}</h1>
-            <div className="hero-description-row">
-              <span className="hero-description-rule" aria-hidden="true" />
-              <div className="hero-description-content">
-                <p className="hero-desc">{currentSlide.description}</p>
-                <a
-                  href={currentSlide.href}
-                  className="story-button"
-                  target={currentSlide.href.startsWith('http') ? '_blank' : undefined}
-                  rel={currentSlide.href.startsWith('http') ? 'noreferrer' : undefined}
-                >
-                  {currentSlide.cta} <span aria-hidden="true">→</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </motion.div>
-
-      <div className="hero-controls" aria-label="Hero controls">
-        <div className="hero-controls-inner container">
-          <div className="hero-progress-rail" aria-hidden="true">
-            {heroSlides.map((slide, index) => (
-              <span
-                key={slide.id}
-                className={`progress-step ${index === activeSlide ? 'active' : ''} ${index < activeSlide ? 'done' : ''}`}
-              />
-            ))}
-          </div>
-
-          <div className="hero-left-status">
-            <button
-              type="button"
-              className="hero-progress-status"
-              onClick={() => setIsPaused((paused) => !paused)}
-              aria-label={isPaused ? 'Play hero slideshow' : 'Pause hero slideshow'}
-              data-tooltip={isPaused ? 'Play slideshow' : 'Pause slideshow'}
-            >
-              {isPaused ? (
-                <Play size={10} fill="currentColor" strokeWidth={2} aria-hidden="true" />
-              ) : (
-                <Pause size={10} fill="currentColor" strokeWidth={2} aria-hidden="true" />
-              )}
-              <span className="hero-index">{String(activeSlide + 1).padStart(2, '0')} / {heroSlides.length}</span>
-            </button>
-          </div>
+        <video ref={videoRef} className="hero-video" autoPlay loop playsInline aria-label="Harmoniq Creatives brand video">
+          <source src={bannerVideo} type="video/mp4" />
+        </video>
+        <div className="hero-video-controls" aria-label="Video controls">
+          <button type="button" onClick={togglePlayback} aria-label={isPaused ? 'Play video' : 'Pause video'} data-tooltip={isPaused ? 'Play video' : 'Pause video'}>
+            {isPaused ? <Play size={15} fill="currentColor" aria-hidden="true" /> : <Pause size={15} fill="currentColor" aria-hidden="true" />}
+          </button>
+          <button type="button" onClick={toggleMute} aria-label={isMuted ? 'Unmute video' : 'Mute video'} data-tooltip={isMuted ? 'Unmute video' : 'Mute video'}>
+            {isMuted ? <VolumeX size={17} aria-hidden="true" /> : <Volume2 size={17} aria-hidden="true" />}
+          </button>
         </div>
       </div>
-
-      <button
-        type="button"
-        className="hero-down"
-        aria-label="Scroll to next section"
-        onClick={() => {
-          const next = document.getElementById('news') || document.getElementById('brands') || document.getElementById('timeline')
-          if (next) next.scrollIntoView({ behavior: 'smooth' })
-        }}
-      >
-        <span className="chev" />
-        <span className="chev" />
-        <span className="chev" />
-      </button>
     </section>
   )
 }

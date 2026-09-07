@@ -103,7 +103,7 @@ const TimelineSection = () => {
             <motion.div className="team-popup-content" role="dialog" aria-modal="true" aria-label={`${selectedMember.name} details`} onClick={(event) => event.stopPropagation()} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }}>
               <button type="button" className="popup-close-button" onClick={() => setSelectedMember(null)} aria-label="Close details"><X size={20} /></button>
               {selectedMember.videoUrl ? (
-                <div className="popup-video-container"><iframe src={selectedMember.videoUrl} title={`${selectedMember.name} video`} allow="autoplay; encrypted-media" allowFullScreen /></div>
+                <div className="popup-video-container"><iframe src={selectedMember.videoUrl} title={`${selectedMember.name} video`} allow="autoplay; encrypted-media" allowFullScreen sandbox="allow-scripts allow-same-origin allow-presentation" referrerPolicy="strict-origin-when-cross-origin" /></div>
               ) : (
                 <div className="popup-video-placeholder"><ArrowRight size={24} /><span>Work video coming soon</span></div>
               )}

@@ -70,7 +70,7 @@ const CompaniesPage = () => {
                     ))}
                   </div>
                   {link && (
-                    <a className="brand-link" href={link} target="_blank" rel="noreferrer">
+                    <a className="brand-link" href={link} target="_blank" rel="noopener noreferrer">
                       <span>Visit brand</span>
                       <ArrowUpRight size={16} aria-hidden="true" />
                     </a>
