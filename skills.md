@@ -412,3 +412,4 @@ The app uses a custom client-side routing implementation:
 - **Closing Composition**: Centered the Closing descriptions under the centered heading with a wider controlled reading rail, removing the left-aligned paragraph mismatch.
 - **Team Member Removal**: Removed the requested team member from all site data, Story copy, timeline rendering, and local assets while preserving the marquee row count.
 - **Light Entities Card Borders**: Increased light-mode Entities card border contrast with a warm-gold boundary and stronger active/hover state.
+- **Hero Video Autoplay**: Configured the hero video to start muted on load, explicitly play when media is ready, and resume on viewport entry unless the user intentionally paused it.

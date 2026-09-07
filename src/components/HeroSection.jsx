@@ -9,18 +9,25 @@ const HeroSection = () => {
   const wasPausedByViewport = useRef(false)
   const isPausedByUser = useRef(false)
   const [isPaused, setIsPaused] = useState(false)
-  const [isMuted, setIsMuted] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
 
   useEffect(() => {
     const hero = heroRef.current
     const video = videoRef.current
     if (!hero || !video) return undefined
 
+    video.muted = true
+    const startPlayback = () => {
+      video.play().then(() => setIsPaused(false)).catch(() => setIsPaused(true))
+    }
+
+    if (video.readyState >= 2) startPlayback()
+    else video.addEventListener('loadeddata', startPlayback, { once: true })
+
     const observer = new IntersectionObserver(([entry]) => {
       if (entry.isIntersecting) {
-        if (wasPausedByViewport.current && !isPausedByUser.current) {
-          video.play().catch(() => {})
-          setIsPaused(false)
+        if (!isPausedByUser.current && video.paused) {
+          video.play().then(() => setIsPaused(false)).catch(() => setIsPaused(true))
           wasPausedByViewport.current = false
         }
         return
@@ -34,7 +41,10 @@ const HeroSection = () => {
     }, { threshold: 0.1 })
 
     observer.observe(hero)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      video.removeEventListener('loadeddata', startPlayback)
+    }
   }, [])
 
   const togglePlayback = () => {
@@ -62,7 +72,7 @@ const HeroSection = () => {
   return (
     <section ref={heroRef} className="hero-section" id="hero" data-section-key="hero" data-section-label="Home">
       <div className="hero-image-wrap">
-        <video ref={videoRef} className="hero-video" autoPlay loop playsInline aria-label="Harmoniq Creatives brand video">
+        <video ref={videoRef} className="hero-video" autoPlay muted loop playsInline aria-label="Harmoniq Creatives brand video">
           <source src={bannerVideo} type="video/mp4" />
         </video>
         <div className="hero-video-controls" aria-label="Video controls">
