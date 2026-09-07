@@ -410,3 +410,5 @@ The app uses a custom client-side routing implementation:
 - **Closing/Footer Theme Match**: Unified the Story Closing and Footer backgrounds through the shared footer theme token so both sections match in dark and light modes.
 - **Prologue Spacing**: Set the Story Prologue section padding to `90px 0 50px` for a tighter transition into the Journey section.
 - **Closing Composition**: Centered the Closing descriptions under the centered heading with a wider controlled reading rail, removing the left-aligned paragraph mismatch.
+- **Team Member Removal**: Removed the requested team member from all site data, Story copy, timeline rendering, and local assets while preserving the marquee row count.
+- **Light Entities Card Borders**: Increased light-mode Entities card border contrast with a warm-gold boundary and stronger active/hover state.

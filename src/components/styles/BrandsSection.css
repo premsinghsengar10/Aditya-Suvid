@@ -102,6 +102,15 @@
   gap: 14px;
 }
 
+.app-shell[data-theme='light'] .brands-section .brand-option {
+  border-color: rgba(212, 179, 109, 0.58) !important;
+}
+
+.app-shell[data-theme='light'] .brands-section .brand-option:hover,
+.app-shell[data-theme='light'] .brands-section .brand-option.active {
+  border-color: var(--gold-strong) !important;
+}
+
 /* Responsive tweak: on small screens reduce max-width so layout fits */
 @media (max-width: 900px) {
   .brand-description {

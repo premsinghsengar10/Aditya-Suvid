@@ -9,7 +9,7 @@ const TimelineSection = () => {
   const [rowWidths, setRowWidths] = useState([])
   const rowSetRefs = useRef([])
   const rowTrackRefs = useRef([])
-  const displayMembers = [...teamMembers, ...teamMembers.slice(0, 4)]
+  const displayMembers = [...teamMembers, ...teamMembers.slice(0, 5)]
   const rows = [displayMembers.slice(0, 9), displayMembers.slice(9, 18)]
 
   useEffect(() => {

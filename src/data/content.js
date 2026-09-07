@@ -7,7 +7,6 @@ import companyLogo from '../assets/suvid-retail-logo.jpeg'
 import bhupiiiImage from '../assets/teammembers/Bhuppi_Image.png'
 import dharavImage from '../assets/teammembers/Dharavsir_Image.png'
 import hemlataImage from '../assets/teammembers/Hemlatamam_Image.png'
-import henishaImage from '../assets/teammembers/Henisha_Image.png'
 import jashImage from '../assets/teammembers/Jash_Image.png'
 import kinjalImage from '../assets/teammembers/Kinjal.webp'
 import nageshImage from '../assets/teammembers/Nagesh_Image.jpg'
@@ -45,7 +44,6 @@ export const siteAssets = {
 export const teamMembers = [
   { id: 'suvid-sinha', name: 'Suvid Sinha', designation: 'Founder', description: 'Guides the group vision and the brands built for the next generation.', image: suvidImage, videoUrl: '' },
   { id: 'bhupiii', name: 'Bhupendra B', designation: 'Head of Product', description: 'Manages product thinking and the direct-to-consumer website experience.', image: bhupiiiImage, videoUrl: '' },
-  { id: 'henisha-kansara', name: 'Henisha Kansara', designation: 'Head of Design, Development & Digital Growth', description: 'Leads design, development, and digital growth across the group.', image: henishaImage, videoUrl: '' },
   { id: 'jash-solanki', name: 'Jash Solanki', designation: 'Head of Marketing', description: 'Shapes brand marketing initiatives and helps ideas reach their audiences.', image: jashImage, videoUrl: '' },
   { id: 'piyush-pushkar', name: 'Piyush Pushkar', designation: 'Mentor / Director', description: 'Brings long-term retail and international brand experience to the group.', image: piyushImage, videoUrl: '' },
   { id: 'kinjal-patel', name: 'Kinjal Patel', designation: 'Frontend Accountant', description: 'Supports Harmoniq Creative with dependable accounts operations across the Monkey Troopers and Fragrance d’Oasis businesses.', image: kinjalImage, videoUrl: '' },
@@ -227,11 +225,6 @@ export const storyContent = {
       role: 'Monkey Troopers co-founder',
       description: 'Helps shape Monkey Troopers through a street-culture point of view, making sure the brand grows with its generation rather than speaking at it.',
     },
-    {
-      name: 'Henisha Kansara',
-      role: 'Fragrance category lead',
-      description: 'Leads the fragrance category within Harmoniq Trading, bringing broad experience from across the group into a growing Dubai-to-India business.',
-    },
   ],
   chapters: [
     {
@@ -279,7 +272,7 @@ export const storyContent = {
       subtitle: 'A fragrance story from Dubai to India.',
       paragraphs: [
         'This chapter began with a conversation in Dubai and a shared appreciation for perfume. A genuine relationship with a Russian general trading company grew into a fragrance venture operating under Harmoniq Trading Private Limited.',
-        'The business is rooted in Dubai\'s rich perfumery culture, with operations across Dubai and India. Henisha Kansara leads the fragrance category today, building on a wide range of responsibilities developed across the group.',
+        'The business is rooted in Dubai\'s rich perfumery culture, with operations across Dubai and India. The fragrance category continues to grow through the group\'s experience across markets and capabilities.',
         'As Monkey Troopers expands into new international markets, the fragrance business is planned to grow alongside it. The ambition is to carry authentic, Dubai-rooted fragrance craftsmanship into every market the group enters.',
       ],
       lessons: ['Relationships can become lasting businesses.', 'Craft travels through trust.', 'Parallel growth creates a stronger group.'],
@@ -369,7 +362,7 @@ export const storyFullCopy = {
         'Not every chapter of this journey was planned. This one began with a conversation, and a shared appreciation for perfume.',
         'While in Dubai, Piyush Pushkar and Hemlata Pushkar met the owner of a Russian general trading company. What started as a genuine connection over fragrance grew into a real business relationship, and that relationship became a business of its own: F4 Dubai, a pure perfumery venture born in the UAE, operating under Harmoniq Trading Private Limited.',
         'F4 Dubai continues to grow as a fragrance business rooted in Dubai\'s rich perfumery culture, with its India operations also run under Harmoniq Trading Private Limited.',
-        'Leading this category today is Henisha Kansara, who has grown from managing a wide range of early responsibilities across the group into her current role as General Manager of the fragrance category.',
+        'The fragrance category continues to develop through the group\'s wide experience across retail, operations, and international markets.',
         'As Monkey Troopers expands into new international markets, Harmoniq Creative Private Limited and Harmoniq Trading Private Limited plan to expand the F4 Dubai fragrance business alongside it, ensuring that wherever the streetwear brand goes, the fragrance business follows, growing in parallel.',
         'Our Vision: To build F4 Dubai into a recognized fragrance brand across every market the group operates in, starting with Dubai and India, and expanding alongside Monkey Troopers.',
         'Our Mission: To bring authentic, Dubai-rooted fragrance craftsmanship to new markets through the same relationship-driven approach that created the business in the first place.',
