@@ -977,6 +977,24 @@
   border-radius: 16px;
 }
 
+.story-journey-image-2 img,
+.chapter-detail-image-2 {
+  object-fit: contain;
+  background: #9a5b35;
+}
+
+.story-journey-image-3 img,
+.chapter-detail-image-3 {
+  object-fit: contain;
+  padding: 22px;
+  background: #f4f1eb;
+}
+
+.story-journey-image-2 img,
+.story-journey-image-3 img {
+  height: 100%;
+}
+
 .story-chapter-copy-section + .story-chapter-copy-section {
   margin-top: 42px;
 }

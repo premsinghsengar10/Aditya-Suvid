@@ -2,13 +2,13 @@ import { ArrowLeft, ArrowUpRight } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { storyContent, storyFullCopy } from '../data/content'
-import storyRetail from '../assets/generated/story-retail.png'
-import storyStreetwear from '../assets/generated/story-streetwear.png'
-import storyCreative from '../assets/generated/story-creative.png'
-import storyFragrance from '../assets/generated/story-fragrance.png'
+import chapterOneImage from '../assets/chapters/chapter-1.webp'
+import chapterTwoImage from '../assets/chapters/chapter-2.webp'
+import chapterThreeImage from '../assets/chapters/chapter-3.webp'
+import chapterFourImage from '../assets/chapters/chapter-4.webp'
 import './styles/PageStyles.css'
 
-const chapterImages = [storyRetail, storyStreetwear, storyCreative, storyFragrance]
+const chapterImages = [chapterOneImage, chapterTwoImage, chapterThreeImage, chapterFourImage]
 
 const chapterSections = [
   [
@@ -60,7 +60,7 @@ const StoryPage = ({ chapterSlug, navigate }) => {
         </section>
         <section className="story-chapter-detail">
           <div className="container story-chapter-detail-layout">
-            <img src={chapterImages[chapterIndex]} alt={chapter.title} />
+            <img className={'chapter-detail-image chapter-detail-image-' + (chapterIndex + 1)} src={chapterImages[chapterIndex]} alt={chapter.title} />
             <div className="article-body">
               {chapterSections[chapterIndex].map((section) => (
                 <section className="story-chapter-copy-section" key={section.title}>
@@ -147,7 +147,7 @@ const StoryPage = ({ chapterSlug, navigate }) => {
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
               >
-                <div className="story-journey-image"><img src={chapterImages[index]} alt={item.title} /></div>
+                <div className={'story-journey-image story-journey-image-' + (index + 1)}><img src={chapterImages[index]} alt={item.title} /></div>
                 <div className="story-journey-body">
                   <span className="story-value-label">{item.number}</span>
                   <h3>{chapterDetails.title}</h3>

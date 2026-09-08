@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Pause, Play, Volume2, VolumeX } from 'lucide-react'
-import bannerVideo from '../assets/video/Banner-Video-2.mp4'
+import bannerVideo from '../assets/video/Banner-Video.mp4'
 import './styles/HeroSection.css'
 
 const HeroSection = () => {
