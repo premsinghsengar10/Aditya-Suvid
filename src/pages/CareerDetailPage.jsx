@@ -99,7 +99,6 @@ const CareerDetailPage = ({ slug, navigate }) => {
               )}
             </div>
             <div className="career-form-footer">
-              <p className="form-note">Applications are sent to hr@suvidretail.in.</p>
               <button type="submit" className="page-submit-button">
                 Apply for this role
                 <ArrowRight size={16} aria-hidden="true" />
