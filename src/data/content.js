@@ -18,7 +18,7 @@ import suvidImage from '../assets/teammembers/Suvidsir_Image.png'
 import urviImage from '../assets/teammembers/hardeep.jpg.jpeg'
 import yashImage from '../assets/teammembers/Yash_Image.jpg'
 
-export const navItems = ['Home', 'Story', 'Companies', 'Careers', 'About']
+export const navItems = ['Home', 'Story', 'Companies', 'Careers', 'About', 'Contact']
 
 export const siteAssets = {
   logo: {
@@ -130,6 +130,71 @@ export const careerCards = [
   },
 ]
 
+export const careerDepartments = [
+  {
+    id: 'marketing',
+    name: 'Marketing',
+    openings: [{
+      id: 'assistant-manager-digital-marketing',
+      title: 'Assistant Manager - Digital Marketing',
+      department: 'Marketing',
+      openings: 2,
+      experience: '1-2 years',
+      qualification: 'Graduate in any stream',
+      overview: 'Drive digital growth, customer acquisition, and brand visibility by planning and executing performance marketing and multi-channel strategies.',
+      responsibilities: [
+        'Plan, create, and launch end-to-end digital marketing campaigns across organic and paid channels.',
+        'Manage paid advertising budgets and run targeted ads on Meta Ads and Google Ads (AdWords).',
+        'Develop and execute Search Engine Optimization (SEO), social media, and email marketing strategies.',
+        'Track campaign analytics, analyze key performance metrics, and optimize ad creative and targeting to maximize ROI.',
+      ],
+    }],
+  },
+  {
+    id: 'engineering',
+    name: 'Engineering',
+    openings: [],
+  },
+  {
+    id: 'creatives',
+    name: 'Creatives',
+    openings: [{
+      id: 'video-editor',
+      title: 'Video Editor',
+      department: 'Creatives',
+      openings: 1,
+      experience: '1-2 years',
+      qualification: 'Relevant portfolio showcasing past video work is highly preferred',
+      overview: 'Transform raw media into polished, high-quality video content tailored for marketing and production requirements.',
+      responsibilities: [
+        'Edit raw video and audio files to produce cohesive content for media production.',
+        'Utilize Adobe Premiere Pro for primary video editing and audio assembly.',
+        'Enhance visual appeal using transitions, motion effects, color correction, and audio mixing.',
+        'Work closely with creative teams and campaign leads to meet project briefs, specifications, and turnaround times.',
+      ],
+    }],
+  },
+  {
+    id: 'others',
+    name: 'Others',
+    openings: [{
+      id: 'quality-inspector',
+      title: 'Quality Inspector (Quality Control & Factory Operations)',
+      department: 'Others',
+      openings: 1,
+      experience: '5+ years of quality or operations experience (2-5 years relevant factory/QC experience acceptable)',
+      qualification: 'Quality control and factory operations',
+      overview: 'Ensure high standards across manufacturing partners, manage vendor relationships, and oversee supplier operations.',
+      responsibilities: [
+        'Conduct quality control and inspection checks across manufacturing sites, specifically perfume filling stations, bottle manufacturing, and packaging/box production.',
+        'Coordinate with factories to track production schedules, push factory timelines, and ensure on-time delivery.',
+        'Handle vendor agreements, factory associate Non-Disclosure Agreements (NDAs), and compliance.',
+        'Manage vendor interactions, pricing master negotiations, and supplier performance.',
+      ],
+    }],
+  },
+]
+
 export const brands = [
   {
     id: 'monkey-troopers',
@@ -164,7 +229,7 @@ export const brands = [
 export const footerColumns = [
   {
     title: 'Company',
-    links: ['About Us', 'Leadership', 'Careers', 'Contact'],
+    links: ['About Us', 'Story', 'Careers', 'Companies', 'Contact'],
   },
   {
     title: 'Portfolio',

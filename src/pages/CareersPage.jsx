@@ -1,25 +1,9 @@
-import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
+import { careerDepartments } from '../data/content'
 import './styles/PageStyles.css'
 
-const CareersPage = () => {
-  const [submitted, setSubmitted] = useState(false)
-
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
-    const details = [
-      `Full name: ${formData.get('name')}`,
-      `Email: ${formData.get('email')}`,
-      `Phone: ${formData.get('phone') || 'Not provided'}`,
-      `Area of interest: ${formData.get('interest')}`,
-      `Message: ${formData.get('message')}`,
-      `Resume or portfolio: ${formData.get('resume') || 'Not provided'}`,
-    ].join('\n')
-
-    window.location.href = `mailto:hr@suvidretail.in?subject=${encodeURIComponent('Career enquiry from Suvid Retail website')}&body=${encodeURIComponent(details)}`
-    setSubmitted(true)
-  }
+const CareersPage = ({ navigate }) => {
+  const openings = careerDepartments.flatMap((department) => department.openings)
 
   return (
     <main className="page-shell careers-page">
@@ -34,64 +18,42 @@ const CareersPage = () => {
         </div>
       </section>
 
-      <section className="career-application-section" aria-labelledby="career-application-title">
-        <div className="container career-application-layout">
-          <div className="career-application-copy">
-            <span className="section-label">Join the team</span>
-            <h2 id="career-application-title">Tell us where<br />you fit in.</h2>
-            <p>
-              We welcome makers, operators, and big-picture thinkers. Share a little
-              about yourself and our team will get back to you.
-            </p>
+      <section className="career-openings-section" aria-labelledby="career-openings-title">
+        <div className="container">
+          <div className="career-openings-heading">
+            <div>
+              <span className="section-label">Current openings</span>
+              <h2 id="career-openings-title">Find your<br />place here.</h2>
+            </div>
+            <p>Different disciplines, one shared appetite for doing meaningful work well. Explore a role to read the full brief and apply.</p>
           </div>
 
-          <form className="career-application-form" onSubmit={handleSubmit}>
-            <div className="form-field">
-              <label htmlFor="career-name">Full name</label>
-              <input id="career-name" name="name" type="text" autoComplete="name" placeholder="Your name" required />
-            </div>
-
-            <div className="form-field">
-              <label htmlFor="career-email">Email address</label>
-              <input id="career-email" name="email" type="email" autoComplete="email" placeholder="you@example.com" required />
-            </div>
-
-            <div className="form-field">
-              <label htmlFor="career-phone">Phone number</label>
-              <input id="career-phone" name="phone" type="tel" autoComplete="tel" placeholder="Your phone number" />
-            </div>
-
-            <div className="form-field">
-              <label htmlFor="career-interest">Area of interest</label>
-              <select id="career-interest" name="interest" defaultValue="" required>
-                <option value="" disabled>Select an area</option>
-                <option value="brand">Brand and creative</option>
-                <option value="retail">Retail and operations</option>
-                <option value="marketing">Marketing and growth</option>
-                <option value="corporate">Corporate functions</option>
-              </select>
-            </div>
-
-            <div className="form-field form-field-wide">
-              <label htmlFor="career-message">Message</label>
-              <textarea id="career-message" name="message" rows="5" placeholder="Tell us about your experience and what you would like to build." required />
-            </div>
-
-            <div className="form-field form-field-wide">
-              <label htmlFor="career-resume">Resume or portfolio link</label>
-              <input id="career-resume" name="resume" type="url" placeholder="https://" />
-            </div>
-
-            <div className="career-form-footer">
-              <p className="form-note" aria-live="polite">
-                {submitted ? 'Your email draft is ready to send to HR.' : 'We review every application with care.'}
-              </p>
-              <button type="submit" className="page-submit-button">
-                Submit application
-                <ArrowRight size={16} aria-hidden="true" />
-              </button>
-            </div>
-          </form>
+          <div className="opening-list opening-list-all">
+            {openings.map((opening) => (
+              <article className="opening-card" key={opening.id}>
+                <div>
+                  <h4>{opening.title}</h4>
+                  <div className="opening-meta">
+                    <span>{opening.openings} {opening.openings === 1 ? 'opening' : 'openings'}</span>
+                    <span>YOE: {opening.experience}</span>
+                    <span>{opening.qualification}</span>
+                    <span>Department: {opening.department}</span>
+                  </div>
+                </div>
+                <a
+                  className="opening-apply-link"
+                  href={'/careers/' + opening.id}
+                  onClick={(event) => {
+                    if (!navigate) return
+                    event.preventDefault()
+                    navigate('/careers/' + opening.id)
+                  }}
+                >
+                  View role <ArrowRight size={15} />
+                </a>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
     </main>

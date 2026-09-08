@@ -413,3 +413,7 @@ The app uses a custom client-side routing implementation:
 - **Team Member Removal**: Removed the requested team member from all site data, Story copy, timeline rendering, and local assets while preserving the marquee row count.
 - **Light Entities Card Borders**: Increased light-mode Entities card border contrast with a warm-gold boundary and stronger active/hover state.
 - **Hero Video Autoplay**: Configured the hero video to start muted on load, explicitly play when media is ready, and resume on viewport entry unless the user intentionally paused it.
+- **Footer Navigation Links**: Added working internal routes for the Footer Story and Companies links instead of leaving them pointed at the footer anchor.
+- **Companies Button Contrast**: Added spacing between company highlights and `Visit brand`, with scoped light-mode button colors so the action remains visible.
+- **Transferable Project Context**: Added `PROJECT_CONTEXT.md` documenting the app architecture, routing, data flow, theme system, and validation workflow for future contributors.
+- **Contact and Careers Forms**: Added a routed `/contact` brand-collaboration form and role-detail Careers routes. The Careers landing page keeps one flat openings list with department metadata, while `/careers/<opening-slug>` shows the full brief. Both forms use FormSubmit without exposing SMTP/API credentials; career submissions use `multipart/form-data` so resumes arrive as attachments, with a temporary local preview link before submission.

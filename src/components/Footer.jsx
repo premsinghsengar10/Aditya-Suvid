@@ -5,7 +5,10 @@ import './styles/Footer.css'
 
 const footerLinkTargets = {
   'About Us': '/about',
+  Story: '/story',
   Careers: '/careers',
+  Companies: '/companies',
+  Contact: '/contact',
   'Monkey Troopers': 'https://monkeytroopers.com/',
   'Fragrance d’Oasis': 'https://fodubai.in/',
   'Harmoniq Creative': 'https://www.harmoniqcreatives.com/',

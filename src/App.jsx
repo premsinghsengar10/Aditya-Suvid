@@ -10,10 +10,12 @@ import Preloader from './components/Preloader'
 import './App.css'
 
 import CareersPage from './pages/CareersPage'
+import CareerDetailPage from './pages/CareerDetailPage'
 import StoryPage from './pages/StoryPage'
 import AboutPage from './pages/AboutPage'
 import CompaniesPage from './pages/CompaniesPage'
 import ArticlesPage from './pages/ArticlesPage'
+import ContactPage from './pages/ContactPage'
 
 const sectionNames = {
   hero: 'Home',
@@ -156,7 +158,9 @@ const App = () => {
           <BrandsSection />
         </>
       ) : route === '/careers' ? (
-        <CareersPage />
+        <CareersPage navigate={navigate} />
+      ) : route.startsWith('/careers/') ? (
+        <CareerDetailPage slug={route.replace('/careers/', '')} navigate={navigate} />
       ) : route === '/story' ? (
         <StoryPage navigate={navigate} />
       ) : route.startsWith('/story/') ? (
@@ -169,6 +173,8 @@ const App = () => {
         <ArticlesPage navigate={navigate} />
       ) : route.startsWith('/articles/') ? (
         <ArticlesPage slug={route.replace('/articles/', '')} navigate={navigate} />
+      ) : route === '/contact' ? (
+        <ContactPage />
       ) : (
         // fallback to home
         <>
