@@ -49,3 +49,4 @@ After visual changes, check both dark and light themes plus mobile layout.
 - Career applications collect name, phone, email, role, message, and a PDF/DOC/DOCX resume.
 - Both forms submit to FormSubmit's hr@suvidretail.in endpoint. The careers form uses multipart/form-data so the resume is delivered as an attachment; the browser preview link is a temporary object URL and is not the email link.
 - FormSubmit must be confirmed once from the HR mailbox before production submissions are delivered. Keep the file size within the service's documented 10 MB total upload limit.
+- Client-side form protection stores a three-day email lock in localStorage and attaches a deterministic SHA-256 idempotency_key to both submissions. This prevents normal duplicate submissions in the same browser; strict cross-device or tamper-proof enforcement requires a server/edge endpoint that persists locks and rejects reused keys before forwarding mail.

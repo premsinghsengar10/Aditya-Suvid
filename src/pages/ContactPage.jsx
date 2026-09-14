@@ -1,7 +1,35 @@
+import { useState } from 'react'
 import { ArrowRight, Mail, MapPin } from 'lucide-react'
+import { createIdempotencyKey, getRemainingLockDays, getSubmissionLock, setSubmissionLock } from '../utils/formProtection'
 import './styles/PageStyles.css'
 
-const ContactPage = () => (
+const ContactPage = () => {
+  const [submissionError, setSubmissionError] = useState('')
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const email = String(formData.get('email') || '')
+    const existingLock = getSubmissionLock('contact', email)
+
+    if (existingLock) {
+      setSubmissionError('This email has already submitted an enquiry. Please try again in ' + getRemainingLockDays(existingLock.createdAt) + ' days.')
+      return
+    }
+
+    const idempotencyKey = await createIdempotencyKey('contact', {
+      email,
+      company: formData.get('company'),
+      website: formData.get('website'),
+      message: formData.get('message'),
+    })
+    form.elements.idempotency_key.value = idempotencyKey
+    setSubmissionLock('contact', email, idempotencyKey)
+    HTMLFormElement.prototype.submit.call(form)
+  }
+
+  return (
   <main className="page-shell contact-page">
     <section className="page-intro contact-intro">
       <div className="container">
@@ -29,9 +57,10 @@ const ContactPage = () => (
           </div>
         </div>
 
-        <form className="contact-form" action="https://formsubmit.co/hr@suvidretail.in" method="POST">
+        <form className="contact-form" action="https://formsubmit.co/hr@suvidretail.in" method="POST" onSubmit={handleSubmit}>
           <input type="hidden" name="_subject" value="New brand collaboration enquiry" />
           <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="idempotency_key" />
           <input type="text" name="_honey" tabIndex="-1" autoComplete="off" aria-hidden="true" className="form-trap" />
           <div className="form-field">
             <label htmlFor="contact-name">Name</label>
@@ -58,7 +87,7 @@ const ContactPage = () => (
             <textarea id="contact-message" name="message" rows="6" placeholder="What would you like to build together?" required />
           </div>
           <div className="contact-form-footer">
-            <p className="form-note">Your enquiry will be sent securely to our team.</p>
+            <p className="form-note" aria-live="polite">{submissionError || 'Your enquiry will be sent securely to our team.'}</p>
             <button type="submit" className="page-submit-button">
               Send enquiry
               <ArrowRight size={16} aria-hidden="true" />
@@ -68,6 +97,7 @@ const ContactPage = () => (
       </div>
     </section>
   </main>
-)
+  )
+}
 
 export default ContactPage

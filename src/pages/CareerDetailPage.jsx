@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowRight, ExternalLink, Upload } from 'lucide-react'
 import { careerDepartments } from '../data/content'
+import { createIdempotencyKey, getRemainingLockDays, getSubmissionLock, setSubmissionLock } from '../utils/formProtection'
 import './styles/PageStyles.css'
 
 const CareerDetailPage = ({ slug, navigate }) => {
   const opening = careerDepartments.flatMap((department) => department.openings).find((item) => item.id === slug)
   const [resumeUrl, setResumeUrl] = useState('')
+  const [submissionError, setSubmissionError] = useState('')
 
   useEffect(() => () => {
     if (resumeUrl) URL.revokeObjectURL(resumeUrl)
@@ -16,6 +18,29 @@ const CareerDetailPage = ({ slug, navigate }) => {
     if (!file) return
     if (resumeUrl) URL.revokeObjectURL(resumeUrl)
     setResumeUrl(URL.createObjectURL(file))
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const form = event.currentTarget
+    const formData = new FormData(form)
+    const email = String(formData.get('email') || '')
+    const existingLock = getSubmissionLock('career', email)
+
+    if (existingLock) {
+      setSubmissionError('This email has already submitted an application. Please try again in ' + getRemainingLockDays(existingLock.createdAt) + ' days.')
+      return
+    }
+
+    const idempotencyKey = await createIdempotencyKey('career', {
+      email,
+      role: opening.title,
+      department: opening.department,
+      message: formData.get('message'),
+    })
+    form.elements.idempotency_key.value = idempotencyKey
+    setSubmissionLock('career', email, idempotencyKey)
+    HTMLFormElement.prototype.submit.call(form)
   }
 
   if (!opening) {
@@ -63,9 +88,10 @@ const CareerDetailPage = ({ slug, navigate }) => {
             </ul>
           </article>
 
-          <form className="career-application-form career-detail-form" action="https://formsubmit.co/hr@suvidretail.in" method="POST" encType="multipart/form-data">
+          <form className="career-application-form career-detail-form" action="https://formsubmit.co/hr@suvidretail.in" method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
             <input type="hidden" name="_subject" value={'Career application: ' + opening.title} />
             <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="idempotency_key" />
             <input type="text" name="_honey" tabIndex="-1" autoComplete="off" aria-hidden="true" className="form-trap" />
             <input type="hidden" name="role" value={opening.title} />
             <input type="hidden" name="department" value={opening.department} />
@@ -99,6 +125,7 @@ const CareerDetailPage = ({ slug, navigate }) => {
               )}
             </div>
             <div className="career-form-footer">
+              <p className="form-note" aria-live="polite">{submissionError || 'Applications are sent to hr@suvidretail.in.'}</p>
               <button type="submit" className="page-submit-button">
                 Apply for this role
                 <ArrowRight size={16} aria-hidden="true" />

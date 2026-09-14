@@ -17,26 +17,12 @@ import CompaniesPage from './pages/CompaniesPage'
 import ArticlesPage from './pages/ArticlesPage'
 import ContactPage from './pages/ContactPage'
 
-const sectionNames = {
-  hero: 'Home',
-  news: 'News',
-  timeline: 'Timeline',
-  careers: 'Careers',
-  brands: 'Entities',
-  footer: 'Footer',
-}
-
-const sectionList = Object.entries(sectionNames).map(([key, label]) => ({ key, label }))
-
 const App = () => {
   const [theme, setTheme] = useState(() => localStorage.getItem('aditya-suvid-theme') || 'dark')
   const [isPreloading, setIsPreloading] = useState(true)
   const [showCookieBanner, setShowCookieBanner] = useState(() => (
     !localStorage.getItem('aditya-suvid-cookie-consent')
   ))
-  const [activeSection, setActiveSection] = useState('Home')
-  const [hoveredSection, setHoveredSection] = useState(null)
-  const [showSectionMarker, setShowSectionMarker] = useState(false)
   const [route, setRoute] = useState(window.location.pathname || '/')
 
   useEffect(() => {
@@ -61,43 +47,6 @@ const App = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  useEffect(() => {
-    let timerId
-
-    const updateSection = () => {
-      const sections = [...document.querySelectorAll('[data-section-key]')]
-
-      let current = 'Home'
-      let closestDistance = Number.POSITIVE_INFINITY
-
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect()
-        const distance = Math.abs(rect.top - 220)
-
-        if (rect.top <= window.innerHeight * 0.55 && rect.bottom >= window.innerHeight * 0.2 && distance < closestDistance) {
-          closestDistance = distance
-          current = section.dataset.sectionLabel || sectionNames[section.dataset.sectionKey] || 'Home'
-        }
-      })
-
-      setActiveSection(current)
-      setShowSectionMarker(true)
-
-      window.clearTimeout(timerId)
-      timerId = window.setTimeout(() => setShowSectionMarker(false), 3000)
-    }
-
-    updateSection()
-    window.addEventListener('scroll', updateSection, { passive: true })
-    window.addEventListener('resize', updateSection)
-
-    return () => {
-      window.clearTimeout(timerId)
-      window.removeEventListener('scroll', updateSection)
-      window.removeEventListener('resize', updateSection)
-    }
-  }, [])
-
   const acceptCookies = () => {
     localStorage.setItem('aditya-suvid-cookie-consent', 'accepted')
     setShowCookieBanner(false)
@@ -118,35 +67,6 @@ const App = () => {
         navigate={navigate}
         currentPath={route}
       />
-
-      {(route === '/' || route === '/home') && (
-        <div className={`section-marker ${showSectionMarker || hoveredSection ? 'visible' : ''}`} aria-live="polite">
-          {sectionList.map(({ key, label }) => {
-            const isActive = activeSection === label
-            const isHovered = hoveredSection === label
-
-            return (
-              <button
-                key={key}
-                type="button"
-                className={`section-marker-item ${isActive ? 'active' : ''} ${isHovered ? 'hovered' : ''}`}
-                onMouseEnter={() => setHoveredSection(label)}
-                onMouseLeave={() => setHoveredSection(null)}
-                onClick={() => {
-                  const target = document.getElementById(key === 'hero' ? 'hero' : key)
-                  if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' })
-                  }
-                }}
-                aria-label={`Jump to ${label}`}
-              >
-                <span className="section-marker-rail" aria-hidden="true" />
-                <span className="section-marker-label">{label}</span>
-              </button>
-            )
-          })}
-        </div>
-      )}
 
       {/* Simple routing: root (/) shows home sections, other paths render pages */}
       {route === '/' || route === '/home' ? (

@@ -38,22 +38,22 @@ const Footer = () => {
               <span>Suvid Retail</span>
             </div>
             <p>
-              Subscribe to receive corporate updates, brand news, and
-              material content directly to your inbox.
+              At Suvid Retail, we are a group of companies driven by a shared
+              vision of thoughtful brands, strong relationships, and meaningful growth.
             </p>
           </div>
 
           <div className="footer-side">
-            <div className="socials" aria-hidden="true">
-              <span style={{opacity:0.9}}>🔗</span>
-              <span style={{opacity:0.9}}>✉️</span>
-              <span style={{opacity:0.9}}>🔍</span>
-            </div>
-
-            <div className="subscribe-form" aria-label="Subscribe to updates">
-              <input type="email" placeholder="Enter your email ID to subscribe" aria-label="Email Address" />
-              <button type="button" aria-label="Submit email">→</button>
-            </div>
+            <address className="footer-address">
+              <span>
+                Second Floor, G1-202, MEADOWS, NR VAISHNAVDEVI CIRCLE,<br />
+                Adani Shantigram, Adalaj, Gandhinagar,<br />
+                Gandhinagar, Gujarat, 382421
+              </span>
+            </address>
+            <a className="footer-email" href="mailto:support@suvidretail.in">
+              support@suvidretail.in
+            </a>
 
           </div>
         </div>

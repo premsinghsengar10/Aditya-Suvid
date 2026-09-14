@@ -7,7 +7,7 @@ import './styles/BrandsSection.css'
 const entityImages = {
   'aditya-suvid-retail': siteAssets.brands.adityaSuvidRetail,
   'monkey-troopers-company': siteAssets.brands.monkeyTroopers,
-  'harmoniq-creative': siteAssets.hero.image,
+  'harmoniq-creative': siteAssets.brands.harmoniqCreatives,
   'harmoniq-trading': siteAssets.brands.foDubai,
 }
 

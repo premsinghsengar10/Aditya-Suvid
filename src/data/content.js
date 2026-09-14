@@ -2,6 +2,7 @@ import homeHeroImage from '../assets/generated/home-hero.png'
 import monkeyTroopersBrandImage from '../assets/brands/monkey-troopers.webp'
 import foDubaiBrandImage from '../assets/brands/harmoniq-trading.webp'
 import adityaSuvidRetailImage from '../assets/brands/suvid retail image.webp'
+import harmoniqCreativesBrandImage from '../assets/brands/harmoniq-creatives.webp'
 import groupJourneyImage from '../assets/generated/group-journey.png'
 import companyLogo from '../assets/suvid-retail-logo.jpeg'
 import bhupiiiImage from '../assets/teammembers/Bhuppi_Image.png'
@@ -38,6 +39,7 @@ export const siteAssets = {
     adityaSuvidRetail: adityaSuvidRetailImage,
     monkeyTroopers: monkeyTroopersBrandImage,
     foDubai: foDubaiBrandImage,
+    harmoniqCreatives: harmoniqCreativesBrandImage,
   },
 }
 
@@ -99,8 +101,8 @@ export const articleItems = [
   { slug: 'monkey-troopers-street-culture', category: 'Monkey Troopers', title: 'Street culture, carried forward', description: 'Why utility, expression, and community sit at the heart of Monkey Troopers.', image: siteAssets.brands.monkeyTroopers },
   { slug: 'designing-for-everyday-movement', category: 'Monkey Troopers', title: 'Designing for everyday movement', description: 'A closer look at the details that make everyday carry feel more personal.', image: siteAssets.brands.monkeyTroopers },
   { slug: 'from-india-to-the-middle-east', category: 'Monkey Troopers', title: 'From India to the Middle East', description: 'What it takes to carry an Indian brand story into a new market without losing its voice.', image: siteAssets.brands.monkeyTroopers },
-  { slug: 'the-digital-engine-behind-growth', category: 'Harmoniq Creative', title: 'The digital engine behind growth', description: 'How strategy, design, development, and performance work together under Harmoniq Creative.', image: siteAssets.hero.image },
-  { slug: 'making-brands-discoverable', category: 'Harmoniq Creative', title: 'Making ambitious brands discoverable', description: 'A practical view of the systems that help good brand work find the right audience.', image: siteAssets.hero.image },
+  { slug: 'the-digital-engine-behind-growth', category: 'Harmoniq Creative', title: 'The digital engine behind growth', description: 'How strategy, design, development, and performance work together under Harmoniq Creative.', image: siteAssets.brands.harmoniqCreatives },
+  { slug: 'making-brands-discoverable', category: 'Harmoniq Creative', title: 'Making ambitious brands discoverable', description: 'A practical view of the systems that help good brand work find the right audience.', image: siteAssets.brands.harmoniqCreatives },
   { slug: 'fragrance-from-dubai-to-india', category: 'Fragrance d’Oasis', title: 'Fragrance from Dubai to India', description: 'The relationship-led story behind a fragrance business rooted in Dubai and growing across markets.', image: siteAssets.brands.foDubai },
   { slug: 'the-ritual-of-leaving-a-trace', category: 'Fragrance d’Oasis', title: 'The ritual of leaving a trace', description: 'Why fragrance is more than a product: it is memory, mood, and identity in motion.', image: siteAssets.brands.foDubai },
   { slug: 'one-group-many-next-chapters', category: 'Suvid Retail', title: 'One group, many next chapters', description: 'The shared ambition connecting retail, streetwear, digital growth, and fragrance.', image: siteAssets.brands.adityaSuvidRetail },

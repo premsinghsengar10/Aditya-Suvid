@@ -5,6 +5,62 @@
   cursor: pointer;
 }
 
+/* Give the smaller portfolio a wide, image-led strip instead of a dense tile grid. */
+.brands-section .brand-selector {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.brands-section .brand-option {
+  min-height: 190px;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.brands-section .brand-option::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0.02) 30%, rgba(5, 5, 5, 0.88) 100%);
+  content: '';
+}
+
+.brands-section .brand-thumb-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: auto;
+  height: auto;
+  border: 0;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.brands-section .brand-thumb-wrap img {
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.brands-section .brand-option:hover .brand-thumb-wrap img,
+.brands-section .brand-option.active .brand-thumb-wrap img {
+  transform: scale(1.05);
+}
+
+.brands-section .brand-name {
+  position: relative;
+  z-index: 2;
+  padding: 18px;
+  color: #fff;
+  font-size: 0.78rem;
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.72);
+}
+
+.brands-section .brand-option-line {
+  z-index: 3;
+}
+
 /* Make brand description larger and more readable */
 .brand-description {
   font-size: clamp(1.05rem, 1.5vw, 1.25rem) !important;
@@ -139,5 +195,24 @@
 
   .brand-actions {
     justify-content: flex-start;
+  }
+
+  .brands-section .brand-selector {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .brands-section .brand-option {
+    min-height: 160px;
+  }
+}
+
+@media (max-width: 520px) {
+  .brands-section .brand-selector {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(220px, 78vw);
+    overflow-x: auto;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
   }
 }
