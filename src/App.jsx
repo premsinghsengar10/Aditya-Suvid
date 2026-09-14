@@ -18,7 +18,7 @@ import ArticlesPage from './pages/ArticlesPage'
 import ContactPage from './pages/ContactPage'
 
 const App = () => {
-  const [theme, setTheme] = useState(() => localStorage.getItem('aditya-suvid-theme') || 'dark')
+  const [theme, setTheme] = useState(() => localStorage.getItem('aditya-suvid-theme') || 'light')
   const [isPreloading, setIsPreloading] = useState(true)
   const [showCookieBanner, setShowCookieBanner] = useState(() => (
     !localStorage.getItem('aditya-suvid-cookie-consent')
