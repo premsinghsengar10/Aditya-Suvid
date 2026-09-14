@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from 'react'
 import { ChevronLeft, ChevronRight, Pause, Play, Volume2, VolumeX } from 'lucide-react'
 import bannerImage from '../assets/banner/banner-image-1.webp'
 import bannerVideo from '../assets/banner/Banner-Video-3.mp4'
+
+
 import './styles/HeroSection.css'
 
 const HeroSection = () => {
