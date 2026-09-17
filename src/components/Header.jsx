@@ -15,6 +15,8 @@ const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.
   }, [])
 
   const getItemPath = (item) => item.toLowerCase() === 'home' ? '/' : `/${item.toLowerCase()}`
+  const isCareerRoute = currentPath === '/careers' || currentPath.startsWith('/careers/')
+  const contactEmail = isCareerRoute ? 'hr@suvidretail.in' : 'hemlata@suvidretail.com'
 
   const onNavClick = (e, item) => {
     e.preventDefault()
@@ -47,7 +49,7 @@ const Header = ({ theme, onToggleTheme, navigate, currentPath = window.location.
         </nav>
 
         <div className="utility-actions" aria-label="Utilities">
-          <a href="mailto:hr@suvidretail.in" className="icon-button" aria-label="Email human resources">
+          <a href={`mailto:${contactEmail}`} className="icon-button" aria-label={`Email ${isCareerRoute ? 'human resources' : 'Suvid Retail'}`}>
             <Mail size={15} />
           </a>
           <button

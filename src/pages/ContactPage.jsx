@@ -52,12 +52,12 @@ const ContactPage = () => {
             serious about creating work with a point of view.
           </p>
           <div className="contact-details">
-            <a href="mailto:hr@suvidretail.in"><Mail size={16} /> hr@suvidretail.in</a>
+            <a href="mailto:hemlata@suvidretail.com"><Mail size={16} /> hemlata@suvidretail.com</a>
             <span><MapPin size={16} /> Ahmedabad, India</span>
           </div>
         </div>
 
-        <form className="contact-form" action="https://formsubmit.co/hr@suvidretail.in" method="POST" onSubmit={handleSubmit}>
+        <form className="contact-form" action="https://formsubmit.co/hemlata@suvidretail.com" method="POST" onSubmit={handleSubmit}>
           <input type="hidden" name="_subject" value="New brand collaboration enquiry" />
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="idempotency_key" />

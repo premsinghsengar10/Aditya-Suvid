@@ -1,13 +1,21 @@
+import companyLogo from '../assets/suvid-retail-logo.jpeg'
 import './styles/Preloader.css'
 
 const Preloader = () => {
   return (
-    <div className="preloader" role="status" aria-label="Loading Suvid Retail Private Limited">
-      <div className="preloader-inner">
-        <span className="preloader-kicker">Suvid Retail Private Limited</span>
-        <strong className="preloader-mark">SRPL</strong>
-        <span className="preloader-line" aria-hidden="true"><span /></span>
+    <div className="loader" role="status" aria-label="Loading">
+      <div className="loader-brand">
+        <img src={companyLogo} alt="Suvid Retail logo" />
+        <span>Suvid Retail</span>
       </div>
+      <div className="loader-dots" aria-hidden="true">
+        <span className="loader-dot" />
+        <span className="loader-dot" />
+        <span className="loader-dot" />
+        <span className="loader-dot" />
+        <span className="loader-dot" />
+      </div>
+      <span className="sr-only">Loading</span>
     </div>
   )
 }

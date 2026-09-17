@@ -5,6 +5,7 @@ import NewsSection from './components/NewsSection'
 import TimelineSection from './components/TimelineSection'
 import CareersSection from './components/CareersSection'
 import BrandsSection from './components/BrandsSection'
+import LinkedInSection from './components/LinkedInSection'
 import Footer from './components/Footer'
 import Preloader from './components/Preloader'
 import './App.css'
@@ -30,7 +31,7 @@ const App = () => {
   }, [theme])
 
   useEffect(() => {
-    const timerId = window.setTimeout(() => setIsPreloading(false), 1600)
+    const timerId = window.setTimeout(() => setIsPreloading(false), 1600) // 16 seconds
     return () => window.clearTimeout(timerId)
   }, [])
 
@@ -76,6 +77,7 @@ const App = () => {
           <TimelineSection />
           <CareersSection />
           <BrandsSection />
+          <LinkedInSection />
         </>
       ) : route === '/careers' ? (
         <CareersPage navigate={navigate} />
@@ -103,10 +105,11 @@ const App = () => {
           <TimelineSection />
           <CareersSection />
           <BrandsSection />
+          <LinkedInSection />
         </>
       )}
 
-      <Footer />
+      <Footer currentPath={route} />
 
       {showCookieBanner && (
         <div className="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice">

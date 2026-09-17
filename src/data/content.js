@@ -43,6 +43,27 @@ export const siteAssets = {
   },
 }
 
+export const linkedinCompanies = [
+  {
+    name: 'Monkey Troopers',
+    description: 'Streetwear / Everyday movement',
+    linkedin: 'https://www.linkedin.com/company/monkeytroopersindia/',
+    logo: siteAssets.brands.monkeyTroopers,
+  },
+  {
+    name: 'Harmoniq Creatives',
+    description: 'Digital growth / Brand building',
+    linkedin: 'https://www.linkedin.com/company/harmoniq-creatives-private-limited/',
+    logo: siteAssets.brands.harmoniqCreatives,
+  },
+  {
+    name: 'Harmoniq Trading',
+    description: 'Fragrance / Dubai',
+    linkedin: 'https://www.linkedin.com/company/fodubai/',
+    logo: siteAssets.brands.foDubai,
+  },
+]
+
 export const teamMembers = [
   { id: 'suvid-sinha', name: 'Suvid Sinha', designation: 'Founder', description: 'Guides the group vision and the brands built for the next generation.', image: suvidImage, videoUrl: '' },
   { id: 'bhupiii', name: 'Bhupendra B', designation: 'Head of Product', description: 'Manages product thinking and the direct-to-consumer website experience.', image: bhupiiiImage, videoUrl: '' },
@@ -239,7 +260,7 @@ export const footerColumns = [
   },
   {
     title: 'Legal',
-    links: ['Privacy Policy', 'Terms of Service', 'Sustainability Report', 'Investor Relations'],
+    links: ['Privacy Policy', 'Terms of Service', 'Investor Relations'],
   },
 ]
 

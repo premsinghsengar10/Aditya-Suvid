@@ -14,7 +14,10 @@ const footerLinkTargets = {
   'Harmoniq Creative': 'https://www.harmoniqcreatives.com/',
 }
 
-const Footer = () => {
+const Footer = ({ currentPath = window.location.pathname }) => {
+  const isCareerRoute = currentPath === '/careers' || currentPath.startsWith('/careers/')
+  const contactEmail = isCareerRoute ? 'hr@suvidretail.in' : 'hemlata@suvidretail.com'
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -51,8 +54,8 @@ const Footer = () => {
                 Gandhinagar, Gujarat, 382421
               </span>
             </address>
-            <a className="footer-email" href="mailto:support@suvidretail.in">
-              support@suvidretail.in
+            <a className="footer-email" href={`mailto:${contactEmail}`}>
+              {contactEmail}
             </a>
 
           </div>
