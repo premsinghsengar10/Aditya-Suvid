@@ -16,8 +16,23 @@ import premImage from '../assets/teammembers/Prem.jpeg'
 import rishiImage from '../assets/teammembers/Rishi.jpeg'
 import shriyaImage from '../assets/teammembers/shriya.jpg.jpeg'
 import suvidImage from '../assets/teammembers/Suvidsir_Image.png'
-import urviImage from '../assets/teammembers/hardeep.jpg.jpeg'
+import hardeepImage from '../assets/teammembers/hardeep.jpg.jpeg'
 import yashImage from '../assets/teammembers/Yash_Image.jpg'
+import urviImage from '../assets/teammembers/Urvi_Image.webp'
+import anjaliImage from '../assets/teammembers/Anjali_Image.webp'
+import suvidVideo from '../assets/video/SUVID SINHA .mp4'
+import bhuppiVideo from '../assets/video/BHUPPI.mp4'
+import jashVideo from '../assets/video/JASH SOLNAKI.mp4'
+import kinjalVideo from '../assets/video/KINJAL PATEL.mp4'
+import dharavVideo from '../assets/video/DHARAV SHAH.mp4'
+import nageshVideo from '../assets/video/NAGESH PRAJAPATI.mp4'
+import yashVideo from '../assets/video/YASH PRAJAPATI.mp4'
+import premVideo from '../assets/video/PERM SINGH SENGER FINAL.mp4'
+import shriyaVideo from '../assets/video/SHRIYA JAIN.mp4'
+import hardeepVideo from '../assets/video/HARDEEP VIRK.mp4'
+import rishabhVideo from '../assets/video/RISHABH MOYAL .mp4'
+import urviVideo from '../assets/video/URVI JOBENPUTRA.mp4'
+import anjaliVideo from '../assets/video/ANJALI SHARMA.mp4'
 
 export const navItems = ['Home', 'Story', 'Companies', 'Careers', 'About', 'Contact']
 
@@ -65,19 +80,21 @@ export const linkedinCompanies = [
 ]
 
 export const teamMembers = [
-  { id: 'suvid-sinha', name: 'Suvid Sinha', designation: 'Founder', description: 'Guides the group vision and the brands built for the next generation.', image: suvidImage, videoUrl: '' },
-  { id: 'bhupiii', name: 'Bhupendra B', designation: 'Head of Product', description: 'Manages product thinking and the direct-to-consumer website experience.', image: bhupiiiImage, videoUrl: '' },
-  { id: 'jash-solanki', name: 'Jash Solanki', designation: 'Head of Marketing', description: 'Shapes brand marketing initiatives and helps ideas reach their audiences.', image: jashImage, videoUrl: '' },
+  { id: 'suvid-sinha', name: 'Suvid Sinha', designation: 'Founder', description: 'Guides the group vision and the brands built for the next generation.', image: suvidImage, videoUrl: suvidVideo },
+  { id: 'bhupiii', name: 'Bhupendra B', designation: 'Head of Product', description: 'Manages product thinking and the direct-to-consumer website experience.', image: bhupiiiImage, videoUrl: bhuppiVideo },
+  { id: 'jash-solanki', name: 'Jash Solanki', designation: 'Head of Marketing', description: 'Shapes brand marketing initiatives and helps ideas reach their audiences.', image: jashImage, videoUrl: jashVideo },
   { id: 'piyush-pushkar', name: 'Piyush Pushkar', designation: 'Mentor / Director', description: 'Brings long-term retail and international brand experience to the group.', image: piyushImage, videoUrl: '' },
-  { id: 'kinjal-patel', name: 'Kinjal Patel', designation: 'Frontend Accountant', description: 'Supports Harmoniq Creative with dependable accounts operations across the Monkey Troopers and Fragrance d’Oasis businesses.', image: kinjalImage, videoUrl: '' },
-  { id: 'dharav-shah', name: 'Dharav Shah', designation: 'Finance Head', description: 'Leads finance support at Harmoniq Creative for the group and its Monkey Troopers and Fragrance d’Oasis operations.', image: dharavImage, videoUrl: '' },
+  { id: 'kinjal-patel', name: 'Kinjal Patel', designation: 'Frontend Accountant', description: 'Supports Harmoniq Creative with dependable accounts operations across the Monkey Troopers and Fragrance d’Oasis businesses.', image: kinjalImage, videoUrl: kinjalVideo },
+  { id: 'dharav-shah', name: 'Dharav Shah', designation: 'Finance Head', description: 'Leads finance support at Harmoniq Creative for the group and its Monkey Troopers and Fragrance d’Oasis operations.', image: dharavImage, videoUrl: dharavVideo },
   { id: 'hemlata-pushkar', name: 'Hemlata Pushkar', designation: 'Founder', description: 'Builds the people-first culture that connects every company in the group.', image: hemlataImage, videoUrl: '' },
-  { id: 'nagesh-prajapati', name: 'Nagesh Prajapati', designation: 'Senior Graphic Designer', description: 'Creates visual work for Harmoniq Creative and the Monkey Troopers and Fragrance d’Oasis brand worlds.', image: nageshImage, videoUrl: '' },
-  { id: 'yash-prajapati', name: 'Yash Prajapati', designation: 'Senior Web Developer', description: 'Builds and supports the digital and ecommerce experiences for Monkey Troopers and Fragrance d’Oasis through Harmoniq Creative.', image: yashImage, videoUrl: '' },
-  { id: 'prem-singh-sengar', name: 'Prem Singh Sengar', designation: 'Frontend Developer', description: 'Builds responsive interfaces for Harmoniq Creative and the digital platforms behind Monkey Troopers and Fragrance d’Oasis.', image: premImage, videoUrl: '' },
-  { id: 'shriya-jain', name: 'Shriya Jain', designation: 'Web Developer', description: 'Develops and maintains web experiences for the Monkey Troopers and Fragrance d’Oasis brands at Harmoniq Creative.', image: shriyaImage, videoUrl: '' },
-  { id: 'hardeep-virk', name: 'Hardeep Virk', designation: 'Visual Editor and Content Creator', description: 'Creates and edits visual content for Harmoniq Creative, supporting the storytelling of Monkey Troopers and Fragrance d’Oasis.', image: urviImage, videoUrl: '' },
-  { id: 'rishabh-moyal', name: 'Rishabh Moyal', designation: 'Visual Editor', description: 'Shapes visual content for Harmoniq Creative and helps bring Monkey Troopers and Fragrance d’Oasis campaigns to life.', image: rishiImage, videoUrl: '' },
+  { id: 'nagesh-prajapati', name: 'Nagesh Prajapati', designation: 'Senior Graphic Designer', description: 'Creates visual work for Harmoniq Creative and the Monkey Troopers and Fragrance d’Oasis brand worlds.', image: nageshImage, videoUrl: nageshVideo },
+  { id: 'yash-prajapati', name: 'Yash Prajapati', designation: 'Senior Web Developer', description: 'Builds and supports the digital and ecommerce experiences for Monkey Troopers and Fragrance d’Oasis through Harmoniq Creative.', image: yashImage, videoUrl: yashVideo },
+  { id: 'prem-singh-sengar', name: 'Prem Singh Sengar', designation: 'Frontend Developer', description: 'Builds responsive interfaces for Harmoniq Creative and the digital platforms behind Monkey Troopers and Fragrance d’Oasis.', image: premImage, videoUrl: premVideo },
+  { id: 'shriya-jain', name: 'Shriya Jain', designation: 'Web Developer', description: 'Develops and maintains web experiences for the Monkey Troopers and Fragrance d’Oasis brands at Harmoniq Creative.', image: shriyaImage, videoUrl: shriyaVideo },
+  { id: 'hardeep-virk', name: 'Hardeep Virk', designation: 'Visual Editor and Content Creator', description: 'Creates and edits visual content for Harmoniq Creative, supporting the storytelling of Monkey Troopers and Fragrance d’Oasis.', image: hardeepImage, videoUrl: hardeepVideo },
+  { id: 'rishabh-moyal', name: 'Rishabh Moyal', designation: 'Visual Editor', description: 'Shapes visual content for Harmoniq Creative and helps bring Monkey Troopers and Fragrance d’Oasis campaigns to life.', image: rishiImage, videoUrl: rishabhVideo },
+  { id: 'urvi', name: 'Urvi', designation: 'Web Developer', description: 'Builds responsive digital experiences and handles personal branding for the group and its brands.', image: urviImage, videoUrl: urviVideo },
+  { id: 'anjali', name: 'Anjali', designation: 'Customer Support', description: 'Supports customers across Monkey Troopers and Fragrance d’Oasis India, helping every interaction feel clear and cared for.', image: anjaliImage, videoUrl: anjaliVideo },
 ]
 
 export const newsItems = [

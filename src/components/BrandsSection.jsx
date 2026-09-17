@@ -27,10 +27,19 @@ const entities = groupCompanies.map((company) => ({
 
 const BrandsSection = () => {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [transitionDirection, setTransitionDirection] = useState(1)
+
+  const changeEntity = (nextIndex) => {
+    setTransitionDirection(nextIndex >= activeIndex ? 1 : -1)
+    setActiveIndex(nextIndex)
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveIndex((current) => (current + 1) % entities.length)
+      setActiveIndex((current) => {
+        setTransitionDirection(1)
+        return (current + 1) % entities.length
+      })
     }, 4000)
 
     return () => clearInterval(interval)
@@ -50,14 +59,20 @@ const BrandsSection = () => {
       transition={{ duration: 0.75, ease: 'easeOut' }}
     >
       <div className="brands-image-wrap">
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout" initial={false} custom={transitionDirection}>
           <motion.div
             key={activeEntity.id}
             className="brands-visual"
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.02 }}
-            transition={{ duration: 0.55, ease: 'easeOut' }}
+            custom={transitionDirection}
+            variants={{
+              enter: (direction) => ({ opacity: 0, x: direction * 34, scale: 1.015 }),
+              center: { opacity: 1, x: 0, scale: 1 },
+              exit: (direction) => ({ opacity: 0, x: direction * -34, scale: 0.995 }),
+            }}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           >
             <img src={activeEntity.image} alt={activeEntity.name} />
             <div className="brand-overlay" aria-hidden="true" />
@@ -71,14 +86,20 @@ const BrandsSection = () => {
           <h2>THE ENTITIES</h2>
         </div>
 
-        <AnimatePresence mode="wait">
+        <AnimatePresence mode="popLayout" initial={false} custom={transitionDirection}>
           <motion.div
             key={activeEntity.id + '-text'}
             className="brand-feature"
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.45, ease: 'easeOut' }}
+            custom={transitionDirection}
+            variants={{
+              enter: (direction) => ({ opacity: 0, x: direction * 18 }),
+              center: { opacity: 1, x: 0 },
+              exit: (direction) => ({ opacity: 0, x: direction * -18 }),
+            }}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="brand-text-block">
               <span className="entity-category">{activeEntity.category}</span>
@@ -116,7 +137,7 @@ const BrandsSection = () => {
                 className={`brand-option ${index === activeIndex ? 'active' : ''}`}
                 target={entity.url.startsWith('http') ? '_blank' : undefined}
                 rel={entity.url.startsWith('http') ? 'noopener noreferrer' : undefined}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => changeEntity(index)}
               >
               <span className="brand-option-line" aria-hidden="true" />
               <span className="brand-thumb-wrap">

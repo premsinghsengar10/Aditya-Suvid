@@ -12,6 +12,7 @@ const HeroSection = () => {
   const [activeSlide, setActiveSlide] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
+  const [videoError, setVideoError] = useState(false)
 
   useEffect(() => {
     const hero = heroRef.current
@@ -48,6 +49,7 @@ const HeroSection = () => {
 
   const moveSlide = (direction) => {
     isPausedByUser.current = false
+    setVideoError(false)
     setActiveSlide((slide) => (slide + direction + 2) % 2)
   }
 
@@ -77,12 +79,27 @@ const HeroSection = () => {
   return (
     <section ref={heroRef} className="hero-section" id="hero" data-section-key="hero" data-section-label="Home">
       <div className="hero-image-wrap">
-        {activeSlide === 0 ? (
-          <video ref={videoRef} className="hero-video" autoPlay muted loop playsInline aria-label="Suvid Retail banner video">
-            <source src={bannerVideo} type="video/mp4" />
+        {activeSlide === 0 && !videoError ? (
+          <video
+            ref={videoRef}
+            className="hero-video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            poster={bannerImage}
+            src={bannerVideo}
+            onError={() => {
+              setVideoError(true)
+              setIsPaused(true)
+            }}
+            aria-label="Suvid Retail banner video"
+          >
+            Your browser does not support the banner video.
           </video>
         ) : (
-          <img className="hero-banner-image" src={bannerImage} alt="Suvid Retail banner" />
+          <img className="hero-banner-image" src={bannerImage} alt="Suvid Retail banner image" />
         )}
 
         <button
@@ -102,7 +119,7 @@ const HeroSection = () => {
           <ChevronRight size={25} aria-hidden="true" />
         </button>
 
-        {activeSlide === 0 && (
+        {activeSlide === 0 && !videoError && (
           <div className="hero-video-controls" aria-label="Video controls">
             <button type="button" onClick={togglePlayback} aria-label={isPaused ? 'Play video' : 'Pause video'} data-tooltip={isPaused ? 'Play video' : 'Pause video'}>
               {isPaused ? <Play size={15} fill="currentColor" aria-hidden="true" /> : <Pause size={15} fill="currentColor" aria-hidden="true" />}

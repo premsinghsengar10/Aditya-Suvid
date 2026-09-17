@@ -5,6 +5,15 @@
   cursor: pointer;
 }
 
+.brands-image-wrap {
+  overflow: hidden;
+}
+
+.brands-visual,
+.brand-feature {
+  will-change: transform, opacity;
+}
+
 /* Give the smaller portfolio a wide, image-led strip instead of a dense tile grid. */
 .brands-section .brand-selector {
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -59,6 +68,21 @@
 
 .brands-section .brand-option-line {
   z-index: 3;
+}
+
+.brands-section .brand-option.active .brand-option-line {
+  transform-origin: left center;
+  animation: brand-slide-progress 4s linear both;
+}
+
+@keyframes brand-slide-progress {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
 }
 
 /* Make brand description larger and more readable */
@@ -214,5 +238,12 @@
     overflow-x: auto;
     padding-bottom: 8px;
     scrollbar-width: thin;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brands-section .brand-option.active .brand-option-line {
+    animation: none;
+    transform: scaleX(1);
   }
 }
